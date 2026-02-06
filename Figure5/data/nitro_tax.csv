@@ -1,0 +1,26 @@
+tax,genus,phylum,Anammox_RP,Assimilatory nitrate reduction_RP,Denitrification_RP,Dissimilatory nitrate reduction_RP,Nitrogen fixation_RP,Nitrification_RP,Anammox_RS,Assimilatory nitrate reduction_RS,Denitrification_RS,Dissimilatory nitrate reduction_RS,Nitrogen fixation_RS,Nitrification_RS
+Acidobacteria|Luteitalea,Luteitalea,Acidobacteria,0,3977.154224,0,0,0,0,0,7708.395962,0,0,0,0
+Acidobacteria|Unclassfied,Unclassfied,Acidobacteria,0,4485.725479,0,0,0,0,0,10310.00216,0,0,0,0
+Actinobacteria|Actinomadura,Actinomadura,Actinobacteria,0,0,0,0,0,5484.202653,0,0,0,0,0,4921.203505
+Actinobacteria|Kribbella,Kribbella,Actinobacteria,0,0,0,0,0,3902.263108,0,0,0,0,0,3146.598719
+Actinobacteria|Lentzea,Lentzea,Actinobacteria,0,17338.94551,7721.943483,15063.81812,0,6445.052483,0,5786.481586,3300.325162,6069.854619,0,2901.425396
+Actinobacteria|Nocardioides,Nocardioides,Actinobacteria,0,8187.599823,31985.51348,47357.36875,0,30053.24067,0,6791.038201,27189.70334,37101.9106,0,25370.12727
+Actinobacteria|Streptomyces,Streptomyces,Actinobacteria,0,10891.76605,17313.27701,30400.3303,0,16863.33233,0,4854.614455,12365.26289,18755.69138,0,11907.08164
+Actinobacteria|Unclassfied,Unclassfied,Actinobacteria,7201.1751,15117.10688,45553.68943,59373.84352,0,35498.16771,19505.36664,8162.07401,52582.23156,45239.13088,0,31521.58027
+Bacteroidetes|Niastella,Niastella,Bacteroidetes,758.468014,0,0,0,0,0,587.669797,0,0,0,0,0
+Bacteroidetes|Unclassfied,Unclassfied,Bacteroidetes,879.518088,0,0,0,0,0,1462.201894,0,0,0,0,0
+Firmicutes|Unclassfied,Unclassfied,Firmicutes,0,0,0,0,0,0,0,0,0,0,0,0
+Proteobacteria|Azohydromonas,Azohydromonas,Proteobacteria,0,0,0,0,97.044892,0,0,0,0,0,39.972915,0
+Proteobacteria|Bosea,Bosea,Proteobacteria,0,0,0,0,0,0,0,0,0,0,0,0
+Proteobacteria|Lysobacter,Lysobacter,Proteobacteria,1878.535321,0,0,0,0,0,1072.841773,0,0,0,0,0
+Proteobacteria|Mesorhizobium,Mesorhizobium,Proteobacteria,0,4167.575412,0,11191.94641,0,0,0,1638.419906,0,4985.150322,0,0
+Proteobacteria|Paraburkholderia,Paraburkholderia,Proteobacteria,0,0,0,0,39.865073,0,0,0,0,0,8.01607,0
+Proteobacteria|Pelomonas,Pelomonas,Proteobacteria,0,0,0,0,49.785116,0,0,0,0,0,15.623797,0
+Proteobacteria|Skermanella,Skermanella,Proteobacteria,0,0,0,0,42.685819,0,0,0,0,0,13.696407,0
+Proteobacteria|Sphingomonas,Sphingomonas,Proteobacteria,1454.487761,0,6127.658339,0,0,0,1681.420383,0,7205.884487,0,0,0
+Proteobacteria|Steroidobacter,Steroidobacter,Proteobacteria,4793.328914,0,11880.87108,0,0,0,2674.153403,0,6028.057445,0,0,0
+Proteobacteria|Unclassfied,Unclassfied,Proteobacteria,6454.22385,17951.10896,80523.13615,124026.8839,539.507637,40654.78064,7338.871195,10305.00392,65141.07681,82663.00403,199.99159,35059.10497
+Proteobacteria|Variovorax,Variovorax,Proteobacteria,0,0,0,13746.34089,0,0,0,0,0,9347.128082,0,0
+Proteobacteria|Vitreoscilla,Vitreoscilla,Proteobacteria,0,0,0,0,46.007604,0,0,0,0,0,32.00492,0
+Thaumarchaeota|Nitrososphaera,Nitrososphaera,Thaumarchaeota,878.926326,0,0,0,0,0,1818.128088,0,0,0,0,0
+Thaumarchaeota|Unclassfied,Unclassfied,Thaumarchaeota,1114.688755,0,0,0,0,0,2917.730241,0,0,0,0,0

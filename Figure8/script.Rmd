@@ -1,0 +1,217 @@
+---
+title: "script"
+author: "jincanzhi"
+date: "2026-01-07"
+output: html_document
+---
+  
+```{r setup, include=FALSE}
+library(tidyverse)
+library(ggpubr)
+library(rstatix)
+library(agricolae)
+set.seed(113)
+knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
+```
+
+
+```{r}
+data <- read.csv("./data/phenotype.csv",check.names = F)
+fin_df <- data[c('Group', 'Plant_Height')]
+names(fin_df)[1] <- 'Group'
+max_df <- aggregate(fin_df['Plant_Height'], by = list(Group = fin_df$Group), FUN = max)
+mean_df <- aggregate(fin_df['Plant_Height'], by = list(Group = fin_df$Group), FUN = mean)
+dunn_res <- dunn_test(fin_df, Plant_Height ~ Group, p.adjust.method = 'fdr')
+dunn_res_df <- data.frame(dunn_res[-1])
+n <- nrow(mean_df)
+pvalue_df <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
+    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
+  }
+}
+letter_df <- orderPvalue(mean_df$Group, mean_df$Plant_Height, 0.05, pvalue_df, console = TRUE)
+letter_vector <- letter_df$groups
+
+p1 <- ggplot(fin_df, aes(x = Group, y = Plant_Height)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.9, size = 3, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df, aes(y = Plant_Height * 1.1, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("CK","MAG 081","MAG 159")) + 
+  scale_color_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  scale_fill_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Plant Height"
+  )
+
+
+fin_df <- data[c('Group', 'Root_Length')]
+names(fin_df)[1] <- 'Group'
+max_df <- aggregate(fin_df['Root_Length'], by = list(Group = fin_df$Group), FUN = max)
+mean_df <- aggregate(fin_df['Root_Length'], by = list(Group = fin_df$Group), FUN = mean)
+dunn_res <- dunn_test(fin_df, Root_Length ~ Group, p.adjust.method = 'fdr')
+dunn_res_df <- data.frame(dunn_res[-1])
+n <- nrow(mean_df)
+pvalue_df <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
+    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
+  }
+}
+letter_df <- orderPvalue(mean_df$Group, mean_df$Root_Length, 0.05, pvalue_df, console = TRUE)
+letter_vector <- letter_df$groups
+
+p2 <- ggplot(fin_df, aes(x = Group, y = Root_Length)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.9, size = 3, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df, aes(y = Root_Length * 1.1, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("CK","MAG 081","MAG 159")) + 
+  scale_color_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  scale_fill_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Root Length"
+  )
+
+fin_df <- data[c('Group', 'Root_Weight')]
+names(fin_df)[1] <- 'Group'
+max_df <- aggregate(fin_df['Root_Weight'], by = list(Group = fin_df$Group), FUN = max)
+mean_df <- aggregate(fin_df['Root_Weight'], by = list(Group = fin_df$Group), FUN = mean)
+dunn_res <- dunn_test(fin_df, Root_Weight ~ Group, p.adjust.method = 'fdr')
+dunn_res_df <- data.frame(dunn_res[-1])
+n <- nrow(mean_df)
+pvalue_df <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
+    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
+  }
+}
+letter_df <- orderPvalue(mean_df$Group, mean_df$Root_Weight, 0.05, pvalue_df, console = TRUE)
+letter_vector <- letter_df$groups
+
+p3 <- ggplot(fin_df, aes(x = Group, y = Root_Weight)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.9, size = 3, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df, aes(y = Root_Weight * 1.1, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("CK","MAG 081","MAG 159")) + 
+  scale_color_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  scale_fill_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Root Weight"
+  )
+
+fin_df <- data[c('Group', 'Plant_Weight')]
+names(fin_df)[1] <- 'Group'
+max_df <- aggregate(fin_df['Plant_Weight'], by = list(Group = fin_df$Group), FUN = max)
+mean_df <- aggregate(fin_df['Plant_Weight'], by = list(Group = fin_df$Group), FUN = mean)
+dunn_res <- dunn_test(fin_df, Plant_Weight ~ Group, p.adjust.method = 'fdr')
+dunn_res_df <- data.frame(dunn_res[-1])
+n <- nrow(mean_df)
+pvalue_df <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
+    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
+  }
+}
+letter_df <- orderPvalue(mean_df$Group, mean_df$Plant_Weight, 0.05, pvalue_df, console = TRUE)
+letter_vector <- letter_df$groups
+
+p4 <- ggplot(fin_df, aes(x = Group, y = Plant_Weight)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.9, size = 3, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df, aes(y = Plant_Weight * 1.1, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("CK","MAG 081","MAG 159")) + 
+  scale_color_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  scale_fill_manual(values = c("#43AA9A", "#DDCB76","#88CCEE")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Plant Weight"
+  )
+
+combined_plot <- p1 + p2 + p3 + p4  + 
+  plot_layout(nrow = 1)
+
+
+width<-21
+height<-10
+ggsave("./Figure/Figure8.pdf",plot = combined_plot,width = width,height = height,units = "cm",dpi = 600,paper = "a4")
+ggsave("./Figure/Figure8.png",plot = combined_plot,width = width,height = height,units = "cm",dpi = 600)
+```

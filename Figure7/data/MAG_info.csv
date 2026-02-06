@@ -1,0 +1,596 @@
+name,MAG,RS_sum,RP_sum,Completeness,Contamination,size,Domain,Phylum,Class,Order,Family,Genus,Species,category
+MAG_001,YL.RP.1488_bins.metabat2.1.fa.11,37071.62508,139512.8512,66.55,0.69,4.62054634094238,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,CADEED01,Unassign,RP sig
+MAG_002,YL.RP.1488_bins.metabat2.1.fa.19,20659.49759,188087.5113,61.15,1.02,3.75112915039062,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Variovorax,Unassign,RP sig
+MAG_003,YL.RP.1488_bins.metabat2.1.fa.2,3418.874828,14881.9682,70.3,0.99,1.19654083251953,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP sig
+MAG_004,YL.RP.1488_bins.metabat2.1.fa.29,2502.132026,7803.28159,78.45,0.86,2.93344497680664,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Crossiella,Unassign,RP sig
+MAG_005,YL.RP.1488_bins.metabat2.1.fa.30,5111.910086,32466.85617,63.79,3.45,3.98921203613281,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_006,YL.RP.1488_bins.metabat2.1.fa.40,11955.05601,34343.52843,80.7,0,6.1741828918457,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Opitutales,Opitutaceae,ER46,Unassign,RP sig
+MAG_007,YL.RP.1488_bins.metabat2.1.fa.42,28463.03037,60539.22695,56.02,1.72,2.06646156311035,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JACDAZ01,Unassign,RP sig
+MAG_008,YL.RP.1488_bins.metabat2.1.fa.5,11422.76786,53129.26283,98.57,2.57,6.82465267181396,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Chryseolinea,Unassign,RP sig
+MAG_009,YL.RP.1488_concoct_26,32456.65958,99152.99894,89.43,5.81,8.42778873443604,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_010,YL.RP.1488_concoct_30,77292.45487,47571.79446,56.45,0.19,1.21191692352295,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Luteolibacter,Unassign,RS sig
+MAG_011,YL.RP.342_bins.metabat2.1.fa.100,12371.75848,34891.97675,58.1,0.86,5.94946956634521,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Ohtaekwangia,Unassign,RP sig
+MAG_012,YL.RP.342_bins.metabat2.1.fa.101,105723.5685,283420.6941,64.12,0,7.89369964599609,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Niastella,Unassign,RP sig
+MAG_013,YL.RP.342_bins.metabat2.1.fa.109,23194.72675,80192.16131,52.07,0.86,5.62510871887207,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Ohtaekwangia,Unassign,RP
+MAG_014,YL.RP.342_bins.metabat2.1.fa.111,186762.5262,422282.1311,79.31,0,3.74282264709473,Bacteria,Firmicutes,Bacilli,Bacillales_B,DSM-1321,Peribacillus,Peribacillus frigoritolerans,RP sig
+MAG_015,YL.RP.342_bins.metabat2.1.fa.12,27320.84329,105206.5704,57.1,0,0.879225730895996,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,Unassign,Unassign,RP sig
+MAG_016,YL.RP.342_bins.metabat2.1.fa.13,47525.02276,152001.006,87.72,4.94,7.99122047424316,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RP sig
+MAG_017,YL.RP.342_bins.metabat2.1.fa.27,789.106896,2719.961542,58.35,1.36,0.857809066772461,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,UBA6022,Unassign,RP sig
+MAG_018,YL.RP.342_bins.metabat2.1.fa.37,19596.94495,55965.29939,96.19,3.2,6.07673645019531,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Niastella,Unassign,RP sig
+MAG_019,YL.RP.342_bins.metabat2.1.fa.48,62106.82849,221137.8154,72.96,4.52,9.3264856338501,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RP sig
+MAG_020,YL.RP.342_bins.metabat2.1.fa.72,428.57691,7121.014414,71.93,1.25,1.99926376342773,Bacteria,Bacteroidota,Bacteroidia,Flavobacteriales,Flavobacteriaceae,Flavobacterium,Unassign,RP sig
+MAG_021,YL.RP.342_bins.metabat2.1.fa.76,7688.789008,23911.30868,98.41,3.72,5.39626884460449,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Opitutales,Opitutaceae,Lacunisphaera,Unassign,RP sig
+MAG_022,YL.RP.342_bins.metabat2.1.fa.80,1265.447374,6799.568776,100,0,2.31760692596436,Bacteria,Proteobacteria,Alphaproteobacteria,Rickettsiales,VGDC01,VGDC01,Unassign,RP sig
+MAG_023,YL.RP.342_bins.metabat2.1.fa.86,1079.26087,5642.025504,72.41,0,0.960448265075684,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,Unassign,Unassign,RP sig
+MAG_024,YL.RP.342_bins.metabat2.1.fa.93,65023.70178,138714.6853,63.79,1.72,2.73302745819092,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Lysobacter,Unassign,RP sig
+MAG_025,YL.RP.342_concoct_112,30090.16048,86542.20859,86.24,3.76,9.96402740478516,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,CAITIQ01,Unassign,RP sig
+MAG_026,YL.RP.342_concoct_23,8131.06449,27258.31711,80.31,4.68,6.9440279006958,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP
+MAG_027,YL.RP.342_concoct_56,7075.546138,15698.58716,66.39,2.98,2.49247264862061,Bacteria,Bacteroidota,Bacteroidia,Flavobacteriales,Crocinitomicaceae,Fluviicola,Unassign,RP sig
+MAG_028,YL.RP.342_concoct_60,21516.41769,49770.09745,70.3,4.5,3.46523666381836,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Ohtaekwangia,Unassign,RP sig
+MAG_029,YL.RP.342_concoct_74,10709.71489,45657.9905,93.29,2.74,5.23702716827393,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Opitutales,Opitutaceae,Opitutus,Unassign,RP sig
+MAG_030,YL.RP.342_concoct_76,25449.84646,67725.55379,65.67,0.86,4.25450134277344,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Ideonella,Unassign,RP sig
+MAG_031,YL.RP.348_bins.070.maxbin,113219.8895,189192.4932,55.45,0,3.05300617218018,Bacteria,Fibrobacterota,Fibrobacteria,UBA11236,UBA11236,Chersky-265,Unassign,RP sig
+MAG_032,YL.RP.348_bins.metabat2.1.fa.43,36579.83468,97300.00122,59.81,1.72,4.74722003936768,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pelomonas,Unassign,RP sig
+MAG_033,YL.RP.348_bins.metabat2.1.fa.53,234943.5096,58324.65056,70.65,5.32,2.5934476852417,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,SCGC-AG-212-J23,Unassign,RS sig
+MAG_034,YL.RP.348_bins.metabat2.1.fa.56,71133.84203,379267.8395,51.21,3.45,3.32911777496338,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Devosiaceae,Devosia,Unassign,RP sig
+MAG_035,YL.RP.348_bins.metabat2.1.fa.62,55905.58206,21770.27751,63.92,0.97,0.92112922668457,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrososphaera,Unassign,RS sig
+MAG_036,YL.RP.348_bins.metabat2.1.fa.63,22473.8346,174221.0399,89.24,0.74,6.30920505523682,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_037,YL.RP.348_concoct_63,46117.57695,150850.2687,93.8,3.51,12.2430629730225,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Kibdelosporangium,Unassign,RP sig
+MAG_038,YL.RP.348_concoct_8,51946.22855,150947.4587,92.29,1.18,8.07080745697021,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Crossiella,Unassign,RP sig
+MAG_039,YL.RP.9_bins.metabat2.1.fa.13,5060.995274,26456.53256,93.12,2.37,4.18881893157959,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,Stenotrophomonas geniculata,RP sig
+MAG_040,YL.RP.9_bins.metabat2.1.fa.27,54582.83277,62917.14485,95.63,4.3,3.94007778167725,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Dermatophilaceae,Terrabacter,Unassign,RP
+MAG_041,YL.RP.9_bins.metabat2.1.fa.36,1335.231018,6728.934904,58.59,0,0.868797302246094,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,EFPC-124,Unassign,RP sig
+MAG_042,YL.RP.9_bins.metabat2.1.fa.43,371107.3019,47463.63164,54.57,0.91,3.45753383636475,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_043,YL.RP.9_bins.metabat2.1.fa.55,97722.53495,224275.7506,85.93,1.16,2.86715507507324,Bacteria,Firmicutes,Bacilli,Bacillales_B,DSM-1321,Peribacillus,Peribacillus frigoritolerans,RP sig
+MAG_044,YL.RP.9_bins.metabat2.1.fa.74,3352.040136,37679.10729,86.35,0.62,3.64273357391357,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_045,YL.RP.9_concoct_20,104255.9488,62647.19612,62.1,3.39,1.72611904144287,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Luteolibacter,Unassign,RS sig
+MAG_046,YL.RP.9_concoct_40,58587.98465,125043.0663,62.79,1.04,2.00586891174316,Bacteria,Actinobacteriota,Actinomycetia,Propionibacteriales,Nocardioidaceae,Aeromicrobium,Unassign,RP sig
+MAG_047,YL.RP.977_bins.001.maxbin,104236.8846,419096.1905,52.05,2.56,0.822922706604004,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_048,YL.RP.977_bins.metabat2.1.fa.10,773.143354,4293.440366,60.4,0,0.96919059753418,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,UBA6022,Unassign,RP sig
+MAG_049,YL.RP.977_bins.metabat2.1.fa.15,46181.02875,83303.40505,72.83,0.88,2.97720241546631,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Acidovorax,Unassign,RP
+MAG_050,YL.RP.977_bins.metabat2.1.fa.21,5944.63542,36776.1906,91.07,2.83,4.678222656,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Mesorhizobium,Unassign,RP sig
+MAG_051,YL.RP.977_bins.metabat2.1.fa.50,15915.7122,79124.12204,53.45,0,5.59035396575928,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Spirosomaceae,Dyadobacter,Unassign,RP sig
+MAG_052,YL.RP.977_bins.metabat2.1.fa.67,23047.40014,72821.31177,89.87,0.91,6.09383106231689,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Ohtaekwangia,Unassign,RP
+MAG_053,YL.RP.977_concoct_37,260409.8188,79045.31612,50.84,1.64,2.79879760742188,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,WHTF01,Unassign,RS sig
+MAG_054,YL.RP.977_concoct_44,20569.69681,54550.72621,51.55,1.72,4.70422458648682,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pelomonas,Unassign,RP sig
+MAG_055,YL.RP.977_concoct_46,3645.51713,28944.18803,100,0.66,4.62064456939697,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Pantoea,Pantoea ananatis,RP sig
+MAG_056,YL.RP.977_concoct_59,23762.82422,192089.9156,57.91,3.5,2.80881786346436,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Variovorax,Unassign,RP sig
+MAG_057,YL.RP.977_concoct_65,59515.57978,197688.2937,59.62,1.35,6.81578826904297,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RP sig
+MAG_058,YL.RP.977_concoct_74,17016.29908,47763.09513,70.11,0.88,2.2589750289917,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Unassign,Unassign,RP sig
+MAG_059,YL.RP.995_bins.metabat2.1.fa.12,46224.04115,119373.0788,62.71,3.36,3.75399780273438,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pelomonas,Unassign,RP sig
+MAG_060,YL.RP.995_bins.metabat2.1.fa.23,36416.81329,241416.8506,50.16,3.45,2.77849292755127,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Beijerinckiaceae,Bosea,Unassign,RP sig
+MAG_061,YL.RP.995_bins.metabat2.1.fa.33,21944.56621,120681.3743,91.83,3.37,4.10987377166748,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,Unassign,RP sig
+MAG_062,YL.RP.995_bins.metabat2.1.fa.46,33635.16505,93449.91094,72.65,9.84,2.46657562255859,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Unassign,Unassign,RP sig
+MAG_063,YL.RP.995_concoct_27,37672.41194,156688.4543,52.74,1.72,8.0595817565918,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Amycolatopsis,Amycolatopsis sp017308975,RP sig
+MAG_064,YL.RP.995_concoct_7,743983.5162,100508.4335,62.68,2.48,4.09834575653076,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_065,YL.RP.Si051_bins.057.maxbin,41457.89456,251668.5559,68.74,4.88,4.04064846038818,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Ensifer,Ensifer adhaerens,RP sig
+MAG_066,YL.RP.Si051_bins.metabat2.1.fa.1,18825.34907,50890.253,68.71,4.05,2.08627986907959,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingobium_A,Unassign,RP sig
+MAG_067,YL.RP.Si051_bins.metabat2.1.fa.18,12088.6652,40025.10102,87.88,1.84,2.92369937896729,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae_H,Bacillus_I,Bacillus_I endophytica,RP sig
+MAG_068,YL.RP.Si051_bins.metabat2.1.fa.20,26333.56922,104454.043,54.35,1.85,1.02104949951172,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_069,YL.RP.Si051_bins.metabat2.1.fa.35,60561.6572,185984.172,61.72,3.45,5.18702411651611,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Cellulomonadaceae,Promicromonospora,Unassign,RP sig
+MAG_070,YL.RP.Si051_bins.metabat2.1.fa.4,1487.25358,58306.93024,65.16,3.45,4.08188438415527,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter mori,RP sig
+MAG_071,YL.RP.Si051_bins.metabat2.1.fa.41,2331.345236,19214.76021,73.92,0.43,3.45438957214355,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales_A,Rhizobiaceae_A,Ochrobactrum,Ochrobactrum anthropi,RP sig
+MAG_072,YL.RP.Si051_bins.metabat2.1.fa.44,3700.404358,6282.189984,68.93,0,0.948824882507324,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_073,YL.RP.Si051_bins.metabat2.1.fa.46,218.1228,10610.79443,65.16,1.72,4.15128326416016,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Kosakonia,Kosakonia cowanii,RP
+MAG_074,YL.RP.Si051_bins.metabat2.1.fa.56,1702.898094,8140.6671,93.45,0.58,3.57955265045166,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,Bacillus licheniformis,RP sig
+MAG_075,YL.RP.Si051_bins.metabat2.1.fa.72,1006.984158,46497.09103,97.06,1.72,6.28466701507568,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas_E,Pseudomonas_E chlororaphis_F,RP sig
+MAG_076,YL.RP.Si051_concoct_40,18607.97605,49265.88948,60.57,1.04,2.71294689178467,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,Stenotrophomonas geniculata,RP sig
+MAG_077,YL.RP.Si051_concoct_54,9143.25428,46367.15406,59.63,0.48,3.64481449127197,Bacteria,Bacteroidota,Bacteroidia,Sphingobacteriales,Sphingobacteriaceae,Pseudosphingobacterium,Unassign,RP sig
+MAG_078,YL.RP.Si051_concoct_55,105972.1181,616334.4126,55.47,2.29,5.31444549560547,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Steroidobacter_A,Unassign,RP sig
+MAG_079,YL.RP.Si062_bins.metabat2.1.fa.33,115.576534,2621.367226,99.16,0.67,4.34079265594482,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter asburiae_B,RP sig
+MAG_080,YL.RP.Si062_bins.metabat2.1.fa.34,34875.69226,180069.1691,59.1,0.73,3.15199279785156,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Chryseolinea,Unassign,RP sig
+MAG_081,YL.RP.Si062_bins.metabat2.1.fa.43,33749.88139,57469.82791,92.72,3.97,3.62092304229736,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus_P,Unassign,RP
+MAG_082,YL.RP.Si062_bins.metabat2.1.fa.51,1434.722428,29219.66852,53.45,0,6.20004367828369,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas_E,Pseudomonas_E sp900581005,RP sig
+MAG_083,YL.RP.Si062_bins.metabat2.1.fa.52,4181.772304,112394.8504,92.65,2.55,5.15979671478271,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas_E,Pseudomonas_E inefficax,RP sig
+MAG_084,YL.RP.Si062_bins.metabat2.1.fa.53,21802.60958,198855.119,56.34,2.23,5.72921371459961,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Neorhizobium,Neorhizobium huautlense,RP sig
+MAG_085,YL.RP.Si062_bins.metabat2.1.fa.54,17519.85043,118513.2462,73.97,1.43,3.99420356750488,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Mesorhizobium,Unassign,RP sig
+MAG_086,YL.RP.Si062_bins.metabat2.1.fa.67,417.581082,1252.318946,69.31,0,1.08243370056152,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,Unassign,Unassign,RP
+MAG_087,YL.RP.Si062_bins.metabat2.1.fa.71,248067.3213,276183.055,56.95,0,3.77435970306396,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Micrococcaceae,Arthrobacter,Unassign,RP
+MAG_088,YL.RP.Si062_bins.metabat2.1.fa.89,8661.860466,32202.08198,80.69,8.62,3.99440860748291,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Pseudoxanthomonas_A,Pseudoxanthomonas_A sp019218945,RP sig
+MAG_089,YL.RP.Si062_concoct_15,2326.880888,13138.84929,97.86,2.46,4.36507320404053,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,Stenotrophomonas geniculata,RP sig
+MAG_090,YL.RP.Si062_concoct_26,25611.99885,237613.71,71.41,1,5.1266508102417,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_091,YL.RP.Si062_concoct_30,31989.30082,74151.77432,51.31,0.15,1.80644226074219,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas_H,Unassign,RP sig
+MAG_092,YL.RP.Si079_bins.012.maxbin,4247.297692,27967.25914,57.87,0,0.808755874633789,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,EFPC-124,Unassign,RP sig
+MAG_093,YL.RP.Si079_bins.052.maxbin,6981.394782,39981.06485,51.07,1.89,1.90715980529785,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Moraxellaceae,Acinetobacter,Acinetobacter calcoaceticus,RP sig
+MAG_094,YL.RP.Si079_bins.metabat2.1.fa.19,9031.870222,90323.26766,64.66,0,3.04752731323242,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_095,YL.RP.Si079_bins.metabat2.1.fa.28,911.036798,21270.92035,98.3,0.04,4.39028072357178,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter mori,RP
+MAG_096,YL.RP.Si079_bins.metabat2.1.fa.33,7763.938542,23903.58188,65.81,0,1.23281478881836,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,Unassign,Unassign,RP sig
+MAG_097,YL.RP.Si079_bins.metabat2.1.fa.35,33152.63269,269031.7288,57.84,1.99,3.23546028137207,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Beijerinckiaceae,Bosea,Unassign,RP sig
+MAG_098,YL.RP.Si079_bins.metabat2.1.fa.41,9723.064956,95923.55188,51.88,1.72,2.60115814208984,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_099,YL.RP.Si079_bins.metabat2.1.fa.42,8595.842028,84189.131,97.13,1.08,5.19900798797607,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas_E,Pseudomonas_E asiatica,RP sig
+MAG_100,YL.RP.Si079_bins.metabat2.1.fa.47,25512.28158,207938.1469,65.6,2.19,3.41430377960205,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Variovorax,Unassign,RP sig
+MAG_101,YL.RP.Si079_bins.metabat2.1.fa.6,97075.05863,580136.3961,59.8,0,6.51142406463623,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Steroidobacter_A,Unassign,RP sig
+MAG_102,YL.RP.Si079_bins.metabat2.1.fa.8,399580.5575,1335218.402,98.25,8.77,4.05945301055908,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae_H,Priestia,Priestia megaterium,RP sig
+MAG_103,YL.RP.Si080_bins.037.maxbin,31975.03266,266644.4455,79.55,1.97,5.42203330993652,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_104,YL.RP.Si080_bins.044.maxbin,1657.167836,5521.091556,52.48,1.98,0.935639381408691,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,Unassign,Unassign,RP sig
+MAG_105,YL.RP.Si080_bins.metabat2.1.fa.14,1104.754892,4405.223238,53.63,1.98,0.99542236328125,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,Unassign,Unassign,RP sig
+MAG_106,YL.RP.Si080_bins.metabat2.1.fa.16,2328.075858,13453.65037,55.6,0,0.849081993103027,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,EFPC-124,Unassign,RP sig
+MAG_107,YL.RP.Si080_bins.metabat2.1.fa.27,305.80515,2090.095918,54.27,0,1.06353950500488,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP
+MAG_108,YL.RP.Si080_bins.metabat2.1.fa.47,54892.86103,88184.70216,54.46,0,1.2002124786377,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Metabacillus,Metabacillus sp004801455,RP
+MAG_109,YL.RP.Si080_bins.metabat2.1.fa.67,13282.05834,45623.96951,99.09,5.69,5.50898933410645,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Mitsuaria,Unassign,RP sig
+MAG_110,YL.RP.Si080_concoct_12,31439.33903,92362.95394,54.32,1.59,3.82276725769043,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Ohtaekwangia,Unassign,RP
+MAG_111,YL.RP.Si080_concoct_32,21896.74644,93024.0778,75.39,3.86,1.98902034759521,Bacteria,Firmicutes,Bacilli,Bacillales_D,Amphibacillaceae,Terribacillus,Terribacillus saccharophilus,RP sig
+MAG_112,YL.RP.Si080_concoct_54,28845.71594,113637.1008,91.09,0.99,8.13436698913574,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Amycolatopsis,Unassign,RP sig
+MAG_113,YL.RP.Si080_concoct_57,125087.923,479676.2647,62.79,2.49,2.95130443572998,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Devosiaceae,Devosia_A,Unassign,RP sig
+MAG_114,YL.RP.Si081_bins.026.maxbin,9659.06939,19717.36966,99.86,3.52,3.52548789978027,Bacteria,Proteobacteria,Alphaproteobacteria,Caulobacterales,Caulobacteraceae,Brevundimonas,Unassign,RP sig
+MAG_115,YL.RP.Si081_bins.049.maxbin,35180.38595,98923.87107,72.13,7.9,7.03823280334473,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RP sig
+MAG_116,YL.RP.Si081_bins.098.maxbin,27479.4014,37406.23194,52.82,4.47,4.16927814483643,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Pseudobacter,Unassign,RP
+MAG_117,YL.RP.Si081_bins.metabat2.1.fa.12,32901.43485,133189.9385,50.68,4.42,4.01573753356934,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_118,YL.RP.Si081_bins.metabat2.1.fa.15,20743.16762,136725.2,62.23,1.72,4.29642868041992,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Mesorhizobium,Unassign,RP sig
+MAG_119,YL.RP.Si081_bins.metabat2.1.fa.16,3869.140692,9819.841344,59.95,0,4.37250709533691,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Kosakonia,Kosakonia cowanii,RP
+MAG_120,YL.RP.Si081_bins.metabat2.1.fa.24,950.80603,7063.481764,95.08,0.77,4.4590892791748,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Edaphocola,Unassign,RP
+MAG_121,YL.RP.Si081_bins.metabat2.1.fa.4,7180.027558,25581.00305,84.06,1.76,5.19861125946045,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JJ008,Unassign,RP sig
+MAG_122,YL.RP.Si081_bins.metabat2.1.fa.40,12011.70379,42696.43395,50.86,3.45,3.27379035949707,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,Stenotrophomonas geniculata,RP sig
+MAG_123,YL.RP.Si081_bins.metabat2.1.fa.54,18758.52139,51153.60217,83.45,4.46,3.39158630371094,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Microbacteriaceae,Microbacterium,Unassign,RP sig
+MAG_124,YL.RP.Si081_bins.metabat2.1.fa.55,51285.5512,101661.1462,79.34,2.46,3.33738803863525,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Unassign,Unassign,RP sig
+MAG_125,YL.RP.Si081_bins.metabat2.1.fa.68,33.147032,489.904096,60.83,0,1.06102275848389,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,Unassign,Unassign,Unassign,RP sig
+MAG_126,YL.RP.Si081_bins.metabat2.1.fa.88,555.870558,2112.571444,64.25,0,0.833662986755371,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA5946,UBA5946,Unassign,RP sig
+MAG_127,YL.RP.Si081_bins.metabat2.1.fa.89,2739.15379,42317.89648,61.21,0,4.22777271270752,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_128,YL.RP.Si081_bins.metabat2.1.fa.91,43235.13438,98774.47783,50.03,1.72,4.212238311767578,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Niastella,Unassign,RP sig
+MAG_129,YL.RP.Si081_concoct_16,85138.74777,214665.4251,71.25,7.61,4.23608684539795,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Unassign,Unassign,RP sig
+MAG_130,YL.RP.Si081_concoct_44,15846.91762,124814.4177,58.62,4.34,2.70778274536133,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_131,YL.RP.Si081_concoct_56,947.18528,7355.723562,97.19,0.49,6.22734832763672,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Pseudobacter,Unassign,RP sig
+MAG_132,YL.RP.Si081_concoct_60,18455.09561,150339.3946,51.88,2.41,3.36276817321777,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Pseudoxanthomonas_A,Unassign,RP sig
+MAG_133,YL.RP.Si081_concoct_68,3397.092556,24757.69383,98.6,1.05,4.38544654846191,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter asburiae_B,RP
+MAG_134,YL.RP.Si083_bins.metabat2.1.fa.15,549.233248,14184.49771,98.5,0.48,6.33566379547119,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Pseudomonas_E,Pseudomonas_E chlororaphis_F,RP sig
+MAG_135,YL.RP.Si083_bins.metabat2.1.fa.16,15434.34714,130525.728,75.52,0,0.845273017883301,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_136,YL.RP.Si083_bins.metabat2.1.fa.19,13773.7103,60778.10905,71.26,0.55,1.99837970733643,Bacteria,Firmicutes,Bacilli,Bacillales_D,Amphibacillaceae,Terribacillus,Terribacillus saccharophilus,RP sig
+MAG_137,YL.RP.Si083_bins.metabat2.1.fa.26,31735.078,235911.0471,50.86,3.45,2.72524166107178,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Sinorhizobium,Sinorhizobium meliloti_A,RP sig
+MAG_138,YL.RP.Si083_bins.metabat2.1.fa.27,205620.885,339694.0032,85.58,3.91,3.49985504150391,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Microbacteriaceae,Agromyces,Unassign,RP
+MAG_139,YL.RP.Si083_bins.metabat2.1.fa.33,920.60385,18278.37044,75.01,0.79,3.19655799865723,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Kosakonia,Kosakonia cowanii,RP sig
+MAG_140,YL.RP.Si083_bins.metabat2.1.fa.34,66143.72969,218934.7683,75.34,5.17,4.25716209411621,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,CADEED01,Unassign,RP sig
+MAG_141,YL.RP.Si083_bins.metabat2.1.fa.42,1500.382986,3412.626536,70.37,0,1.29319477081299,Bacteria,Patescibacteria,Saccharimonadia,UBA4664,UBA4664,Unassign,Unassign,RP
+MAG_142,YL.RP.Si083_bins.metabat2.1.fa.55,36167.06942,60999.19585,94.04,3.15,3.47541999816895,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus_P,Unassign,RP
+MAG_143,YL.RP.Si083_concoct_13,62819.95502,190805.401,56.76,2.63,5.73853778839111,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_144,YL.RP.Si083_concoct_68,32727.69131,129977.5119,85.35,5,8.17789936065674,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_145,YL.RP.Si090_bins.005.maxbin,24033.5952,110615.7161,56.28,0.13,3.67866802215576,Bacteria,Firmicutes,Bacilli,Paenibacillales,Paenibacillaceae,Paenibacillus,Paenibacillus polysaccharolyticus,RP sig
+MAG_146,YL.RP.Si090_bins.019.maxbin,78181.28722,179802.4074,65.22,1.97,2.08444595336914,Bacteria,Firmicutes,Bacilli,Bacillales_B,DSM-1321,Peribacillus,Peribacillus frigoritolerans,RP sig
+MAG_147,YL.RP.Si090_bins.metabat2.1.fa.13,30630.61669,118876.6631,53.45,0,2.76707077026367,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,Bacillus halotolerans,RP sig
+MAG_148,YL.RP.Si090_bins.metabat2.1.fa.19,23275.10879,49596.99048,66.99,1.38,2.00336265563965,Bacteria,Firmicutes,Bacilli,Bacillales_G,Fictibacillaceae,Fictibacillus,Fictibacillus barbaricus,RP sig
+MAG_149,YL.RP.Si090_bins.metabat2.1.fa.29,34649.40027,67217.52657,55.48,1.23,2.30984306335449,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JACDAZ01,Unassign,RP sig
+MAG_150,YL.RP.Si090_bins.metabat2.1.fa.33,53431.58539,104455.7766,72.81,3.51,3.50732707977295,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Microbacteriaceae,Microbacterium,Unassign,RP
+MAG_151,YL.RP.Si090_bins.metabat2.1.fa.34,39437.68041,125889.3914,65.46,2.93,3.56049251556396,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Variovorax,Variovorax soli,RP sig
+MAG_152,YL.RP.Si090_bins.metabat2.1.fa.5,2391.35128,13843.39386,96.14,0.7,5.99191665649414,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Achromobacter,Achromobacter xylosoxidans,RP sig
+MAG_153,YL.RP.Si090_bins.metabat2.1.fa.7,19219.80189,48561.82052,57.47,3.68,1.85758781433105,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingobium,Unassign,RP sig
+MAG_154,YL.RP.Si090_bins.metabat2.1.fa.75,12040.8575,33871.9712,62.04,0,0.946755409240723,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP sig
+MAG_155,YL.RP.Si090_concoct_39,117258.594,316338.823,81.37,3.37,4.65746116638184,Bacteria,Actinobacteriota,Actinomycetia,Propionibacteriales,Nocardioidaceae,Nocardioides,Nocardioides sp009858265,RP sig
+MAG_156,YL.RP.Si090_concoct_57,63022.09073,180032.7973,88.84,4.86,8.09599304199219,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_157,YL.RP.Si090_concoct_75,7049.196598,30784.97962,88.37,0.86,4.36879444122314,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Stenotrophomonas,Stenotrophomonas geniculata,RP sig
+MAG_158,YL.RP.Si214_bins.048.maxbin,25598.0015,35305.45609,64.19,0.64,4.3497953414917,Bacteria,Firmicutes,Bacilli,Paenibacillales,Paenibacillaceae,Paenibacillus,Unassign,RP
+MAG_159,YL.RP.Si214_bins.050.maxbin,72505.64928,161943.7752,51.72,3.45,2.53131198883057,Bacteria,Firmicutes,Bacilli,Bacillales_B,DSM-18226,Cytobacillus,Unassign,RP
+MAG_160,YL.RP.Si214_bins.073.maxbin,12462.77869,18787.11635,51.55,4.69,0.835633277893066,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA5946,Unassign,Unassign,RP sig
+MAG_161,YL.RP.Si214_bins.metabat2.1.fa.1,8226.271074,85572.36864,51.72,0,6.8641471862793,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Chitinophaga,Unassign,RP sig
+MAG_162,YL.RP.Si214_bins.metabat2.1.fa.25,6671.143878,53358.87671,91.28,0.87,3.65505695343018,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales_A,Rhizobiaceae_A,Phyllobacterium,Phyllobacterium sp900471815,RP sig
+MAG_163,YL.RP.Si214_bins.metabat2.1.fa.31,22227.59145,61238.6341,74.51,3.42,2.53613758087158,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingobium_A,Unassign,RP sig
+MAG_164,YL.RP.Si214_bins.metabat2.1.fa.54,1834.958138,4471.162104,69.31,4.95,1.4385461807251,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP sig
+MAG_165,YL.RP.Si214_bins.metabat2.1.fa.65,34637.8759,250466.4623,51.21,0.86,2.38190174102783,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomonas,Unassign,RP sig
+MAG_166,YL.RP.Si214_bins.metabat2.1.fa.66,21870.95575,84789.87959,85.29,1.82,2.99324512481689,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Unassign,Unassign,RP sig
+MAG_167,YL.RP.Si214_concoct_9,154818.0389,294494.6354,58.12,3.8,5.94071388244629,Bacteria,Actinobacteriota,Actinomycetia,Propionibacteriales,Kribbellaceae,Kribbella,Unassign,RP sig
+MAG_168,YL.RP.Si248_bins.059.maxbin,8692.820882,38073.98552,53.56,4.35,1.11662864685059,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_169,YL.RP.Si248_bins.metabat2.1.fa.26,12576.81082,122994.4874,90.71,2.01,3.82406234741211,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Pseudoxanthomonas_A,Unassign,RP sig
+MAG_170,YL.RP.Si248_bins.metabat2.1.fa.65,815.600722,16208.79268,94.9,0.81,4.30460834503174,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter mori,RP
+MAG_171,YL.RP.Si248_bins.metabat2.1.fa.7,115373.948,37771.04145,52.33,1.94,2.29643535614014,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,WHTF01,Unassign,RS sig
+MAG_172,YL.RP.Si248_concoct_49,29566.70211,105739.0806,72.06,5.75,3.08244132995605,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Unassign,Unassign,RP sig
+MAG_173,YL.RP.Si248_concoct_64,10499.89742,32340.17985,56.55,1.61,0.884966850280762,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,EFPC-124,Unassign,RP sig
+MAG_174,YL.RP.Si249_bins.metabat2.1.fa.10,1782.276518,17429.83211,94.7,0.82,3.61163711547852,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Moraxellaceae,Acinetobacter,Acinetobacter pittii,RP sig
+MAG_175,YL.RP.Si249_bins.metabat2.1.fa.11,10131.48008,30200.39656,53.17,0,0.867500305175781,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,Unassign,Unassign,RP sig
+MAG_176,YL.RP.Si249_bins.metabat2.1.fa.14,14676.19634,113207.471,67.41,0,3.78082466125488,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Serratia,Serratia nematodiphila,RP
+MAG_177,YL.RP.Si249_bins.metabat2.1.fa.25,18884.59535,196286.671,90.3,4.54,5.34156894683838,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Neorhizobium,Neorhizobium huautlense,RP sig
+MAG_178,YL.RP.Si249_bins.metabat2.1.fa.33,10020.18884,110971.4495,65.52,0,3.91046047210693,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_179,YL.RP.Si249_bins.metabat2.1.fa.34,182950.5404,48169.48463,59.22,4.01,1.98159599304199,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,SCGC-AG-212-J23,Unassign,RS sig
+MAG_180,YL.RP.Si249_bins.metabat2.1.fa.40,64225.0392,419241.6289,71.22,3.54,4.24546432495117,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Sinorhizobium,Sinorhizobium meliloti_A,RP sig
+MAG_181,YL.RP.Si249_bins.metabat2.1.fa.42,692.929878,15880.85598,98.09,0.87,4.37356662750244,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Pantoea,Pantoea stewartii,RP sig
+MAG_182,YL.RP.Si249_concoct_62,949497.7758,3019772.922,81.58,4.35,8.55460834503174,Bacteria,Actinobacteriota,Actinomycetia,Mycobacteriales,Pseudonocardiaceae,Lentzea,Unassign,RP sig
+MAG_183,YL.RP.Si268_bins.040.maxbin,12752.01145,31617.64164,65.52,1.72,2.18812656402588,Bacteria,Firmicutes,Bacilli,Bacillales_G,Fictibacillaceae,Fictibacillus,Fictibacillus barbaricus,RP sig
+MAG_184,YL.RP.Si268_bins.metabat2.1.fa.1,2546.26261,34651.14586,75.71,0,0.334893226623535,Bacteria,Firmicutes,Bacilli,Acholeplasmatales,Acholeplasmataceae,Phytoplasma,Phytoplasma tritici,RP
+MAG_185,YL.RP.Si268_bins.metabat2.1.fa.18,32861.21131,100587.8696,64.41,2.85,2.36190223693848,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Unassign,Unassign,RP sig
+MAG_186,YL.RP.Si268_bins.metabat2.1.fa.27,43669.54022,308363.3617,65.15,2.78,3.64250946044922,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Sinorhizobium,Sinorhizobium meliloti_A,RP sig
+MAG_187,YL.RP.Si268_bins.metabat2.1.fa.43,13949.20969,132176.1041,67.24,0,3.80118465423584,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_188,YL.RP.Si268_bins.metabat2.1.fa.48,1228.299966,3713.26471,69.31,0.99,1.08968448638916,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP sig
+MAG_189,YL.RP.Si268_bins.metabat2.1.fa.52,1276.83788,4530.638362,65.52,0,0.881678581237793,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP
+MAG_190,YL.RP.Si268_bins.metabat2.1.fa.57,11806.46798,34094.11276,54.68,0.93,0.820236206054688,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,Unassign,Unassign,RP sig
+MAG_191,YL.RP.Si268_concoct_42,26287.27886,195145.5255,57.88,2.01,2.65393161773682,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Variovorax,Unassign,RP sig
+MAG_192,YL.RS.1488_bins.058.maxbin,124750.9888,39355.46813,59.28,1.83,3.03207206726074,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_193,YL.RS.1488_bins.metabat2.1.fa.25,85540.32881,10676.20449,86.14,1.46,2.77384090423584,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_194,YL.RS.1488_bins.metabat2.1.fa.3,55596.92199,124790.0663,97.88,4.09,5.32987689971924,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pseudorivibacter,Pseudorivibacter rhizosphaerae,RP sig
+MAG_195,YL.RS.1488_bins.metabat2.1.fa.45,402526.1843,83488.7573,77,0.66,3.97123432159424,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,VBAS01,Unassign,RS sig
+MAG_196,YL.RS.1488_bins.metabat2.1.fa.56,75230.78406,41865.46272,64.29,0.31,1.78283977508545,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Luteolibacter,Unassign,RS sig
+MAG_197,YL.RS.1488_bins.metabat2.1.fa.7,287960.8448,62154.29594,92.16,3.9,3.7386531829834,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,SCGC-AG-212-J23,Unassign,RS sig
+MAG_198,YL.RS.1488_concoct_1,182354.0504,76436.94784,57.92,4.31,5.28124713897705,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,Longimicrobiaceae,Longimicrobium,Unassign,RS sig
+MAG_199,YL.RS.1488_concoct_2,55069.43945,16011.48014,93.07,2.56,2.31592273712158,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,Unassign,Unassign,RS sig
+MAG_200,YL.RS.348_bins.metabat2.1.fa.21,1313938.382,181208.816,71.81,3.22,4.93728446960449,Bacteria,Chloroflexota,UBA6077,UBA6077,CF-72,Unassign,Unassign,RS sig
+MAG_201,YL.RS.348_concoct_6,299527.8423,68984.94479,54.99,1.71,3.02321624755859,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,AR12,Unassign,RS sig
+MAG_202,YL.RS.9_bins.008.maxbin,170929.0828,406940.2132,79.69,9.17,1.13083362579346,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_203,YL.RS.9_bins.012.maxbin,712463.6255,92960.17524,87.69,5.13,5.92252254486084,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_204,YL.RS.9_bins.metabat2.1.fa.16,6372.557316,20095.47746,54.42,0,0.781222343444824,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP
+MAG_205,YL.RS.977_bins.metabat2.1.fa.12,843211.1271,99792.66332,95.45,3.73,6.81465530395508,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_206,YL.RS.995_bins.038.maxbin,29923.42825,15474.3539,54.91,0.63,2.10469150543213,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavisolibacter_B,Unassign,RS sig
+MAG_207,YL.RS.995_bins.metabat2.1.fa.13,100810.4746,12043.70328,57.59,1.32,2.30773067474365,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_208,YL.RS.995_bins.metabat2.1.fa.36,251593.1334,95187.10039,56.33,0.91,2.41917133331299,Bacteria,Nitrospirota,Nitrospiria,Nitrospirales,Nitrospiraceae,Nitrospira_C,Unassign,RS sig
+MAG_209,YL.RS.995_bins.metabat2.1.fa.49,182500.5197,34743.3541,72.41,0.64,3.74702739715576,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,PWU20,Unassign,RS sig
+MAG_210,YL.RS.995_bins.metabat2.1.fa.50,126199.8334,38254.84575,76.17,4.24,3.95468044281006,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavisolibacter,Unassign,RS sig
+MAG_211,YL.RS.995_bins.metabat2.1.fa.52,58985.29025,18878.43162,95.51,0.99,3.24278926849365,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JJ008,Unassign,RS sig
+MAG_212,YL.RS.995_bins.metabat2.1.fa.64,166291.3533,43044.38717,76.74,6.55,3.57007312774658,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_213,YL.RS.Si032_bins.metabat2.1.fa.107,16476.70894,12677.93252,75.94,5.93,5.09853649139404,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Niastella,Unassign,RS
+MAG_214,YL.RS.Si032_bins.metabat2.1.fa.119,31943.94518,21388.39532,83.29,1.11,3.51595020294189,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JJ008,Unassign,RS sig
+MAG_215,YL.RS.Si032_bins.metabat2.1.fa.145,132104.5282,276468.9354,59.2,1.72,4.88177394866943,Bacteria,Firmicutes,Bacilli,Bacillales_B,DSM-18226,Neobacillus,Unassign,RP sig
+MAG_216,YL.RS.Si032_bins.metabat2.1.fa.158,77395.53956,13402.39883,80.11,3.9,4.6930685043335,Bacteria,Acidobacteriota,Blastocatellia,RBC074,Unassign,Unassign,Unassign,RS sig
+MAG_217,YL.RS.Si032_bins.metabat2.1.fa.167,12765.23153,6634.250768,54.24,2.2,2.53199100494385,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_218,YL.RS.Si032_bins.metabat2.1.fa.185,25810.89652,9046.237394,57.02,1.1,2.00715065002441,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,JACDDX01,Unassign,RS sig
+MAG_219,YL.RS.Si032_bins.metabat2.1.fa.204,72405.0996,24198.39548,84.27,8.12,5.2531852722168,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,WLNW01,Unassign,Unassign,RS sig
+MAG_220,YL.RS.Si032_bins.metabat2.1.fa.208,40004.24855,7715.738634,75.11,3.59,2.3803596496582,Bacteria,Actinobacteriota,UBA4738,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_221,YL.RS.Si032_bins.metabat2.1.fa.21,71121.58471,18563.32319,70.3,2.97,3.02652168273926,Bacteria,Chloroflexota,Dehalococcoidia,Tepidiformales,Tepidiformaceae,JACRBT01,Unassign,RS sig
+MAG_222,YL.RS.Si032_bins.metabat2.1.fa.211,37952.13072,13243.46082,51.72,3.45,4.91381549835205,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,WLNW01,Unassign,Unassign,RS sig
+MAG_223,YL.RS.Si032_bins.metabat2.1.fa.224,53909.96957,111686.1853,75.13,4.49,5.69450187683105,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Chryseolinea,Unassign,RP sig
+MAG_224,YL.RS.Si032_bins.metabat2.1.fa.231,22848.17021,11680.30046,89.81,0.93,2.71376514434814,Bacteria,Armatimonadota,Fimbriimonadia,Fimbriimonadales,Fimbriimonadaceae,55-13,Unassign,RS sig
+MAG_225,YL.RS.Si032_bins.metabat2.1.fa.242,1875.413268,2115.954296,52.11,0,0.332569122314453,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales_A,Enterobacteriaceae_A,Buchnera,Unassign,RP sig
+MAG_226,YL.RS.Si032_bins.metabat2.1.fa.246,42428.40584,12477.19662,77.54,8.97,4.8126049041748,Bacteria,Acidobacteriota,Acidobacteriae,20CM-2-55-15,20CM-2-55-15,DSPE01,Unassign,RS sig
+MAG_227,YL.RS.Si032_bins.metabat2.1.fa.247,39156.96788,5631.173614,89.77,1.99,3.87411880493164,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_228,YL.RS.Si032_bins.metabat2.1.fa.256,93686.97733,15367.66106,57.89,1.49,4.49071025848389,Bacteria,Planctomycetota,Planctomycetia,Pirellulales,Pirellulaceae,SXOA01,Unassign,RS sig
+MAG_229,YL.RS.Si032_bins.metabat2.1.fa.278,22952.91083,8748.003142,76.84,7.56,3.36382675170898,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_230,YL.RS.Si032_bins.metabat2.1.fa.280,21315.51347,8702.304404,76.23,1.89,3.4657735824585,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,Unassign,Unassign,Unassign,RS sig
+MAG_231,YL.RS.Si032_bins.metabat2.1.fa.284,11833.14764,4112.955572,77.93,2.56,2.87735939025879,Bacteria,Acidobacteriota,Acidobacteriae,Acidobacteriales,Unassign,Unassign,Unassign,RS sig
+MAG_232,YL.RS.Si032_bins.metabat2.1.fa.288,23745.5592,65291.89222,65.42,2.64,3.68568420410156,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,Ilumatobacteraceae,Kalu-18,Unassign,RP sig
+MAG_233,YL.RS.Si032_bins.metabat2.1.fa.290,59946.51566,15160.54992,76.31,0.85,2.40556335449219,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_234,YL.RS.Si032_bins.metabat2.1.fa.304,47830.30076,21182.56649,65.33,2.91,5.54010009765625,Bacteria,Planctomycetota,Planctomycetia,Gemmatales,Gemmataceae,SIAJ01,Unassign,RS sig
+MAG_235,YL.RS.Si032_bins.metabat2.1.fa.346,15909.4409,6265.072498,56.3,2.63,3.54006481170654,Bacteria,Acidobacteriota,Unassign,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_236,YL.RS.Si032_bins.metabat2.1.fa.352,9188.687106,4168.089538,53.51,3.51,3.60302066802979,Bacteria,Tectomicrobia,Entotheonellia,Entotheonellales,Entotheonellaceae,Unassign,Unassign,RS sig
+MAG_237,YL.RS.Si032_bins.metabat2.1.fa.378,41766.79638,14817.29356,88.05,0.99,4.06219005584717,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavisolibacter,Unassign,RS sig
+MAG_238,YL.RS.Si032_bins.metabat2.1.fa.379,162268.1132,36235.14119,67.96,1.82,4.20368766784668,Bacteria,Chloroflexota,Dehalococcoidia,DSGV01,DSGV01,Unassign,Unassign,RS sig
+MAG_239,YL.RS.Si032_bins.metabat2.1.fa.385,167.204566,2403.637466,95.64,1.47,3.63357257843018,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Pantoea,Pantoea eucrina,RP sig
+MAG_240,YL.RS.Si032_bins.metabat2.1.fa.400,50101.94183,11229.05987,83.98,6.13,5.23550033569336,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,JACCYX01,Unassign,RS sig
+MAG_241,YL.RS.Si032_bins.metabat2.1.fa.403,75038.88647,16886.04257,61.16,1.75,4.62357044219971,Bacteria,Chloroflexota,UBA6077,UBA6077,CF-72,Unassign,Unassign,RS sig
+MAG_242,YL.RS.Si032_bins.metabat2.1.fa.409,34193.2129,19862.22679,73.28,3.99,4.24880313873291,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,Ilumatobacteraceae,Unassign,Unassign,RS sig
+MAG_243,YL.RS.Si032_bins.metabat2.1.fa.416,107422.5425,67711.03002,53.95,3.45,2.20163536071777,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingomicrobium,Unassign,RS sig
+MAG_244,YL.RS.Si032_bins.metabat2.1.fa.422,35555.33803,20180.03235,79.7,4.52,6.48962783813477,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RS
+MAG_245,YL.RS.Si032_bins.metabat2.1.fa.445,19759.21345,16016.72833,56.55,1.72,3.25938129425049,Bacteria,Proteobacteria,Alphaproteobacteria,Acetobacterales,Acetobacteraceae,Roseomonas_A,Unassign,RS sig
+MAG_246,YL.RS.Si032_bins.metabat2.1.fa.45,35306.53496,5894.276034,80.88,4.76,4.20044326782227,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Chthoniobacterales,Chthoniobacteraceae,Unassign,Unassign,RS sig
+MAG_247,YL.RS.Si032_bins.metabat2.1.fa.506,110324.7518,33026.93673,57.97,4.27,2.02371501922607,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,MB1-2,Unassign,RS sig
+MAG_248,YL.RS.Si032_bins.metabat2.1.fa.507,95329.26042,22815.52596,84.54,6.65,4.57675361633301,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,VBAS01,Unassign,RS sig
+MAG_249,YL.RS.Si032_bins.metabat2.1.fa.509,104880.8172,27138.33408,72.13,7,3.1239767074585,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Casimicrobiaceae,VBCG01,Unassign,RS sig
+MAG_250,YL.RS.Si032_bins.metabat2.1.fa.526,46178.54402,26512.60058,72.35,6.9,5.01134395599365,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,UBA2999,JAENWD01,Unassign,RS sig
+MAG_251,YL.RS.Si032_bins.metabat2.1.fa.541,52697.57942,10951.02487,70.69,8.21,3.37586116790771,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-41,DSOT01,Unassign,RS sig
+MAG_252,YL.RS.Si032_bins.metabat2.1.fa.555,37.09043,93.33902,59.6,0,0.851937294006348,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,UBA6022,Unassign,RP sig
+MAG_253,YL.RS.Si032_bins.metabat2.1.fa.587,22027.92438,7166.909874,57.18,0,1.81985950469971,Bacteria,Chloroflexota,Limnocylindria,QHBO01,QHBO01,Unassign,Unassign,RS sig
+MAG_254,YL.RS.Si032_bins.metabat2.1.fa.596,120052.31,29113.66694,78.15,2.22,4.39259243011475,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavitalea,Unassign,RS sig
+MAG_255,YL.RS.Si032_bins.metabat2.1.fa.606,1248.46003,6233.139732,98.34,0.33,3.57102012634277,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Moraxellaceae,Acinetobacter,Acinetobacter pittii,RP sig
+MAG_256,YL.RS.Si032_bins.metabat2.1.fa.609,38489.48789,6610.886232,86.92,2.78,4.34618854522705,Bacteria,Armatimonadota,Chthonomonadetes,Chthonomonadales,CAJBBX01,Unassign,Unassign,RS sig
+MAG_257,YL.RS.Si032_bins.metabat2.1.fa.611,56747.06321,18413.35004,85.5,1,2.30267238616943,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_258,YL.RS.Si032_bins.metabat2.1.fa.622,21394.37894,5550.537936,51.78,2.91,1.0390682220459,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrosocosmicus,Unassign,RS sig
+MAG_259,YL.RS.Si032_bins.metabat2.1.fa.628,18850.78826,6750.27535,81.35,6.41,2.68060970306396,Bacteria,Nitrospirota,Nitrospiria,Nitrospirales,Nitrospiraceae,Nitrospira_F,Unassign,RS sig
+MAG_260,YL.RS.Si032_bins.metabat2.1.fa.634,38984.0058,12108.89085,86.99,5.13,1.90532398223877,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,DSRY01,Unassign,RS sig
+MAG_261,YL.RS.Si032_bins.metabat2.1.fa.65,18158.10466,28034.98898,64.03,2.82,4.61648654937744,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Chryseolinea,Unassign,RP sig
+MAG_262,YL.RS.Si032_bins.metabat2.1.fa.650,19.572512,22.998678,64.81,0,0.891797065734863,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,JACDFO01,Unassign,Unassign,RP
+MAG_263,YL.RS.Si032_bins.metabat2.1.fa.655,3343.006126,7172.098496,77.07,5.17,3.20869636535645,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,Xanthomonadaceae,Pseudoxanthomonas_A,Unassign,RP sig
+MAG_264,YL.RS.Si032_bins.metabat2.1.fa.657,103917.4795,90688.43182,68.04,3.45,5.65005493164062,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,JAFDVJ01,Unassign,RS
+MAG_265,YL.RS.Si032_bins.metabat2.1.fa.93,8827.735366,3875.976122,88.67,1.37,6.77615833282471,Bacteria,Cyanobacteria,Cyanobacteriia,Cyanobacteriales,Coleofasciculaceae,PCC7113,Unassign,RS sig
+MAG_266,YL.RS.Si032_concoct_13,9155.06922,5543.616412,79.57,5.65,7.83889007568359,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RS sig
+MAG_267,YL.RS.Si032_concoct_174,36680.17034,39158.34522,71.18,1.91,8.68509769439697,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,SZUA-265,Unassign,RP
+MAG_268,YL.RS.Si032_concoct_23,43145.81843,10610.41515,54.07,1.98,3.83761596679688,Bacteria,Chloroflexota,UBA2235,UBA12225,UBA12225,Unassign,Unassign,RS sig
+MAG_269,YL.RS.Si032_concoct_239,10904.49847,11199.04388,50,1.75,1.63944911956787,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RP
+MAG_270,YL.RS.Si032_concoct_288,40950.02919,19391.65148,68.05,0.91,5.85974311828613,Bacteria,Chloroflexota,Anaerolineae,Aggregatilineales,J027,JAAUUD01,Unassign,RS sig
+MAG_271,YL.RS.Si051_bins.metabat2.1.fa.19,43144.96588,193846.3891,80.34,5.17,0.986814498901367,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_272,YL.RS.Si051_bins.metabat2.1.fa.31,79992.24906,164254.535,59.66,1.72,3.67844867706299,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pseudorivibacter,Pseudorivibacter rhizosphaerae,RP sig
+MAG_273,YL.RS.Si051_bins.metabat2.1.fa.32,41383.23427,115204.4184,60.28,2.64,5.09801292419434,Bacteria,Firmicutes,Bacilli,Paenibacillales,Paenibacillaceae,Paenibacillus,Paenibacillus sp001860525,RP
+MAG_274,YL.RS.Si051_bins.metabat2.1.fa.35,9023.593658,32847.09114,53.66,1.99,1.21349143981934,Bacteria,Firmicutes,Bacilli,Bacillales_D,Amphibacillaceae,Terribacillus,Terribacillus saccharophilus,RP sig
+MAG_275,YL.RS.Si051_bins.metabat2.1.fa.37,1051512.759,129441.2784,51,1.98,4.56557559967041,Bacteria,Chloroflexota,UBA6077,UBA6077,CF-72,Unassign,Unassign,RS sig
+MAG_276,YL.RS.Si051_bins.metabat2.1.fa.57,75606.90742,469490.1913,60.74,3.7,1.07524394989014,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_277,YL.RS.Si051_bins.metabat2.1.fa.67,46415.50492,13587.54899,54.17,0,1.32530117034912,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_278,YL.RS.Si051_concoct_32,364521.2118,82000.99438,84.48,9.48,8.27256774902344,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,2-12-FULL-66-21,JACDCA01,Unassign,RS sig
+MAG_279,YL.RS.Si051_concoct_80,77270.0296,70128.44013,65.79,1.91,3.1777172088623,Bacteria,Firmicutes,Bacilli,Paenibacillales,Paenibacillaceae,Paenibacillus,Paenibacillus polymyxa_C,RS
+MAG_280,YL.RS.Si062_bins.metabat2.1.fa.23,257347.0835,104706.75,50.66,2.73,1.74564647674561,Bacteria,Nitrospirota,Nitrospiria,Nitrospirales,Nitrospiraceae,Nitrospira_C,Unassign,RS sig
+MAG_281,YL.RS.Si062_bins.metabat2.1.fa.30,12300.09704,58428.53379,99.37,2.17,4.98433208465576,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Agrobacterium,Agrobacterium tumefaciens,RP sig
+MAG_282,YL.RS.Si062_bins.metabat2.1.fa.4,80800.0566,28186.62283,50.41,2.61,2.3557767868042,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_283,YL.RS.Si062_concoct_64,109731.8285,33118.59625,50.4,1.71,2.47869491577148,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_284,YL.RS.Si062_concoct_7,16860.69572,38244.40468,50.5,0,1.93095397949219,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Unassign,Unassign,RP sig
+MAG_285,YL.RS.Si062_concoct_75,78033.04845,27452.3668,65.15,0,0.882356643676758,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrososphaera,Unassign,RS sig
+MAG_286,YL.RS.Si079_bins.metabat2.1.fa.11,84439.22532,10932.09638,73.9,2.63,2.31053352355957,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_287,YL.RS.Si079_bins.metabat2.1.fa.17,73062.86955,14280.81401,82.22,4.35,3.999023438,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,AG2,Unassign,RS sig
+MAG_288,YL.RS.Si079_bins.metabat2.1.fa.27,191625.8892,35949.04765,71.04,1.89,4.13536548614502,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,Unassign,Unassign,RS sig
+MAG_289,YL.RS.Si079_bins.metabat2.1.fa.30,80304.5001,16659.90187,51.86,1.94,0.609990119934082,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,TA-21,TA-21 sp014381105,RS sig
+MAG_290,YL.RS.Si079_bins.metabat2.1.fa.7,94073.77307,29290.81954,50.45,2.14,2.65849494934082,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_291,YL.RS.Si079_concoct_25,269511.1742,32972.6536,59.25,3.87,4.4305362701416,Bacteria,Planctomycetota,Planctomycetia,Gemmatales,Gemmataceae,Unassign,Unassign,RS sig
+MAG_292,YL.RS.Si080_bins.035.maxbin,25593.7334,53251.77272,58.62,1.72,2.16363906860352,Bacteria,Firmicutes,Bacilli,Bacillales_G,Fictibacillaceae,Fictibacillus,Fictibacillus barbaricus,RP sig
+MAG_293,YL.RS.Si080_bins.065.maxbin,94715.2798,15822.81785,84.09,9.44,2.63049983978271,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_294,YL.RS.Si080_bins.111.maxbin,32040.52356,101925.9535,60.18,3.24,1.61432456970215,Bacteria,Firmicutes,Bacilli,Bacillales_D,Amphibacillaceae,Terribacillus,Terribacillus saccharophilus,RP sig
+MAG_295,YL.RS.Si080_bins.metabat2.1.fa.35,52222.61093,16657.86432,61.74,3.85,2.09830570220947,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,Unassign,Unassign,Unassign,RS sig
+MAG_296,YL.RS.Si080_bins.metabat2.1.fa.37,55726.2363,17248.6374,56.03,0,1.81560802459717,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,Unassign,Unassign,RS sig
+MAG_297,YL.RS.Si080_bins.metabat2.1.fa.46,209645.1786,43390.16527,80.3,4.4,3.90278339385986,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,Unassign,Unassign,RS sig
+MAG_298,YL.RS.Si080_bins.metabat2.1.fa.89,63325.81727,305101.9467,55.33,0,3.1163387298584,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Rhizobiaceae,Sinorhizobium,Sinorhizobium meliloti_A,RP sig
+MAG_299,YL.RS.Si080_bins.metabat2.1.fa.9,65617.92298,11576.27135,97.44,6.2,6.82467460632324,Bacteria,Acidobacteriota,Blastocatellia,UBA7656,UBA7656,JADGNW01,Unassign,RS sig
+MAG_300,YL.RS.Si080_concoct_13,156896.6173,48577.09576,58.22,2.14,3.27221298217773,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_301,YL.RS.Si080_concoct_45,82221.91683,15445.74486,67.08,3.48,3.32169628143311,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-41,DSOT01,Unassign,RS sig
+MAG_302,YL.RS.Si080_concoct_98,153744.629,49346.78204,80.64,6.11,7.14151668548584,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,Unassign,Unassign,RS sig
+MAG_303,YL.RS.Si081_bins.029.maxbin,135750.4837,42225.55347,52.68,1.14,3.28774547576904,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_304,YL.RS.Si081_bins.036.maxbin,125207.2726,38384.30346,50,2.59,1.06417942047119,Bacteria,Actinobacteriota,Thermoleophilia,Gaiellales,Gaiellaceae,JACDAN01,Unassign,RS sig
+MAG_305,YL.RS.Si081_bins.metabat2.1.fa.33,409491.5884,112307.6494,72.76,3.45,5.50310230255127,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,UBA2999,12-FULL-67-14b,Unassign,RS sig
+MAG_306,YL.RS.Si081_bins.metabat2.1.fa.46,87890.94955,187169.6253,82.97,3.01,4.50222969055176,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pseudorivibacter,Pseudorivibacter rhizosphaerae,RP sig
+MAG_307,YL.RS.Si081_bins.metabat2.1.fa.48,106594.9493,38428.10475,68.86,4.7,2.89365577697754,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_308,YL.RS.Si081_concoct_33,257246.5493,77613.68922,94.01,3.28,5.44329261779785,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,WHTF01,Unassign,RS sig
+MAG_309,YL.RS.Si081_concoct_51,271755.3008,36954.30046,59.37,3.51,4.32553195953369,Bacteria,Planctomycetota,Planctomycetia,Gemmatales,Gemmataceae,Unassign,Unassign,RS sig
+MAG_310,YL.RS.Si083_bins.015.maxbin,143465.2356,44571.02059,58.2,1.36,3.35451030731201,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_311,YL.RS.Si083_bins.057.maxbin,185136.5572,31169.55897,54.68,4.82,1.83236885070801,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,Unassign,Unassign,RS sig
+MAG_312,YL.RS.Si083_bins.metabat2.1.fa.14,129511.3506,47389.59908,72.13,8.55,3.22406387329102,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_313,YL.RS.Si083_bins.metabat2.1.fa.19,78911.65267,28674.63073,71.04,3.4,1.16401863098145,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrososphaera,Unassign,RS sig
+MAG_314,YL.RS.Si083_bins.metabat2.1.fa.27,126787.7157,21298.45111,59.43,0.47,2.96433544158936,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,Unassign,Unassign,RS sig
+MAG_315,YL.RS.Si090_bins.032.maxbin,118035.7584,36783.86166,54.86,0.72,2.81155395507812,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_316,YL.RS.Si090_bins.metabat2.1.fa.25,91799.33393,11796.28627,67.07,3.98,2.33098983764648,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_317,YL.RS.Si214_bins.metabat2.1.fa.53,64030.35887,35600.49051,58.24,0.34,1.47621917724609,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Verrucomicrobiales,Akkermansiaceae,Luteolibacter,Unassign,RS sig
+MAG_318,YL.RS.Si214_bins.metabat2.1.fa.64,131239.726,516090.5435,55.17,0.86,1.79629039764404,Bacteria,Firmicutes,Bacilli,Bacillales,Bacillaceae,Bacillus,Bacillus safensis,RP sig
+MAG_319,YL.RS.Si214_concoct_33,200346.6581,64962.84079,76.58,0.43,3.68087959289551,Bacteria,Actinobacteriota,Acidimicrobiia,IMCC26256,Unassign,Unassign,Unassign,RS sig
+MAG_320,YL.RS.Si214_concoct_64,42694.92035,9513.557956,87.07,0.1,2.47318935394287,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,JAABQT01,Unassign,RS sig
+MAG_321,YL.RS.Si235_bins.metabat2.1.fa.101,20823.2036,7981.053244,76.5,3.85,2.29116153717041,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_322,YL.RS.Si235_bins.metabat2.1.fa.127,27026.69237,12095.89632,63.64,3.4,1.44314575195312,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrosocosmicus,Unassign,RS sig
+MAG_323,YL.RS.Si235_bins.metabat2.1.fa.13,25944.34321,18772.24649,74.49,6.08,3.06957912445068,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Unassign,Unassign,RS sig
+MAG_324,YL.RS.Si235_bins.metabat2.1.fa.14,18188.5853,10408.18337,80.3,3.8,3.1380615234375,Bacteria,Actinobacteriota,Actinomycetia,Propionibacteriales,Propionibacteriaceae,Unassign,Unassign,RS sig
+MAG_325,YL.RS.Si235_bins.metabat2.1.fa.143,136389.6811,93457.9696,51.21,3.45,2.17782688140869,Bacteria,Actinobacteriota,Actinomycetia,Propionibacteriales,Nocardioidaceae,Aeromicrobium,Unassign,RS sig
+MAG_326,YL.RS.Si235_bins.metabat2.1.fa.144,33330.31424,14594.96942,86.69,5.7,8.1365966796875,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RS sig
+MAG_327,YL.RS.Si235_bins.metabat2.1.fa.167,108750.2844,23481.12375,71.59,1.85,5.69341373443604,Bacteria,Armatimonadota,SYMT01,SYMT01,SYMT01,Unassign,Unassign,RS sig
+MAG_328,YL.RS.Si235_bins.metabat2.1.fa.173,57203.55394,18126.57828,77.49,6.84,4.81617832183838,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,JACPHL01,Unassign,Unassign,RS sig
+MAG_329,YL.RS.Si235_bins.metabat2.1.fa.190,40320.80473,4425.133314,72.02,0,4.65516662597656,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,UBA8199,PSRM01,Unassign,RS sig
+MAG_330,YL.RS.Si235_bins.metabat2.1.fa.192,19660.86052,5435.257628,74.65,5.88,3.89475631713867,Bacteria,Desulfobacterota_B,Binatia,UBA1149,UBA1149,Unassign,Unassign,RS sig
+MAG_331,YL.RS.Si235_bins.metabat2.1.fa.194,1941.36722,896.233366,91.42,2.91,1.61939907073975,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrososphaera,Unassign,RS sig
+MAG_332,YL.RS.Si235_bins.metabat2.1.fa.204,50412.45504,15209.74833,84.1,3.3,2.50975894927979,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,JACDCY01,Unassign,RS sig
+MAG_333,YL.RS.Si235_bins.metabat2.1.fa.211,30150.86812,11508.86156,77.33,6.08,6.54328060150146,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,JADJPG01,Unassign,Unassign,RS sig
+MAG_334,YL.RS.Si235_bins.metabat2.1.fa.216,83085.45334,27445.76067,80.15,8.44,4.77007389068604,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,40CM-4-69-5,Unassign,RS sig
+MAG_335,YL.RS.Si235_bins.metabat2.1.fa.232,491.301676,9312.51049,91.65,1.72,3.96213817596436,Bacteria,Proteobacteria,Gammaproteobacteria,Enterobacterales,Enterobacteriaceae,Enterobacter,Enterobacter asburiae_B,RP sig
+MAG_336,YL.RS.Si235_bins.metabat2.1.fa.255,51680.19262,18277.14406,90.86,4.17,2.37971591949463,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Sep-70,VGBV01,Unassign,RS sig
+MAG_337,YL.RS.Si235_bins.metabat2.1.fa.256,6641.811206,2374.357418,89.92,2.52,2.74087333679199,Bacteria,UBA10199,UBA10199,DSSB01,DSSB01,DSSB01,Unassign,RS sig
+MAG_338,YL.RS.Si235_bins.metabat2.1.fa.276,3639.90487,1625.262628,55.38,0,0.624946594238281,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,Unassign,Unassign,RS sig
+MAG_339,YL.RS.Si235_bins.metabat2.1.fa.296,61591.00778,14301.00468,69.18,1.7,3.22593021392822,Bacteria,Planctomycetota,B15-G4,B15-G4,B15-G4,Unassign,Unassign,RS sig
+MAG_340,YL.RS.Si235_bins.metabat2.1.fa.300,17547.17523,5697.243956,60.45,2.56,2.73300075531006,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,JACDAL01,Unassign,RS sig
+MAG_341,YL.RS.Si235_bins.metabat2.1.fa.304,35719.50702,6223.869856,92.92,3.47,4.21081447601318,Bacteria,Acidobacteriota,Mor1,JACPZX01,Unassign,Unassign,Unassign,RS sig
+MAG_342,YL.RS.Si235_bins.metabat2.1.fa.35,48462.98419,8776.28158,67.68,0.55,4.46176815032959,Bacteria,Chloroflexota,Chloroflexia,54-19,JADMIH01,Unassign,Unassign,RS sig
+MAG_343,YL.RS.Si235_bins.metabat2.1.fa.381,25002.11231,5023.561132,53.03,3.82,2.11690235137939,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_344,YL.RS.Si235_bins.metabat2.1.fa.4,85893.25887,24982.08914,57.05,2.59,2.51873397827148,Bacteria,Acidobacteriota,Thermoanaerobaculia,Gp7-AA8,Gp7-AA8,QHVT01,Unassign,RS sig
+MAG_345,YL.RS.Si235_bins.metabat2.1.fa.40,58987.182,91544.01633,67.55,1.72,5.78326892852783,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Unassign,Unassign,RP
+MAG_346,YL.RS.Si235_bins.metabat2.1.fa.41,26672.20367,10537.48553,51.72,1.72,4.34952354431152,Bacteria,Acidobacteriota,Blastocatellia,DSOJ01,DSOJ01,Unassign,Unassign,RS sig
+MAG_347,YL.RS.Si235_bins.metabat2.1.fa.414,48262.08847,16360.14221,60.85,0,2.62733745574951,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_348,YL.RS.Si235_bins.metabat2.1.fa.423,14536.65747,9367.486782,90.25,1.25,4.20768547058105,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,JACMKV01,Unassign,Unassign,RS sig
+MAG_349,YL.RS.Si235_bins.metabat2.1.fa.437,51033.44172,109360.3436,53.45,0,3.34619045257568,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Pseudorivibacter,Pseudorivibacter rhizosphaerae,RP sig
+MAG_350,YL.RS.Si235_bins.metabat2.1.fa.469,30606.05372,6805.431286,62.3,3.88,1.22360801696777,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,TA-21,Unassign,RS sig
+MAG_351,YL.RS.Si235_bins.metabat2.1.fa.490,34765.42396,6307.912374,78.04,8.73,9.82360458374023,Bacteria,Myxococcota,WYAZ01,WYAZ01,WYAZ01,Unassign,Unassign,RS sig
+MAG_352,YL.RS.Si235_bins.metabat2.1.fa.507,10459.17329,3418.00002,70.96,1.71,2.07321548461914,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,JACCTH01,Unassign,RS sig
+MAG_353,YL.RS.Si235_bins.metabat2.1.fa.526,30734.11247,6593.227102,62.23,0.86,3.6480712890625,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,AG2,Unassign,RS sig
+MAG_354,YL.RS.Si235_bins.metabat2.1.fa.544,15541.83313,4893.525978,53.97,1.72,3.24784183502197,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,SZUA-320,Unassign,RS sig
+MAG_355,YL.RS.Si235_bins.metabat2.1.fa.550,11915.86501,2833.502272,51.95,1.1,1.81574440002441,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,UBA6960,JAAXGI01,Unassign,RS sig
+MAG_356,YL.RS.Si235_bins.metabat2.1.fa.560,60288.01776,15459.80621,59.71,0.99,1.69381523132324,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavitalea,Unassign,RS sig
+MAG_357,YL.RS.Si235_bins.metabat2.1.fa.564,10994.90612,3208.333668,51.72,0,1.99688816070557,Bacteria,Acidobacteriota,Thermoanaerobaculia,Gp7-AA8,Gp7-AA8,Unassign,Unassign,RS sig
+MAG_358,YL.RS.Si235_bins.metabat2.1.fa.586,16477.60946,9565.381362,50.43,1.11,1.96604824066162,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,Unassign,Unassign,Unassign,RS sig
+MAG_359,YL.RS.Si235_bins.metabat2.1.fa.589,49331.44327,12832.0686,88.37,8.24,4.83200263977051,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,UBA6960,Unassign,Unassign,RS sig
+MAG_360,YL.RS.Si235_bins.metabat2.1.fa.604,130742.7366,22858.21711,62.33,3.38,4.17741870880127,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,SIBH01,Unassign,Unassign,RS sig
+MAG_361,YL.RS.Si235_bins.metabat2.1.fa.61,183910.7197,35245.47627,71.55,7.59,5.58719158172607,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,Unassign,Unassign,RS sig
+MAG_362,YL.RS.Si235_bins.metabat2.1.fa.68,32364.76361,13095.95902,62.07,0,1.96336841583252,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Saprospiraceae,JADKGY01,Unassign,RS sig
+MAG_363,YL.RS.Si235_bins.metabat2.1.fa.70,262024.8733,29606.45896,53.96,1.71,3.57558059692383,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_364,YL.RS.Si235_bins.metabat2.1.fa.71,107659.3047,37897.56635,85.72,7.93,4.75162982940674,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Casimicrobiaceae,VBCG01,Unassign,RS sig
+MAG_365,YL.RS.Si235_bins.metabat2.1.fa.77,43891.03035,11166.0805,89.01,3.75,6.81337070465088,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,JAFLBB01,Unassign,RS sig
+MAG_366,YL.RS.Si235_concoct_231,18719.65972,4127.326468,70.23,1.36,3.0508861541748,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_367,YL.RS.Si248_bins.043.maxbin,96383.88231,47090.55419,56.65,2.42,1.78351593017578,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_368,YL.RS.Si248_concoct_0,152608.5028,59765.88671,63.32,3.45,2.3371524810791,Bacteria,Actinobacteriota,Thermoleophilia,Gaiellales,Gaiellaceae,Gaiella,Unassign,RS sig
+MAG_369,YL.RS.Si248_concoct_52,74863.97487,25389.13028,72.76,0,2.14121341705322,Bacteria,Chloroflexota,Limnocylindria,QHBO01,QHBO01,JACDBZ01,Unassign,RS sig
+MAG_370,YL.RS.Si249_bins.metabat2.1.fa.1,581994.0778,102697.7145,68.43,1.72,4.85056304931641,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_371,YL.RS.Si249_bins.metabat2.1.fa.12,39657.74269,9080.038796,60.97,0,2.97057342529297,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,AG2,Unassign,RS sig
+MAG_372,YL.RS.Si249_bins.metabat2.1.fa.40,368244.598,68664.90721,50.25,3.41,4.1033353805542,Bacteria,Planctomycetota,Phycisphaerae,Tepidisphaerales,Tepidisphaeraceae,Humisphaera,Unassign,RS sig
+MAG_373,YL.RS.Si249_bins.metabat2.1.fa.6,98429.60166,30770.9274,52.89,0,2.8559398651123,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,Unassign,Unassign,RS sig
+MAG_374,YL.RS.Si249_bins.metabat2.1.fa.7,240849.9131,65190.59856,90.49,6.84,5.60549068450928,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,UBA2999,12-FULL-67-14b,Unassign,RS sig
+MAG_375,YL.RS.Si268_bins.065.maxbin,102925.0543,60683.45091,56.28,0.86,1.61167812347412,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_376,YL.RS.Si268_bins.070.maxbin,131813.1186,18936.41534,62.68,2.85,2.06195068359375,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_377,YL.RS.Si268_bins.076.maxbin,68639.97842,20263.2895,63.76,4.7,1.66423416137695,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,Unassign,Unassign,RS sig
+MAG_378,YL.RS.Si268_bins.metabat2.1.fa.45,92094.01979,33849.95774,73.72,1.82,2.84298992156982,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_379,YL.RS.Si268_bins.metabat2.1.fa.51,216975.3219,56369.30659,58.25,3.96,2.51667976379395,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,JACCXM01,Unassign,RS sig
+MAG_380,YL.RS.Si268_concoct_61,5151.108364,19732.46384,54.07,3.91,0.628350257873535,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,EFPC-124,Unassign,Unassign,RP sig
+MAG_381,YLrefSI_bins.metabat2.1.fa.11,10289.35096,3177.269914,50,0,1.77817916870117,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,JACDAL01,Unassign,RS sig
+MAG_382,YLrefSI_bins.metabat2.1.fa.145,22739.13065,6833.003208,54.83,2.29,1.0443696975708,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,DSRY01,Unassign,RS sig
+MAG_383,YLrefSI_bins.metabat2.1.fa.162,51264.72672,16664.76768,53.67,3.51,1.94249629974365,Bacteria,Myxococcota_A,UBA9160,UBA9160,SMWR01,Unassign,Unassign,RS sig
+MAG_384,YLrefSI_bins.metabat2.1.fa.179,35214.1766,11118.07303,53.76,1.72,2.22665596008301,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_385,YLrefSI_bins.metabat2.1.fa.193,187370.8418,53245.27825,58.1,3.45,2.94001197814941,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,JAABQT01,Unassign,RS sig
+MAG_386,YLrefSI_bins.metabat2.1.fa.200,25923.46388,10401.52315,56.9,3.45,3.77433967590332,Bacteria,Myxococcota_A,UBA796,UBA796,UBA2385,Unassign,Unassign,RS sig
+MAG_387,YLrefSI_bins.metabat2.1.fa.284,71678.70488,21501.42693,57.44,0.85,1.59906005859375,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,DSRY01,Unassign,RS sig
+MAG_388,YLrefSI_bins.metabat2.1.fa.30,168624.6745,26538.497,50.91,3.42,5.89014434814453,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_389,YLrefSI_bins.metabat2.1.fa.300,5469.778188,2332.313952,70.79,3.26,1.72842979431152,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Nitrosomonadaceae,Nitrosospira,Unassign,RS sig
+MAG_390,YLrefSI_bins.metabat2.1.fa.347,65287.70421,15709.35794,63.9,0.1,4.71782302856445,Bacteria,Planctomycetota,UBA1135,UBA2386,UBA2386,Unassign,Unassign,RS sig
+MAG_391,YLrefSI_bins.metabat2.1.fa.362,15436.66884,2495.760696,51.34,2.16,3.24690055847168,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,UBA8199,PSRM01,Unassign,RS sig
+MAG_392,YLrefSI_bins.metabat2.1.fa.367,4555.277264,1237.630974,51.88,1.72,2.2823657989502,Bacteria,Proteobacteria,Gammaproteobacteria,Xanthomonadales,SZUA-36,SHZL01,Unassign,RS sig
+MAG_393,YLrefSI_bins.metabat2.1.fa.372,23315.16551,7397.43402,51.58,0.34,1.14103889465332,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_394,YLrefSI_concoct_187,87064.45782,26207.02504,66.71,1.64,3.041242599487305,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerae,SM1A02,CAADGA01,Unassign,RS sig
+MAG_395,YLrefSI_concoct_224,9087.91923,1761.710054,57.22,1.7,2.37084579467773,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,CAADGA01,Unassign,RS sig
+MAG_396,YLrefSI_concoct_6,79725.5278,16116.12529,50.17,3.16,4.22613620758057,Bacteria,Acidobacteriota,Blastocatellia,UBA7656,UBA7656,JADGNW01,Unassign,RS sig
+MAG_397,ZJK.RS.1168_bins.metabat2.1.fa.107,23185.25768,11256.92808,88.85,9.29,5.14087772369385,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-41,Unassign,Unassign,RS sig
+MAG_398,ZJK.RS.1168_bins.metabat2.1.fa.112,10171.88402,4111.844322,73.58,2.08,1.95259189605713,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,UBA6265,Unassign,Unassign,RS sig
+MAG_399,ZJK.RS.1168_bins.metabat2.1.fa.113,28833.25022,8389.110026,62.09,4.56,4.74412441253662,Bacteria,Planctomycetota,Planctomycetia,Gemmatales,Gemmataceae,Unassign,Unassign,RS sig
+MAG_400,ZJK.RS.1168_bins.metabat2.1.fa.120,17789.00283,6330.421776,70.55,8.62,1.78921985626221,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Sep-70,VGBV01,Unassign,RS sig
+MAG_401,ZJK.RS.1168_bins.metabat2.1.fa.129,10238.7129,3620.675672,69.98,3.85,2.14480304718018,Bacteria,Actinobacteriota,Acidimicrobiia,IMCC26256,JACPCJ01,Unassign,Unassign,RS sig
+MAG_402,ZJK.RS.1168_bins.metabat2.1.fa.130,9714.988028,2784.665892,76.12,5.26,6.16412353515625,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,Unassign,Unassign,RS sig
+MAG_403,ZJK.RS.1168_bins.metabat2.1.fa.139,22275.14747,6069.525098,50.15,3.21,2.62789916992188,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,Unassign,Unassign,RS sig
+MAG_404,ZJK.RS.1168_bins.metabat2.1.fa.144,48162.98844,7396.397694,70.23,8.31,5.13820457458496,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,UBA11320,Unassign,Unassign,RS sig
+MAG_405,ZJK.RS.1168_bins.metabat2.1.fa.171,17380.06799,6650.971426,63.95,0,3.69415187835693,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,UBA2999,Unassign,Unassign,RS sig
+MAG_406,ZJK.RS.1168_bins.metabat2.1.fa.173,27932.84444,10532.10849,73.46,2.99,1.95265865325928,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_407,ZJK.RS.1168_bins.metabat2.1.fa.177,3166.813288,4401.91468,95.06,7.63,3.08822822570801,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Unassign,Unassign,RP sig
+MAG_408,ZJK.RS.1168_bins.metabat2.1.fa.18,231.832196,173.08134,92.83,0.58,1.24210357666016,Bacteria,Proteobacteria,Gammaproteobacteria,Coxiellales,Coxiellaceae,Unassign,Unassign,RS sig
+MAG_409,ZJK.RS.1168_bins.metabat2.1.fa.183,2525.545138,1013.77523,85.27,9.08,2.11097717285156,Bacteria,Actinobacteriota,UBA4738,CADDZG01,WHSQ01,Unassign,Unassign,RS sig
+MAG_410,ZJK.RS.1168_bins.metabat2.1.fa.192,15810.31166,2702.134816,80.03,2.56,2.6128511428833,Bacteria,Krumholzibacteriota,Krumholzibacteria,WVZY01,Unassign,Unassign,Unassign,RS sig
+MAG_411,ZJK.RS.1168_bins.metabat2.1.fa.205,3635.113938,13282.22266,59.97,2.63,6.09942436218262,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_412,ZJK.RS.1168_bins.metabat2.1.fa.222,23463.68856,7268.648692,70.69,0,2.78746891021729,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_413,ZJK.RS.1168_bins.metabat2.1.fa.240,19901.21646,10281.75206,88.3,9.19,6.49654960632324,Bacteria,Acidobacteriota,Vicinamibacteria,Fen-336,Fen-336,AA29,Unassign,RS sig
+MAG_414,ZJK.RS.1168_bins.metabat2.1.fa.25,15146.16242,4271.652114,81.21,7.14,4.03955364227295,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,VBAS01,Unassign,RS sig
+MAG_415,ZJK.RS.1168_bins.metabat2.1.fa.269,7357.709814,5853.140382,88.28,7.14,10.6305599212646,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,SZUA-265,Unassign,RS
+MAG_416,ZJK.RS.1168_bins.metabat2.1.fa.274,7109.777076,1685.231444,58.27,1.38,2.53624534606934,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Chthoniobacterales,Chthoniobacteraceae,Unassign,Unassign,RS sig
+MAG_417,ZJK.RS.1168_bins.metabat2.1.fa.29,3442.893188,1122.517882,70.93,4.55,2.61592960357666,Bacteria,Nitrospirota,Nitrospiria,Nitrospirales,Nitrospiraceae,Unassign,Unassign,RS sig
+MAG_418,ZJK.RS.1168_bins.metabat2.1.fa.297,83990.9855,24847.49303,56.9,4.66,3.09806728363037,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Usitatibacteraceae,Usitatibacter,Unassign,RS sig
+MAG_419,ZJK.RS.1168_bins.metabat2.1.fa.301,14447.58656,3637.987378,72.17,3.88,1.15079021453857,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrosocosmicus,Unassign,RS sig
+MAG_420,ZJK.RS.1168_bins.metabat2.1.fa.319,14071.17144,33180.52416,71.51,7.82,5.37262153625488,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,JAAYXG01,Unassign,RP sig
+MAG_421,ZJK.RS.1168_bins.metabat2.1.fa.334,39662.1778,11903.48668,84.1,4.95,3.08633422851562,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_422,ZJK.RS.1168_bins.metabat2.1.fa.336,11760.46516,9439.974218,56.9,0,2.42579460144043,Bacteria,Proteobacteria,Gammaproteobacteria,Pseudomonadales,Pseudomonadaceae,Azotobacter,Azotobacter chroococcum,RS
+MAG_423,ZJK.RS.1168_bins.metabat2.1.fa.339,7759.779536,37515.40686,60.27,0,0.944201469421387,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA1547,Unassign,Unassign,RP sig
+MAG_424,ZJK.RS.1168_bins.metabat2.1.fa.373,49044.13199,32588.21689,75.87,6.9,3.15610885620117,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Beijerinckiaceae,Microvirga,Unassign,RS sig
+MAG_425,ZJK.RS.1168_bins.metabat2.1.fa.379,14534.75115,9722.92359,55.83,0.31,2.66553115844727,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Afifellaceae,Propylenella,Unassign,RS sig
+MAG_426,ZJK.RS.1168_bins.metabat2.1.fa.381,45705.42299,37623.86066,53.76,4.14,3.28883934020996,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Devosiaceae,Devosia_A,Unassign,RS
+MAG_427,ZJK.RS.1168_bins.metabat2.1.fa.385,6682.70826,2925.972844,75.98,3.42,2.08994579315186,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_428,ZJK.RS.1168_bins.metabat2.1.fa.386,19179.42852,13518.16034,73.95,9.48,2.21987247467041,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_429,ZJK.RS.1168_bins.metabat2.1.fa.389,224798.5291,53674.32505,71.77,3.86,3.63407230377197,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,AR12,Unassign,RS sig
+MAG_430,ZJK.RS.1168_bins.metabat2.1.fa.391,6304.864414,16842.75281,79.59,2.46,5.20338439941406,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Niastella,Unassign,RP sig
+MAG_431,ZJK.RS.1168_bins.metabat2.1.fa.406,6786.732002,2990.3583,60.67,3.4,1.12249946594238,Bacteria,Chloroflexota,Chloroflexia,Thermomicrobiales,Unassign,Unassign,Unassign,RS sig
+MAG_432,ZJK.RS.1168_bins.metabat2.1.fa.417,6069.848954,2494.937114,52.74,3.45,3.18923759460449,Bacteria,Acidobacteriota,CAIWXX01,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_433,ZJK.RS.1168_bins.metabat2.1.fa.42,21724.57556,11175.58229,73.3,7.63,7.0364875793457,Bacteria,Myxococcota,Polyangia,Palsa-1104_A,Fen-1088,Unassign,Unassign,RS sig
+MAG_434,ZJK.RS.1168_bins.metabat2.1.fa.428,28223.89501,7161.452242,88.47,7.26,3.46929931640625,Bacteria,Actinobacteriota,Acidimicrobiia,Acidimicrobiales,JACDEA01,JACDEA01,Unassign,RS sig
+MAG_435,ZJK.RS.1168_bins.metabat2.1.fa.433,664.215232,153.691884,51.38,1.72,1.78878402709961,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,JABWBV01,JABWBV01,Unassign,RS sig
+MAG_436,ZJK.RS.1168_bins.metabat2.1.fa.44,3847.932634,1679.105538,55.03,1.71,1.3867301940918,Bacteria,Actinobacteriota,UBA4738,AC-67,AC-67,Unassign,Unassign,RS sig
+MAG_437,ZJK.RS.1168_bins.metabat2.1.fa.445,6185.94623,1819.849176,58.43,0,1.9077033996582,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,UBA4720,Unassign,RS sig
+MAG_438,ZJK.RS.1168_bins.metabat2.1.fa.449,8154.778782,3103.251782,91.1,0.59,3.56061744689941,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JJ008,Unassign,RS sig
+MAG_439,ZJK.RS.1168_bins.metabat2.1.fa.453,9.148538,11.267452,63.09,0,1.11123561859131,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP
+MAG_440,ZJK.RS.1168_bins.metabat2.1.fa.459,9900.52306,1786.304196,91.74,1.38,4.62045001983643,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Chthoniobacterales,Chthoniobacteraceae,Unassign,Unassign,RS sig
+MAG_441,ZJK.RS.1168_bins.metabat2.1.fa.471,18321.16195,5299.06102,86.51,5.42,4.38420104980469,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Unassign,Unassign,RS sig
+MAG_442,ZJK.RS.1168_bins.metabat2.1.fa.472,3898.811066,2414.614898,51.04,4.39,2.66322803497314,Bacteria,Myxococcota_A,UBA9160,SZUA-336,SZUA-336,Unassign,Unassign,RS sig
+MAG_443,ZJK.RS.1168_bins.metabat2.1.fa.477,15044.95448,12998.79914,82.04,3.68,4.18686008453369,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,Chryseolinea,Unassign,RS
+MAG_444,ZJK.RS.1168_bins.metabat2.1.fa.478,12881.02114,4760.446094,71.47,0,2.47080039978027,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,JACDDX01,Unassign,RS sig
+MAG_445,ZJK.RS.1168_bins.metabat2.1.fa.504,11387.82727,3565.628828,67.61,4.27,2.63608551025391,Bacteria,Actinobacteriota,UBA4738,AC-67,Unassign,Unassign,Unassign,RS sig
+MAG_446,ZJK.RS.1168_bins.metabat2.1.fa.523,77336.30864,94272.16917,88.92,5.86,4.52148532867432,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Ramlibacter,Unassign,RP
+MAG_447,ZJK.RS.1168_bins.metabat2.1.fa.544,2664.983882,804.894918,79.19,5.73,4.99611949920654,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,QHXM01,Unassign,RS sig
+MAG_448,ZJK.RS.1168_bins.metabat2.1.fa.557,18487.88893,4389.474492,60,4.27,3.91126728057861,Bacteria,Acidobacteriota,Blastocatellia,UBA7656,UBA7656,JACQDB01,Unassign,RS sig
+MAG_449,ZJK.RS.1168_bins.metabat2.1.fa.587,2459.13145,626.22521,82.27,0.91,5.15212249755859,Bacteria,Chloroflexota,Anaerolineae,Aggregatilineales,A4b,OLB15,Unassign,RS sig
+MAG_450,ZJK.RS.1168_bins.metabat2.1.fa.593,8682.948224,7302.56165,78.17,3.33,3.41871738433838,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Unassign,Unassign,RS sig
+MAG_451,ZJK.RS.1168_bins.metabat2.1.fa.595,7957.889386,13677.72197,50.17,1.72,3.99756240844727,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,PALSA-1196,Unassign,RP sig
+MAG_452,ZJK.RS.1168_bins.metabat2.1.fa.599,1400.446842,328.984656,90.66,2.3,4.673415184,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,Unassign,Unassign,Unassign,RS sig
+MAG_453,ZJK.RS.1168_bins.metabat2.1.fa.603,15435.01313,3094.56133,56.38,0,2.12813854217529,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Flavitalea,Unassign,RS sig
+MAG_454,ZJK.RS.1168_bins.metabat2.1.fa.606,6.324208,4.89371,56.25,0.67,1.10541820526123,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Glomeribacter,Unassign,RS
+MAG_455,ZJK.RS.1168_bins.metabat2.1.fa.609,47399.65096,15401.80525,90.26,5.27,2.27425670623779,Bacteria,Actinobacteriota,Thermoleophilia,Solirubrobacterales,Solirubrobacteraceae,AC-38,Unassign,RS sig
+MAG_456,ZJK.RS.1168_bins.metabat2.1.fa.61,3501.519628,1127.36,57.15,0,1.76535415649414,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Unassign,Unassign,RS sig
+MAG_457,ZJK.RS.1168_bins.metabat2.1.fa.611,12028.57037,2706.153754,80.57,0.43,2.68750667572021,Bacteria,Acidobacteriota,Thermoanaerobaculia,UBA5066,Gp7-AA6,Gp7-AA6,Unassign,RS sig
+MAG_458,ZJK.RS.1168_bins.metabat2.1.fa.75,9045.896278,21840.67596,57.76,1.72,4.71972846984863,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Povalibacter,Unassign,RP sig
+MAG_459,ZJK.RS.1168_bins.metabat2.1.fa.82,16690.90518,27827.05873,54.35,1.44,1.8599739074707,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JACDAZ01,Unassign,RP sig
+MAG_460,ZJK.RS.1490_bins.metabat2.1.fa.105,23361.94499,61792.01305,88.3,8.06,7.91239547729492,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RP sig
+MAG_461,ZJK.RS.1490_bins.metabat2.1.fa.111,72828.13258,15594.42013,53.56,0.86,2.16920375823975,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,UBA4720,Unassign,RS sig
+MAG_462,ZJK.RS.1490_bins.metabat2.1.fa.112,10728.33587,25641.86081,53.46,1.75,7.35848999023438,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP sig
+MAG_463,ZJK.RS.1490_bins.metabat2.1.fa.113,13137.23261,4045.60101,76.45,6.59,2.4323787689209,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Unassign,Unassign,Unassign,RS sig
+MAG_464,ZJK.RS.1490_bins.metabat2.1.fa.117,23977.00557,7974.024472,87.53,3.43,2.44233798980713,Bacteria,Chloroflexota,Limnocylindria,QHBO01,QHBO01,Unassign,Unassign,RS sig
+MAG_465,ZJK.RS.1490_bins.metabat2.1.fa.123,3225.934622,800.427838,82.42,1.1,2.63724327087402,Bacteria,Eisenbacteria,RBG-16-71-46,JABDJR01,Unassign,Unassign,Unassign,RS sig
+MAG_466,ZJK.RS.1490_bins.metabat2.1.fa.146,26117.69459,6751.171264,81.05,4.95,2.66077423095703,Bacteria,Gemmatimonadota,Gemmatimonadetes,JACCXV01,Unassign,Unassign,Unassign,RS sig
+MAG_467,ZJK.RS.1490_bins.metabat2.1.fa.154,79808.16777,23775.50782,89.15,8.77,8.24211883544922,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,JACMLA01,Unassign,RS sig
+MAG_468,ZJK.RS.1490_bins.metabat2.1.fa.190,64826.82427,19052.88225,63.95,1.72,3.12885856628418,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,JACDHQ01,Unassign,RS sig
+MAG_469,ZJK.RS.1490_bins.metabat2.1.fa.191,5673.416062,3781.400806,86.42,4.7,2.58917045593262,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_470,ZJK.RS.1490_bins.metabat2.1.fa.194,44029.52392,13219.01364,78.42,6.59,3.45525550842285,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,UBA6960,UBA2982,Unassign,RS sig
+MAG_471,ZJK.RS.1490_bins.metabat2.1.fa.197,2459.220598,1313.588836,86.84,2.52,3.26442718505859,Bacteria,Proteobacteria,Gammaproteobacteria,Woeseiales,Woeseiaceae,UBA1844,Unassign,RS sig
+MAG_472,ZJK.RS.1490_bins.metabat2.1.fa.204,27145.90319,10147.11237,59.48,1.72,2.3421745300293,Bacteria,Chloroflexota,Limnocylindria,Limnocylindrales,CSP1-4,SPCO01,Unassign,RS sig
+MAG_473,ZJK.RS.1490_bins.metabat2.1.fa.206,34780.31607,7705.264078,78.93,3.45,2.53139972686768,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,UBA4720,Unassign,RS sig
+MAG_474,ZJK.RS.1490_bins.metabat2.1.fa.209,4973.069858,2935.635404,92.92,9.83,6.22826290130615,Bacteria,Tectomicrobia,Entotheonellia,Entotheonellales,Entotheonellaceae,Entotheonella,Unassign,RS sig
+MAG_475,ZJK.RS.1490_bins.metabat2.1.fa.223,11766.65257,11461.28408,76.66,2.7,2.54340934753418,Bacteria,Proteobacteria,Alphaproteobacteria,Sphingomonadales,Sphingomonadaceae,Sphingobium,Unassign,RS
+MAG_476,ZJK.RS.1490_bins.metabat2.1.fa.224,20271.30184,4205.808352,73.17,3.51,2.52037239074707,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_477,ZJK.RS.1490_bins.metabat2.1.fa.239,32621.65355,46936.49639,52.93,1.75,8.86995792388916,Bacteria,Myxococcota,Polyangia,Nannocystales,Nannocystaceae,Unassign,Unassign,RP
+MAG_478,ZJK.RS.1490_bins.metabat2.1.fa.247,18646.34974,2887.105008,64.22,0.88,4.30638885498047,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,Unassign,Unassign,RS sig
+MAG_479,ZJK.RS.1490_bins.metabat2.1.fa.253,24835.27512,8151.557124,74.67,3.76,4.88154888153076,Bacteria,Acidobacteriota,Blastocatellia,RBC074,Unassign,Unassign,Unassign,RS sig
+MAG_480,ZJK.RS.1490_bins.metabat2.1.fa.255,17654.80162,5796.320738,63.26,2.2,4.04299736022949,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,SZUA-320,Unassign,RS sig
+MAG_481,ZJK.RS.1490_bins.metabat2.1.fa.260,9494.348756,15522.65477,58.81,4.27,2.56960964202881,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RP sig
+MAG_482,ZJK.RS.1490_bins.metabat2.1.fa.268,19504.32241,3867.622996,80.45,5.18,4.74568462371826,Bacteria,Chloroflexota,Anaerolineae,Anaerolineales,EnvOPS12,UBA12294,Unassign,RS sig
+MAG_483,ZJK.RS.1490_bins.metabat2.1.fa.269,19305.97789,10557.07248,71.47,6.14,5.4215841293335,Bacteria,Myxococcota,Polyangia,Haliangiales,Haliangiaceae,JABFXX01,Unassign,RS sig
+MAG_484,ZJK.RS.1490_bins.metabat2.1.fa.289,3325.235942,3139.751812,95.65,1.08,2.28908061981201,Bacteria,Actinobacteriota,Actinomycetia,Unassign,Unassign,Unassign,Unassign,RS
+MAG_485,ZJK.RS.1490_bins.metabat2.1.fa.307,18040.82441,23171.05963,56.21,1.72,3.98083209991455,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,Lautropia,Unassign,RP sig
+MAG_486,ZJK.RS.1490_bins.metabat2.1.fa.308,6904.079156,4068.390864,58.62,2.59,3.74874687194824,Bacteria,Planctomycetota,UBA11346,UBA11346,UBA11346,JACDEC01,Unassign,RS sig
+MAG_487,ZJK.RS.1490_bins.metabat2.1.fa.309,43270.41365,10428.78833,75.86,5.17,4.53512096405029,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,AG2,Unassign,RS sig
+MAG_488,ZJK.RS.1490_bins.metabat2.1.fa.314,23405.7971,5291.17748,67.51,1.29,2.69456958770752,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_489,ZJK.RS.1490_bins.metabat2.1.fa.321,31948.05496,10003.83658,50.86,3.45,2.78004360198975,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,RSA9,Unassign,Unassign,RS sig
+MAG_490,ZJK.RS.1490_bins.metabat2.1.fa.324,3817.217186,1285.122658,86.32,3.85,2.21216106414795,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,JACCTH01,Unassign,RS sig
+MAG_491,ZJK.RS.1490_bins.metabat2.1.fa.33,3847.476008,5848.099252,83.38,4.51,4.8282938,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,PWU20,Unassign,RP
+MAG_492,ZJK.RS.1490_bins.metabat2.1.fa.340,4905.27833,3804.705404,54.83,0,2.64565944671631,Bacteria,Proteobacteria,Alphaproteobacteria,Caulobacterales,TH1-2,Terricaulis,Unassign,RS sig
+MAG_493,ZJK.RS.1490_bins.metabat2.1.fa.351,25067.79643,4337.070768,85.94,6.48,3.71204471588135,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_494,ZJK.RS.1490_bins.metabat2.1.fa.365,27614.16534,9219.568274,80.64,4.27,2.84421634674072,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JJ008,Unassign,RS sig
+MAG_495,ZJK.RS.1490_bins.metabat2.1.fa.378,2340.89129,573.061506,88.19,1.23,3.46210193634033,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Unassign,Unassign,RS sig
+MAG_496,ZJK.RS.1490_bins.metabat2.1.fa.38,11462.14943,20480.47351,83.4,7.33,9.20470142364502,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,PMG-095,Unassign,RP
+MAG_497,ZJK.RS.1490_bins.metabat2.1.fa.381,562.191592,173.308766,56.14,1.75,3.71736526489258,Bacteria,Bdellovibrionota,Oligoflexia,Oligoflexales,Oligoflexaceae,Oligoflexus,Unassign,RS sig
+MAG_498,ZJK.RS.1490_bins.metabat2.1.fa.39,113600.9956,31547.73488,72.73,7.59,5.87447357177734,Bacteria,Methylomirabilota,Methylomirabilia,Rokubacteriales,CSP1-6,VGLJ01,Unassign,RS sig
+MAG_499,ZJK.RS.1490_bins.metabat2.1.fa.392,13867.80337,4586.248848,87.83,2.08,3.80805492401123,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_500,ZJK.RS.1490_bins.metabat2.1.fa.408,7654.883176,2819.111366,99.32,3.6,4.43666172027588,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Chthoniobacterales,Terrimicrobiaceae,Unassign,Unassign,RS sig
+MAG_501,ZJK.RS.1490_bins.metabat2.1.fa.418,1723.3933,683.621722,87.06,6.45,3.80168724060059,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,Unassign,Unassign,RS sig
+MAG_502,ZJK.RS.1490_bins.metabat2.1.fa.421,463.918568,202.24713,52.41,0,2.55160045623779,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,JACDAZ01,Unassign,RS sig
+MAG_503,ZJK.RS.1490_bins.metabat2.1.fa.422,2542.39808,838.150062,57.89,1.75,3.52857303619385,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_504,ZJK.RS.1490_bins.metabat2.1.fa.433,16773.25577,5901.703424,68.45,1.82,4.91852378845215,Bacteria,Chloroflexota,Anaerolineae,Aggregatilineales,UBA2796,Unassign,Unassign,RS sig
+MAG_505,ZJK.RS.1490_bins.metabat2.1.fa.447,13820.03646,25405.74566,53.45,1.72,1.62913131713867,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,CADEEN01,Unassign,RP sig
+MAG_506,ZJK.RS.1490_bins.metabat2.1.fa.454,62.150358,35.681296,61.54,0.28,1.09554862976074,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RS sig
+MAG_507,ZJK.RS.1490_bins.metabat2.1.fa.473,12207.87354,3347.447866,56.66,0,2.27323246002197,Bacteria,Eisenbacteria,RBG-16-71-46,RBG-16-71-46,Unassign,Unassign,Unassign,RS sig
+MAG_508,ZJK.RS.1490_bins.metabat2.1.fa.496,12279.63567,2872.271558,87.39,3.42,6.96893119812012,Bacteria,Acidobacteriota,Blastocatellia,UBA7656,UBA7656,JADGNW01,Unassign,RS sig
+MAG_509,ZJK.RS.1490_bins.metabat2.1.fa.514,77047.33446,18457.84689,78.16,9.89,4.43939208984375,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,JABWBJ01,Unassign,RS sig
+MAG_510,ZJK.RS.1490_bins.metabat2.1.fa.529,9260.14339,3895.547752,69.64,4.82,5.54909324645996,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,Unassign,Unassign,RS sig
+MAG_511,ZJK.RS.1490_bins.metabat2.1.fa.533,15392.53978,18481.55953,82.51,4.02,3.19909954071045,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Xanthobacteraceae,Unassign,Unassign,RP sig
+MAG_512,ZJK.RS.1490_bins.metabat2.1.fa.55,12954.89038,3026.195364,72.08,2.91,2.6958475112915,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrosocosmicus,Unassign,RS sig
+MAG_513,ZJK.RS.1490_bins.metabat2.1.fa.555,13010.58045,4116.091452,51.15,0,2.9415807723999,Bacteria,Acidobacteriota,Acidobacteriae,Bryobacterales,Bryobacteraceae,JAFLBB01,Unassign,RS sig
+MAG_514,ZJK.RS.1490_bins.metabat2.1.fa.557,34411.70912,17789.56492,50.54,1.3,1.22580051422119,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Methyloligellaceae,Methyloceanibacter,Unassign,RS sig
+MAG_515,ZJK.RS.1490_bins.metabat2.1.fa.569,7004.78103,2151.859936,72.77,4.27,2.40735340118408,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,Unassign,Unassign,RS sig
+MAG_516,ZJK.RS.1490_bins.metabat2.1.fa.59,17680.3238,3984.594368,70.03,9.4,2.91294193267822,Bacteria,Acidobacteriota,Acidobacteriae,20CM-2-55-15,20CM-2-55-15,Unassign,Unassign,RS sig
+MAG_517,ZJK.RS.1490_bins.metabat2.1.fa.597,9770.271392,3127.48394,84.63,2.2,3.29249668121338,Bacteria,Eisenbacteria,RBG-16-71-46,RBG-16-71-46,RBG-16-71-46,WS-8,Unassign,RS sig
+MAG_518,ZJK.RS.1490_bins.metabat2.1.fa.69,15559.01976,7844.323418,80.94,5.36,3.08477592468262,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Unassign,Unassign,RS sig
+MAG_519,ZJK.RS.1490_bins.metabat2.1.fa.86,604.339262,1017.789494,93.99,3.33,3.24617004394531,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Ferruginibacter,Unassign,RP sig
+MAG_520,ZJK.RS.1490_concoct_97,12138.27364,2755.600182,50.88,1.75,3.48956871032715,Bacteria,Planctomycetota,Phycisphaerae,UBA1845,Fen-1342,JACRLV01,Unassign,RS sig
+MAG_521,ZJKref200_bins.001.maxbin,176500.2858,99732.99371,86.08,7.54,1.737109184265137,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,Nitrososphaera,Unassign,RS sig
+MAG_522,ZJKref200_bins.002.maxbin,196630.2371,56217.67806,62.16,2.58,2.36867904663086,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,SCGC-AG-212-J23,Unassign,RS sig
+MAG_523,ZJKref200_bins.006.maxbin,193063.1125,83864.07887,50.2,3.13,1.96214771270752,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,WHTF01,Unassign,RS sig
+MAG_524,ZJKref200_bins.037.maxbin,224754.1753,44569.62625,57.05,3.37,3.00301456451416,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,VBAS01,Unassign,RS sig
+MAG_525,ZJKref200_bins.313.maxbin,28456.43327,48449.42512,73.56,6.72,4.5310525894165,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,JAAYXG01,Unassign,RP sig
+MAG_526,ZJKref200_bins.479.maxbin,1274.165582,307.197702,69.56,3.93,2.28663158416748,Bacteria,Goldbacteria,Unassign,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_527,ZJKref200_bins.637.maxbin,756.86922,1439.200734,50.96,1.82,0.955559730529785,Bacteria,Patescibacteria,Saccharimonadia,Saccharimonadales,UBA4665,PMNU01,Unassign,RP sig
+MAG_528,ZJKref200_bins.metabat2.1.fa.1,5024.453118,2344.480314,58.1,0,1.98772430419922,Bacteria,Actinobacteriota,UBA4738,UBA4738,HRBIN12,AC-51,Unassign,RS sig
+MAG_529,ZJKref200_bins.metabat2.1.fa.102,15756.66075,3488.219614,58.05,3.51,2.0352144241333,Bacteria,Planctomycetota,Phycisphaerae,Tepidisphaerales,Unassign,Unassign,Unassign,RS sig
+MAG_530,ZJKref200_bins.metabat2.1.fa.104,357.686964,88.063646,69.24,0.49,2.53526401519775,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,UBA10324,JAFDYS01,Unassign,RS sig
+MAG_531,ZJKref200_bins.metabat2.1.fa.118,20976.6842,4931.147306,85.25,5.04,3.99884605407715,Bacteria,Myxococcota_A,UBA796,UBA796,GCA-2862545,DRPG01,Unassign,RS sig
+MAG_532,ZJKref200_bins.metabat2.1.fa.121,5156.130168,907.761262,96.12,5.88,5.67984485626221,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,UBA8199,PSRM01,Unassign,RS sig
+MAG_533,ZJKref200_bins.metabat2.1.fa.136,346.578792,59.815002,69.12,0,3.21188545227051,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,ELB16-189,Unassign,RS sig
+MAG_534,ZJKref200_bins.metabat2.1.fa.149,1498.90905,578.288856,75.14,1.11,2.33811664581299,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Saprospiraceae,JADKGY01,Unassign,RS sig
+MAG_535,ZJKref200_bins.metabat2.1.fa.152,8975.164404,3019.90765,83.22,9.11,4.54444980621338,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,UBA6960,Unassign,Unassign,RS sig
+MAG_536,ZJKref200_bins.metabat2.1.fa.171,29677.99782,9854.031514,57.66,3.51,2.37020111083984,Bacteria,Chloroflexota,Dehalococcoidia,Tepidiformales,Tepidiformaceae,14-Feb,Unassign,RS sig
+MAG_537,ZJKref200_bins.metabat2.1.fa.173,13523.65801,3406.022356,61.23,3.51,4.41041660308838,Bacteria,Planctomycetota,UBA1135,UBA1135,GCA-002686595,JABFRZ01,Unassign,RS sig
+MAG_538,ZJKref200_bins.metabat2.1.fa.177,8337.832116,6070.85093,70.85,6.9,2.66516780853271,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Xanthobacteraceae,Palsa-892,Unassign,RS sig
+MAG_539,ZJKref200_bins.metabat2.1.fa.19,4330.198106,1405.797386,91.97,1.28,3.17662811279297,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,Unassign,Unassign,RS sig
+MAG_540,ZJKref200_bins.metabat2.1.fa.195,1359.281364,274.139664,82.72,0.82,3.56707668304443,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,ELB16-189,Unassign,RS sig
+MAG_541,ZJKref200_bins.metabat2.1.fa.196,42749.95686,12491.45972,57.62,2.27,4.7420597076416,Bacteria,Planctomycetota,Planctomycetia,Gemmatales,Gemmataceae,SIAJ01,Unassign,RS sig
+MAG_542,ZJKref200_bins.metabat2.1.fa.198,77485.63268,14624.00793,56.86,1.14,2.33447742462158,Bacteria,Planctomycetota,Phycisphaerae,Tepidisphaerales,Unassign,Unassign,Unassign,RS sig
+MAG_543,ZJKref200_bins.metabat2.1.fa.221,203221.8469,43430.49171,55.49,1.72,4.5595588684082,Bacteria,Verrucomicrobiota,Verrucomicrobiae,Pedosphaerales,UBA11320,Unassign,Unassign,RS sig
+MAG_544,ZJKref200_bins.metabat2.1.fa.224,1838.781294,1148.791022,54.4,2.27,1.9045238494873,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_545,ZJKref200_bins.metabat2.1.fa.228,6182.375716,1887.412776,82.17,4.3,4.18222999572754,Bacteria,Planctomycetota,UBA1135,UBA1135,GCA-002686595,Unassign,Unassign,RS sig
+MAG_546,ZJKref200_bins.metabat2.1.fa.230,16684.77972,5388.017338,52.13,4.94,5.2148904800415,Bacteria,Planctomycetota,Planctomycetia,Pirellulales,JAEUIK01,Unassign,Unassign,RS sig
+MAG_547,ZJKref200_bins.metabat2.1.fa.239,12092.14772,3972.758888,64.66,3.45,3.9317045211792,Bacteria,Acidobacteriota,Mor1,Mor1,Unassign,Unassign,Unassign,RS sig
+MAG_548,ZJKref200_bins.metabat2.1.fa.244,21467.57639,17147.70873,86.24,6.69,3.14851951599121,Bacteria,Actinobacteriota,Actinomycetia,Actinomycetales,Dermatophilaceae,Ornithinibacter,Unassign,RS sig
+MAG_549,ZJKref200_bins.metabat2.1.fa.252,5695.547458,1949.842832,69.12,1.72,4.18778324127197,Bacteria,Acidobacteriota,Mor1,Gp22-AA2,Gp22-AA2,Unassign,Unassign,RS sig
+MAG_550,ZJKref200_bins.metabat2.1.fa.26,140312.9938,37466.08057,52.76,0,4.20876693725586,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,UBA2999,Gp6-AA40,Unassign,RS sig
+MAG_551,ZJKref200_bins.metabat2.1.fa.262,36527.11913,9038.84348,55.34,1.72,3.31369590759277,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,JABWBJ01,Unassign,RS sig
+MAG_552,ZJKref200_bins.metabat2.1.fa.269,27574.33568,11120.21794,75.86,5.17,4.12424373626709,Bacteria,Actinobacteriota,Acidimicrobiia,IMCC26256,PALSA-555,Unassign,Unassign,RS sig
+MAG_553,ZJKref200_bins.metabat2.1.fa.281,24475.01658,5078.273126,75,6.83,2.53833961486816,Bacteria,Actinobacteriota,Rubrobacteria,Rubrobacterales,Rubrobacteraceae,SCSIO-52915,Unassign,RS sig
+MAG_554,ZJKref200_bins.metabat2.1.fa.283,3211.508586,1956.28003,94.07,1.22,2.83591747283936,Bacteria,Proteobacteria,Alphaproteobacteria,Rhizobiales,Aestuariivirgaceae,CABJBCQ01,Unassign,RS sig
+MAG_555,ZJKref200_bins.metabat2.1.fa.290,1308.140806,6038.210912,76.04,1.77,5.15317249298096,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Pseudobacter,Unassign,RP sig
+MAG_556,ZJKref200_bins.metabat2.1.fa.291,5345.722128,2269.065228,60.12,2.58,1.75398159,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_557,ZJKref200_bins.metabat2.1.fa.292,18701.87134,6830.132226,72.72,9.46,4.69473838806152,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,SCN-69-37,Unassign,Unassign,RS sig
+MAG_558,ZJKref200_bins.metabat2.1.fa.294,18535.00659,8738.283776,82.05,9.64,5.27848148345947,Bacteria,Proteobacteria,Alphaproteobacteria,Micropepsales,Micropepsaceae,CAIYRG01,Unassign,RS sig
+MAG_559,ZJKref200_bins.metabat2.1.fa.319,3043.261422,2003.687238,77.13,1.85,2.56107044219971,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Burkholderiaceae,JACCZX01,Unassign,RS sig
+MAG_560,ZJKref200_bins.metabat2.1.fa.321,26241.58945,8460.578948,95.3,9.07,6.61075496673584,Bacteria,Planctomycetota,Planctomycetia,Pirellulales,Pirellulaceae,Anatilimnocola,Unassign,RS sig
+MAG_561,ZJKref200_bins.metabat2.1.fa.367,6361.816766,1781.281856,78.33,5.16,3.9832124710083,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_562,ZJKref200_bins.metabat2.1.fa.38,56817.28651,12618.0272,84.17,2.2,3.88566207885742,Bacteria,Gemmatimonadota,Gemmatimonadetes,Longimicrobiales,RSA9,Unassign,Unassign,RS sig
+MAG_563,ZJKref200_bins.metabat2.1.fa.4,79635.17332,16568.10023,58.77,2.63,3.58718490600586,Bacteria,Myxococcota,Polyangia,Haliangiales,Haliangiaceae,Unassign,Unassign,RS sig
+MAG_564,ZJKref200_bins.metabat2.1.fa.406,10891.42083,914.157068,74.14,0,3.93856239318848,Bacteria,Bacteroidota,Bacteroidia,Cytophagales,Cyclobacteriaceae,ELB16-189,Unassign,RS sig
+MAG_565,ZJKref200_bins.metabat2.1.fa.407,47408.06217,14754.25625,53.01,1.72,4.95796585083008,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-41,PALSA-1004,Unassign,RS sig
+MAG_566,ZJKref200_bins.metabat2.1.fa.42,14113.16712,3071.217672,81.25,3.42,2.469145774841309,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_567,ZJKref200_bins.metabat2.1.fa.426,1951.192154,783.650152,81.12,8.25,4.9287166595459,Bacteria,Desulfobacterota_B,Binatia,UBA9968,UBA9968,DP-20,Unassign,RS sig
+MAG_568,ZJKref200_bins.metabat2.1.fa.430,12711.60743,3627.477644,65.97,4.4,2.27530574798584,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,GWC2-71-9,Unassign,Unassign,RS sig
+MAG_569,ZJKref200_bins.metabat2.1.fa.445,3784.770466,21720.29855,63.4,2.41,4.8443078994751,Bacteria,Bacteroidota,Bacteroidia,Chitinophagales,Chitinophagaceae,Paraflavitalea,Unassign,RP sig
+MAG_570,ZJKref200_bins.metabat2.1.fa.446,1057.89619,524.66816,90.52,2.23,2.85026836395264,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,MA-ANB-1,Unassign,RS sig
+MAG_571,ZJKref200_bins.metabat2.1.fa.460,5357.847566,3249.144246,64.81,0,2.1857738494873,Bacteria,Proteobacteria,Gammaproteobacteria,Steroidobacterales,Steroidobacteraceae,Unassign,Unassign,RS sig
+MAG_572,ZJKref200_bins.metabat2.1.fa.468,23344.96826,7194.138172,73.78,6.03,5.50600814819336,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,Unassign,Unassign,Unassign,RS sig
+MAG_573,ZJKref200_bins.metabat2.1.fa.469,746.042834,453.5988,94.87,6.41,2.92154026031494,Bacteria,Actinobacteriota,Acidimicrobiia,UBA5794,ZC4RG35,SZUA-217,Unassign,RS sig
+MAG_574,ZJKref200_bins.metabat2.1.fa.482,971.736392,369.635772,62.73,1.72,3.7403039932251,Bacteria,Acidobacteriota,CAIWXX01,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_575,ZJKref200_bins.metabat2.1.fa.492,61129.38567,11869.02041,87.08,9.69,6.07884120941162,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_576,ZJKref200_bins.metabat2.1.fa.496,16716.13177,6043.21717,76.83,4.84,3.97480201721191,Bacteria,Planctomycetota,UBA1135,UBA1135,GCA-002686595,Unassign,Unassign,RS sig
+MAG_577,ZJKref200_bins.metabat2.1.fa.508,23372.61772,11998.45579,52.59,4.31,2.75277519226074,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,WYBJ01,WYBJ01,Unassign,RS sig
+MAG_578,ZJKref200_bins.metabat2.1.fa.511,42031.20484,13771.58257,58.62,3.45,6.10491561889648,Bacteria,Acidobacteriota,Vicinamibacteria,Fen-336,Fen-336,Unassign,Unassign,RS sig
+MAG_579,ZJKref200_bins.metabat2.1.fa.527,22486.2288,8321.168278,71.97,4.91,4.20737648010254,Bacteria,Acidobacteriota,Vicinamibacteria,Fen-336,Fen-336,Unassign,Unassign,RS sig
+MAG_580,ZJKref200_bins.metabat2.1.fa.530,19201.14057,3946.447278,66.58,0,2.05948734283447,Bacteria,Planctomycetota,Phycisphaerae,Tepidisphaerales,Unassign,Unassign,Unassign,RS sig
+MAG_581,ZJKref200_bins.metabat2.1.fa.542,33136.36908,6472.77598,56.15,1.94,0.584568023681641,Archaea,Thermoproteota,Nitrososphaeria,Nitrososphaerales,Nitrososphaeraceae,TA-21,Unassign,RS sig
+MAG_582,ZJKref200_bins.metabat2.1.fa.6,2957.069184,898.18008,79.43,3.41,2.64865112304688,Bacteria,Planctomycetota,Phycisphaerae,Phycisphaerales,SM1A02,Unassign,Unassign,RS sig
+MAG_583,ZJKref200_bins.metabat2.1.fa.60,9840.452324,2778.773492,52.59,0.86,2.29141426086426,Bacteria,Gemmatimonadota,Gemmatimonadetes,Gemmatimonadales,Gemmatimonadaceae,PNKF01,Unassign,RS sig
+MAG_584,ZJKref200_bins.metabat2.1.fa.64,40629.61564,12656.58282,79.25,7.93,2.59346199035645,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,SG8-39,JAABQT01,Unassign,RS sig
+MAG_585,ZJKref200_bins.metabat2.1.fa.66,45987.21538,10279.28852,54.39,1.75,6.64767932891846,Bacteria,Myxococcota,Polyangia,Nannocystales,Nannocystaceae,Unassign,Unassign,RS sig
+MAG_586,ZJKref200_bins.metabat2.1.fa.68,26478.51252,8141.459118,74.6,3.42,4.01619625091553,Bacteria,Acidobacteriota,Vicinamibacteria,Vicinamibacterales,SCN-69-37,Unassign,Unassign,RS sig
+MAG_587,ZJKref200_bins.metabat2.1.fa.76,29236.84423,5832.644662,72.44,9.76,3.38988399505615,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,OLB17,Unassign,RS sig
+MAG_588,ZJKref200_bins.metabat2.1.fa.82,8779.746516,1145.465516,75.18,4.63,2.22645092010498,Bacteria,Armatimonadota,Fimbriimonadia,Fimbriimonadales,Fimbriimonadaceae,Unassign,Unassign,RS sig
+MAG_589,ZJKref200_bins.metabat2.1.fa.91,2808.97914,1744.145052,66.46,4.81,1.78139209747314,Bacteria,Proteobacteria,Gammaproteobacteria,Burkholderiales,Nitrosomonadaceae,Nitrosospira,Unassign,RS sig
+MAG_590,ZJKref200_bins.metabat2.1.fa.95,185755.3441,29171.10274,56.54,3.45,4.95841598510742,Bacteria,Acidobacteriota,Blastocatellia,Pyrinomonadales,Pyrinomonadaceae,PSRF01,Unassign,RS sig
+MAG_591,ZJKref200_bins.metabat2.1.fa.96,20867.17852,5036.361448,81.24,9.68,6.11563396453857,Bacteria,Acidobacteriota,Acidobacteriae,20CM-2-55-15,20CM-2-55-15,DSPE01,Unassign,RS sig
+MAG_592,ZJKref200_concoct_117,49189.1887,10548.16958,70.56,9.81,9.56610774993896,Bacteria,Myxococcota,Polyangia,Haliangiales,Haliangiaceae,JABFXX01,Unassign,RS sig
+MAG_593,ZJKref200_concoct_152,12491.8669,6887.499476,50.86,4.31,2.48663425445557,Bacteria,Proteobacteria,Alphaproteobacteria,Caulobacterales,Unassign,Unassign,Unassign,RS sig
+MAG_594,ZJKref200_concoct_185,2839.838722,804.352422,52.26,2.3,3.07205009460449,Bacteria,RBG-13-61-14,Unassign,Unassign,Unassign,Unassign,Unassign,RS sig
+MAG_595,ZJKref200_concoct_62,18912.47208,3498.819108,92.33,4.68,10.2128849029541,Bacteria,Myxococcota,Polyangia,Polyangiales,Polyangiaceae,Unassign,Unassign,RS sig

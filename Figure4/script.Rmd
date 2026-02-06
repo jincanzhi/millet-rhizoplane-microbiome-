@@ -1,0 +1,233 @@
+---
+title: "script"
+author: "jincanzhi"
+date: "2025-12-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(dplyr)
+library(tibble)
+library(vegan)
+library(rstatix)
+library(agricolae)
+library(patchwork)
+library(tidyr) 
+set.seed(113)
+knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
+```
+
+```{r}
+##alpha
+raw_df <- read.table("./data/KO.diversity.index.txt",header=T,row.names = 1)
+metadata <- read.csv("./data/metadata.csv",row.names = 1)
+merge_df <- merge(raw_df, metadata, by.x = 'row.names', by.y = 'row.names')
+fin_df <- merge_df[c('region', 'shannon')]
+names(fin_df)[1] <- 'Group'
+max_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = max)
+mean_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = mean)
+dunn_res <- dunn_test(fin_df, shannon ~ Group, p.adjust.method = 'fdr')
+dunn_res_df <- data.frame(dunn_res[-1])
+n <- nrow(mean_df)
+pvalue_df <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
+    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
+  }
+}
+letter_df <- orderPvalue(mean_df$Group, mean_df$shannon, 0.05, pvalue_df, console = TRUE)
+letter_vector <- letter_df$groups
+
+p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.8, size = 4, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df, aes(y = shannon * 1.01, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_color_manual(values = c("#D55E00", "#0072B2")) + 
+  scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Shannon"
+  )
+
+fin_df1 <- merge_df[c('region', 'Chao1')]
+names(fin_df1)[1] <- 'Group'
+max_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = max)
+mean_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = mean)
+dunn_res1 <- dunn_test(fin_df1, Chao1 ~ Group, p.adjust.method = 'fdr')
+dunn_res_df1 <- data.frame(dunn_res1[-1])
+n <- nrow(mean_df1)
+pvalue_df1 <- matrix(1, ncol = n, nrow = n)
+k <- 0
+for(i in 1:(n - 1)) { 
+  for(j in (i + 1):n){ 
+    k <- k + 1
+    pvalue_df1[i,j] <- dunn_res_df1$p.adj[k]
+    pvalue_df1[j,i] <- dunn_res_df1$p.adj[k]
+  }
+}
+letter_df1 <- orderPvalue(mean_df1$Group, mean_df1$Chao1, 0.05, pvalue_df1, console = TRUE)
+letter_vector1 <- letter_df1$groups
+
+p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) + 
+  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+             alpha = 0.8, size = 4, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_text(data = max_df1, aes(y = Chao1 * 1.01, label = letter_vector1), position = position_dodge(0.9), size = 4) + 
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_color_manual(values = c("#D55E00", "#0072B2")) + 
+  scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
+  theme(
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
+    axis.ticks = element_line(linewidth = 0.6, color = "black"),
+    axis.line = element_line(linewidth = 0.6, color = "black"),
+    panel.border = element_rect(
+      fill = NA, color = "black", linewidth = 0.8
+    ),
+    panel.grid = element_blank(),
+    panel.background = element_blank(),
+    legend.position = "none"
+  ) + 
+  labs(
+    x = NULL,
+    y = "Chao1"
+  )
+
+##beta
+ko_abundance <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1, stringsAsFactors = FALSE)
+metadata <- read.csv("./data/metadata.csv", row.names = 1, stringsAsFactors = FALSE)
+ko_t <- t(ko_abundance)
+bray_dist <- vegdist(ko_t, method = "bray", na.rm = TRUE)
+
+
+pcoa_sig <- adonis2(bray_dist ~ region, data = metadata, permutations = 1000)
+variance <- pcoa_sig['Model', 'R2']
+p.val <- pcoa_sig['Model', 'Pr(>F)']
+
+cmdscale_total <- cmdscale(bray_dist, eig = T)
+eig <- cmdscale_total$eig
+
+points <- data.frame(cmdscale_total$points)
+data_df <- cbind(points, Group = metadata[rownames(points),])%>%
+  mutate(Group.region = case_when(
+    Group.region == "RP" ~ "Rhizoplane",
+    Group.region == "RS" ~ "Rhizosphere",
+    TRUE ~ Group.region
+  ))
+names(data_df)[names(data_df) == "Group.region"] <- "region"
+
+p_text <- ifelse(p.val < 0.001, "p < 0.001", 
+                 ifelse(p.val < 0.01, "p < 0.01", 
+                        ifelse(p.val < 0.05, "p < 0.05", paste0("p = ", format(p.val, digits = 2)))))
+
+p3<- ggplot(data_df, aes(x = X1, y = X2, color = region)) + 
+    geom_point(size = 4, alpha = 1) + 
+    stat_ellipse(level = 0.95, type = "norm", linewidth = 0.8, show.legend = FALSE) +
+    labs(x = paste('PCoA 1 (', format(100*eig[1]/sum(eig), digits=4), '%)', sep = ''),
+         y = paste('PCoA 2 (', format(100*eig[2]/sum(eig), digits=4), '%)', sep = '')) + 
+    ggtitle(paste(format(100*variance, digits = 3), '% of variance; ', p_text, sep = '')) +
+    scale_color_manual(values = c("#D55E00", "#0072B2")) + 
+    scale_fill_manual(
+        values = c("#D55E00", "#0072B2"),
+        labels = c("Rhizoplane", "Rhizosphere"),
+        name = "Region"
+    ) +
+    theme_classic(base_size = 10) +
+    theme(plot.title = element_text(size = 10, color = 'black', hjust = 0.5), 
+          plot.subtitle = element_text(size = 10, color = 'black', hjust = 0.5), 
+          axis.title = element_text(size = 10, color = "black", face = "bold"),
+          axis.text = element_text(size = 10, color = "black"),
+          axis.ticks = element_line(linewidth = 0.6, color = "black"),
+          axis.line = element_line(linewidth = 0.6, color = "black"),
+          panel.border = element_rect(
+            fill = NA, color = "black", linewidth = 0.8
+          ),
+          panel.grid = element_blank(),
+          panel.background = element_blank(),
+          legend.key.size = unit(0.5, 'cm'),
+          legend.box.spacing = unit(0.5,"cm"),
+          panel.grid.major = element_blank(), 
+          panel.grid.minor = element_blank(), 
+          legend.position = 'none')
+
+combined_plot <- (p1 + p2 + plot_spacer()+p3) + 
+  plot_layout(
+    nrow = 1,
+    widths = c(2, 2, 1, 4),
+    heights = c(1, 1, 1, 1)
+  )
+
+
+
+###GSRE
+data <- read.csv("./data/Reportercsore.csv")
+data$Enrich <- ifelse(data$ReporterScore > 0,"RS","RP")
+p4 <- ggplot(data, 
+           aes(x = reorder(Description, ReporterScore), 
+               y = ReporterScore,
+               fill = Enrich)) +
+  geom_bar(stat = "identity", 
+           color = "black",
+           linewidth = 0.3,
+           width = 0.8) +
+  scale_fill_manual(
+    values = c("#D55E00", "#0072B2"),
+    labels = c("Rhizoplane", "Rhizosphere"),
+    name = ""
+  ) +
+  theme_bw(base_size = 10) +
+  theme(
+    axis.title = element_text(face = "bold", size = 10),
+    axis.text.x = element_text(angle = 90,hjust = 1,vjust = 0.5,size = 10,color = 'black'),
+    axis.text.y = element_text(size = 10,margin = margin(r = 5)),
+    panel.grid = element_blank(),
+    panel.border = element_rect(linewidth = 0.5),
+    plot.margin = unit(c(0,0,0,0), "cm"),
+    legend.position = "top",
+    legend.title = element_text(face = "bold"),
+    legend.key.size = unit(0.5, "cm")
+  ) +
+  labs(
+    y = "Reporter Score", 
+    x = "")   
+
+
+final_plot <- plot_grid(
+  combined_plot,
+  p4,
+  nrow = 2,
+  align = "v",
+  rel_heights = c(1, 2)
+)
+
+  
+height <-28
+width <- 20
+ggsave("./Figure/Figure4.pdf",plot = final_plot,width = width,height = height,units = "cm",dpi = 600,paper="a4")
+ggsave("./Figure/Figure4.png",plot = final_plot,width = width,height = height,units = "cm",dpi = 600)
+
+```

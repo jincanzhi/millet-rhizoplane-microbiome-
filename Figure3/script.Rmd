@@ -1,0 +1,149 @@
+---
+title: "script"
+author: "jincanzhi"
+date: "2025-12-24"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(clusterProfiler)
+set.seed(113)
+knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
+```
+
+```{r}
+MAG_hub <- read.csv("./data/RP_MAG_network_hub_info.csv")
+MAG_list <- MAG_hub$label[trimws(MAG_hub$label) != ""]
+
+MAG_kegg <- read.csv("./data/MAG_kegg.csv")
+kegg_sub <- MAG_kegg %>% filter(MAG_kegg$MAG %in% MAG_list)
+
+
+ko_mag_count <- kegg_sub %>%
+  group_by(KO) %>%
+  summarise(
+    MAG_number = n_distinct(MAG),
+    .groups = "drop"
+  )
+
+ko_freq_dist <- ko_mag_count %>%
+  group_by(MAG_number) %>%
+  summarise(
+    KO_number = n(),
+    .groups = "drop"
+  ) %>%
+  arrange(MAG_number)
+
+total_KO <- sum(ko_freq_dist$KO_number)
+
+p1 <- ggplot(ko_freq_dist, aes(x = factor(MAG_number, levels = 1:20), y = KO_number)) +
+  geom_col(fill = "#FFBF8D", color = "#000000", linewidth = 0.2) +
+  geom_vline(xintercept = c(3.5, 10.5, 17.5), color = "#000000", linetype = "dashed", linewidth = 0.8, alpha = 0.8) +
+  annotate("text", x = 19, y = 1400, label = "Core KO", color = "#000000") +
+  annotate("text", x = 14, y = 1400, label = "Group KO", color = "#000000") +
+  annotate("text", x = 7, y = 1400, label = "Partially KO", color = "#000000") +
+  annotate("text", x = 2, y = 1400, label = "Specific KO", color = "#000000") +
+  theme_minimal() +
+  labs(x = "", y = "KO number") +
+  theme(
+    text = element_text(size = 5),
+    axis.title = element_text(size = 10, face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
+    panel.grid = element_blank(),
+    axis.line = element_line(color = "black", linewidth = 0.5),
+    plot.margin = margin(0, 5, 0, 5, "mm"),
+    legend.position = "none"
+  )
+
+ggsave("./Figure/Figure3A.pdf", plot = p1,width = 20, height = 6, units = "cm",dpi = 600)
+ggsave("./Figure/Figure3A.png", plot = p1,width = 20, height = 6, units = "cm",dpi = 600)
+
+
+ko_mag_count <- kegg_sub %>%
+  group_by(KO) %>%
+  summarise(MAG_number = n_distinct(MAG), .groups = "drop")
+
+ko_groups <- ko_mag_count %>%
+  mutate(
+    universal_group = case_when(
+      MAG_number >= 18 ~ "Core_conserved_KO",
+      MAG_number >= 11 ~ "Group_shared_KO",
+      MAG_number >= 4 ~ "Partially_specific_KO",
+      TRUE ~ "Specific_KO"
+    )
+  )
+
+core_KO <- ko_groups %>% filter(universal_group == "Core_conserved_KO") %>% pull(KO)
+shared_KO <- ko_groups %>% filter(universal_group == "Group_shared_KO") %>% pull(KO)
+partially_KO <- ko_groups %>% filter(universal_group == "Partially_specific_KO") %>% pull(KO)
+specific_KO <- ko_groups %>% filter(universal_group == "Specific_KO") %>% pull(KO)
+
+
+core_enrich <- enrichKEGG(gene = core_KO, organism = "ko", pvalueCutoff = 0.05, qvalueCutoff = 0.1)
+shared_enrich <- enrichKEGG(gene = shared_KO, organism = "ko", pvalueCutoff = 0.05, qvalueCutoff = 0.1)
+partially_enrich <- enrichKEGG(gene = partially_KO, organism = "ko", pvalueCutoff = 0.05, qvalueCutoff = 0.1)
+specific_enrich <- enrichKEGG(gene = specific_KO, organism = "ko", pvalueCutoff = 0.05, qvalueCutoff = 0.1)
+
+
+core_enrich_df <- as.data.frame(core_enrich) %>% mutate(Group = "Core KO")
+shared_enrich_df <- as.data.frame(shared_enrich) %>% mutate(Group = "Group KO")
+partially_enrich_df <- as.data.frame(partially_enrich) %>% mutate(Group = "Partially KO")
+specific_enrich_df <- as.data.frame(specific_enrich) %>% mutate(Group = "Specific KO")
+
+enrich_combined <- bind_rows(core_enrich_df, shared_enrich_df,partially_enrich_df,specific_enrich_df)
+
+kegg_info <- read.csv("./data/kegg_pathway.csv")
+kegg_info$L3 <- gsub("map", "ko", kegg_info$L3)
+enrich_combined <- enrich_combined %>% filter(ID %in% kegg_info$L3)
+
+#write.csv(enrich_combined,"./data/enrich.csv")
+
+enrich_combined <- read.csv("./data/enrich.csv")
+enrich_bubble <- ggplot(enrich_combined, aes(x = Group, y = Description, size = Count, color = -log10(qvalue))) +
+  geom_point(alpha = 0.7) +
+  scale_color_gradientn(colors = c("#27AE60", "#F39C12", "#E74C3C"), values = c(0, 0.5, 1)) +
+  scale_size(range = c(2, 8)) +
+  labs(
+    x = "",
+    y = "KEGG Pathway",
+    size = "Number of KOs",
+    color = "-log10(qvalue)"
+  ) +
+  theme_minimal() +
+  theme(
+    text = element_text(size = 10),
+    axis.title = element_text(size = 10, face = "bold"),
+    axis.text.y = element_text(size = 10, color = "black"),
+    axis.text.x = element_text(size = 10, color = "black",angle = 45,hjust = 1),
+    legend.title = element_text(size = 10, face = "bold"),
+    legend.text = element_text(size = 10),
+    panel.grid.major = element_line(color = "gray80", linewidth = 0.3),
+    panel.grid.minor = element_line(color = "gray90", linewidth = 0.1),
+    panel.border = element_rect(color = "black", linewidth = 0.5, fill = NA),
+    axis.line = element_line(color = "black", linewidth = 0.5),
+    plot.margin = margin(0, 5, 0, 5, "mm"),
+    legend.position = "right"
+  ) +
+  guides(size = guide_legend(ncol = 1), color = guide_colorbar(horizontal = TRUE), fill = guide_legend(ncol = 1))
+
+ggsave("./Figure/Figure3B.pdf", plot = enrich_bubble,width = 20, height = 24, units = "cm",dpi = 600)
+ggsave("./Figure/Figure3B.png", plot = enrich_bubble,width = 20, height = 24, units = "cm",dpi = 600)
+```
+
+
+```{r}
+list <- c("MAG_318","MAG_014","MAG_215","MAG_061","MAG_146","MAG_159","MAG_108","MAG_294","MAG_292","MAG_111","MAG_142","MAG_081","MAG_148","MAG_147","MAG_136","MAG_067","MAG_183","MAG_274","MAG_428","MAG_322","MAG_141","MAG_189")
+
+data <-read.csv("./data/MAG_kegg.csv")
+data1 <- data %>% filter(MAG %in% list)
+write.csv(data1,"./Postrive_MAG_KO.csv")
+
+n_list <- c("K00362","K00363","K03385","K15876")
+p_list <- c("K01077","K01078","K01113")
+iaa_list <- c("K00128","K01426")
+
+
+```

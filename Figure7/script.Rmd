@@ -1,0 +1,750 @@
+---
+title: "script"
+author: "jincanzhi"
+date: "2026-01-07"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(ggplot2)
+library(vegan)
+library(dplyr)
+library(linkET)
+library(RColorBrewer)
+library(cowplot)
+library(patchwork)
+library(ComplexHeatmap)
+library(circlize)
+library(tidyverse)
+library(tibble)
+library(lme4)
+library(lmerTest)
+library(clusterProfiler)
+set.seed(113)
+knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
+```
+
+##mantel test analysis
+```{r}
+##Cazy
+ko_abundance <- read.delim("./data/Bacteria.cazy.anno.profile", row.names = 1)
+metadata <- read.csv("./data/metadata.csv", row.names = 1)
+
+metadata <- metadata %>% filter(region == "RP")
+ko_abundance <- ko_abundance %>% select(contains("RP"))
+ko_abundance <- log(ko_abundance + 1)
+
+common_samples <- intersect(rownames(metadata), colnames(ko_abundance))
+ko_abundance <- ko_abundance[, common_samples]
+metadata <- metadata[common_samples, ]
+
+ko_t <- t(ko_abundance)
+bray_dist <- vegdist(ko_t, method = "bray",na.rm = T)
+
+yield_indices <- c("MSPW", "MSSN", "SGN", "HGW", "TSLL", "TSLW", 
+                   "MSH", "MSD", "FNL", "MSPD", "MSPL", "PGW")
+
+cazy_mantel_results <- data.frame(
+  Trait = character(),
+  r = numeric(),
+  p_value = numeric(),
+  stringsAsFactors = FALSE
+)
+
+for (index in yield_indices) {
+  
+  yield_dist <- dist(metadata[[index]],method = "euclidean")
+  mantel_test <- mantel(bray_dist, yield_dist, method = "spearman", permutations = 999)
+  
+  cazy_mantel_results <- rbind(cazy_mantel_results, data.frame(
+    Trait = index,
+    r = mantel_test$statistic,
+    p_value = mantel_test$signif
+  ))
+}
+
+cazy_mantel_results <- cazy_mantel_results %>%
+  mutate(
+    significance = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01 ~ "**",
+      p_value < 0.05 ~ "*",
+      TRUE ~ "ns"
+    )
+  )
+##KEGG
+ko_abundance <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1)
+metadata <- read.csv("./data/metadata.csv", row.names = 1)
+
+metadata <- metadata %>% filter(region == "RP")
+ko_abundance <- ko_abundance %>% select(contains("RP"))
+ko_abundance <- log(ko_abundance + 1)
+
+common_samples <- intersect(rownames(metadata), colnames(ko_abundance))
+ko_abundance <- ko_abundance[, common_samples]
+metadata <- metadata[common_samples, ]
+
+ko_t <- t(ko_abundance)
+bray_dist <- vegdist(ko_t, method = "bray",na.rm = T)
+
+yield_indices <- c("MSPW", "MSSN", "SGN", "HGW", "TSLL", "TSLW", 
+                   "MSH", "MSD", "FNL", "MSPD", "MSPL", "PGW")
+
+kegg_mantel_results <- data.frame(
+  Trait = character(),
+  r = numeric(),
+  p_value = numeric(),
+  stringsAsFactors = FALSE
+)
+
+for (index in yield_indices) {
+  
+  yield_dist <- dist(metadata[[index]],method = "euclidean")
+  mantel_test <- mantel(bray_dist, yield_dist, method = "spearman", permutations = 999)
+  
+  kegg_mantel_results <- rbind(kegg_mantel_results, data.frame(
+    Trait = index,
+    r = mantel_test$statistic,
+    p_value = mantel_test$signif
+  ))
+}
+
+kegg_mantel_results <- kegg_mantel_results %>%
+  mutate(
+    significance = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01 ~ "**",
+      p_value < 0.05 ~ "*",
+      TRUE ~ "ns"
+    )
+  )
+##MAG
+ko_abundance <- read.csv("./data/MAG_abundance.csv", row.names = 1)
+metadata <- read.csv("./data/metadata.csv", row.names = 1)
+
+metadata <- metadata %>% filter(region == "RP")
+ko_abundance <- ko_abundance %>% select(contains("RP"))
+ko_abundance <- log(ko_abundance + 1)
+
+common_samples <- intersect(rownames(metadata), colnames(ko_abundance))
+ko_abundance <- ko_abundance[, common_samples]
+metadata <- metadata[common_samples, ]
+
+ko_t <- t(ko_abundance)
+bray_dist <- vegdist(ko_t, method = "bray",na.rm = T)
+
+yield_indices <- c("MSPW", "MSSN", "SGN", "HGW", "TSLL", "TSLW", 
+                   "MSH", "MSD", "FNL", "MSPD", "MSPL", "PGW")
+
+mag_mantel_results <- data.frame(
+  Trait = character(),
+  r = numeric(),
+  p_value = numeric(),
+  stringsAsFactors = FALSE
+)
+
+for (index in yield_indices) {
+  
+  yield_dist <- dist(metadata[[index]],method = "euclidean")
+  mantel_test <- mantel(bray_dist, yield_dist, method = "spearman", permutations = 999)
+  
+  mag_mantel_results <- rbind(mag_mantel_results, data.frame(
+    Trait = index,
+    r = mantel_test$statistic,
+    p_value = mantel_test$signif
+  ))
+}
+
+mag_mantel_results <- mag_mantel_results %>%
+  mutate(
+    significance = case_when(
+      p_value < 0.001 ~ "***",
+      p_value < 0.01 ~ "**",
+      p_value < 0.05 ~ "*",
+      TRUE ~ "ns"
+    )
+  )
+
+cazy_df <- cazy_mantel_results
+cazy_df$Type <- "Cazy"
+kegg_df <- kegg_mantel_results
+kegg_df$Type <- "KEGG"
+mag_df <- mag_mantel_results
+mag_df$Type <- "MAG"
+cazy_df <- cazy_df[, c("Type", colnames(cazy_df)[-ncol(cazy_df)])]
+kegg_df <- kegg_df[, c("Type", colnames(kegg_df)[-ncol(kegg_df)])]
+mag_df <- mag_df[, c("Type", colnames(mag_df)[-ncol(mag_df)])]
+combined_df <- rbind(cazy_df, kegg_df, mag_df)
+write.csv(combined_df,"./data/mantel_result.csv")
+```
+
+
+#Figure7A
+```{r}
+metadata <- read.csv("./data/metadata.csv", row.names = 1)
+metadata <- metadata[1:17, -c(1, 3, 4)]
+mantel <- read.csv("./data/mantel_result.csv")
+mantel <- mutate(mantel, 
+    rd = cut(r, right = TRUE,
+             breaks = c(-Inf, 0.2, 0.4, Inf),
+             labels = c("r<0.2", "0.2≤r<0.4", "r≥0.4"),
+             include.lowest = TRUE),
+    pd = cut(p_value, right = TRUE,
+             breaks = c(-Inf, 0.01, 0.05, Inf),
+             labels = c("p<0.01", "0.01≤p<0.05", "p≥0.05"),
+             include.lowest = TRUE)
+)
+
+p1 <- correlate(metadata, method = "pearson") %>%
+  adjust_pvalue(method = "fdr") %>%  
+  qcorrplot(type = "upper", diag = FALSE, grid_col = "gray80", grid_size = 0.1, use_md = TRUE) +
+  geom_tile(color = "black", linewidth = 0.3, alpha = 0.9) +
+  geom_mark(sep = '\n', size = 3, 
+            sig_level = c(0.01, 0.05),
+            sig_thres = 0.05,
+            only_mark = TRUE) +
+  scale_fill_gradientn(colours = RColorBrewer::brewer.pal(11, "RdBu"), 
+                       limits = c(-1, 1), 
+                       breaks = seq(-1, 1, 0.5)) +
+  geom_couple(aes(color = pd, size = rd), 
+              data = mantel,
+              label.size = 3, drop = TRUE, label.colour = "black", 
+              label.fontface = 1, nudge_x = 0.3, curvature = nice_curvature()) +
+  scale_size_manual(values = c("r<0.2" = 1, "0.2≤r<0.4" = 1.5, "r≥0.4" = 2.5),
+                    breaks = c("r<0.2", "0.2≤r<0.4", "r≥0.4")) +
+  scale_color_manual(values = c("p<0.01" = "#2CA02CFF",
+                                "0.01≤p<0.05" = "#FFA500FF",
+                                "p≥0.05" = "gray90"),
+                     breaks = c("p<0.01", "0.01≤p<0.05","p≥0.05"),
+                     na.value = "transparent") + 
+  guides(color = guide_legend(title = "Mantel's p", order = 1,direction = "horizontal"), 
+         size = guide_legend(title = "Mantel's r", order = 2,direction = "horizontal"), 
+         fill = guide_colorbar(title = "Pearson's r", order = 3,direction = "horizontal",title.position = "top")) +
+  theme(legend.key = element_blank(),
+        legend.position = "bottom",
+        legend.box = "vertical",
+        panel.grid = element_blank(),
+        panel.border = element_blank(),
+        plot.margin = margin(0, 0, 0, 0, "cm"))
+
+
+width<-14
+height<-14
+ggsave("./Figure/Figure7A.pdf",plot = p1,width = width,height = height,units = "cm",dpi = 600,paper = "a4")
+ggsave("./Figure/Figure7A.png",plot = p1,width = width,height = height,units = "cm",dpi = 600)
+```
+
+
+#Correlation RP
+```{r}
+kegg_abun <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1)
+cazy_abun <- read.delim("./data/Bacteria.cazy.anno.profile", row.names = 1)
+mag_abun <- read.csv("./data/MAG_abundance.csv",row.names = 1)
+metadata <- read.csv(file = "./data/metadata.csv",row.names = 1)
+
+RP_abun <- log(mag_abun[,1:17] + 1)
+RP_metadata <- metadata[1:17,]
+
+yield_list <- c("PGW","MSPW","MSSN","SGN","HGW","TSLL","TSLW","MSH","MSD","FNL","MSPD","MSPL")
+
+abun_tables <- list(
+  kegg = kegg_abun,
+  cazy = cazy_abun,
+  mag = mag_abun
+)
+
+for (table_name in names(abun_tables)) {
+  current_abun <- abun_tables[[table_name]]
+  RP_abun <- log(current_abun[, 1:17] + 1)
+  
+  total_result_df <- data.frame(
+    phenotype = character(),
+    name = character(),
+    coefficient = numeric(),
+    p_value = numeric(),
+    p_adj = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  for (pheno in yield_list) {
+    pheno_result_df <- data.frame(
+      name = character(),
+      coefficient = numeric(),
+      p_value = numeric(),
+      stringsAsFactors = FALSE
+    )
+    
+    for (i in 1:nrow(RP_abun)) {
+      tmp_df <- data.frame(
+        abd = as.numeric(RP_abun[i, ]),
+        yield = RP_metadata[[pheno]],
+        cluster = RP_metadata$genotype
+      )
+      
+      tryCatch({
+        glm0 <- lmer(yield ~ abd + (1|cluster), data = tmp_df)
+        glm_summary <- summary(glm0)
+        name <- rownames(RP_abun)[i]
+        
+        if (nrow(glm_summary$coefficients) == 2) {
+          coef_val <- glm_summary$coefficients[2, 1]
+          p_val <- glm_summary$coefficients[2, 5]
+          
+          pheno_result_df <- rbind(pheno_result_df, data.frame(
+            name = name,
+            coefficient = coef_val,
+            p_value = p_val
+          ))
+        } else {
+          pheno_result_df <- rbind(pheno_result_df, data.frame(
+            name = name,
+            coefficient = NA,
+            p_value = NA
+          ))
+        }
+      }, error = function(e) {
+        pheno_result_df <- rbind(pheno_result_df, data.frame(
+          name = rownames(RP_abun)[i],
+          coefficient = NA,
+          p_value = NA
+        ))
+      })
+    }
+    
+    pheno_result_df$p_adj <- p.adjust(pheno_result_df$p_value, method = "fdr")
+    pheno_result_df$phenotype <- pheno
+    pheno_result_df <- pheno_result_df[, c("phenotype", "name", "coefficient", "p_value", "p_adj")]
+    total_result_df <- rbind(total_result_df, pheno_result_df)
+  }
+  
+  output_path <- paste0("./data/RP_correlation_", table_name, ".csv")
+  write.csv(total_result_df, file = output_path, row.names = FALSE)
+}
+
+
+```
+
+#Correlation RS
+```{r}
+kegg_abun <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1)
+cazy_abun <- read.delim("./data/Bacteria.cazy.anno.profile", row.names = 1)
+mag_abun <- read.csv("./data/MAG_abundance.csv",row.names = 1)
+metadata <- read.csv(file = "./data/metadata.csv",row.names = 1)
+
+RP_abun <- log(mag_abun[,18:34] + 1)
+RP_metadata <- metadata[18:34,]
+
+yield_list <- c("PGW","MSPW","MSSN","SGN","HGW","TSLL","TSLW","MSH","MSD","FNL","MSPD","MSPL")
+
+abun_tables <- list(
+  kegg = kegg_abun,
+  cazy = cazy_abun,
+  mag = mag_abun
+)
+
+for (table_name in names(abun_tables)) {
+  current_abun <- abun_tables[[table_name]]
+  RP_abun <- log(current_abun[, 1:17] + 1)
+  
+  total_result_df <- data.frame(
+    phenotype = character(),
+    name = character(),
+    coefficient = numeric(),
+    p_value = numeric(),
+    p_adj = numeric(),
+    stringsAsFactors = FALSE
+  )
+  
+  for (pheno in yield_list) {
+    pheno_result_df <- data.frame(
+      name = character(),
+      coefficient = numeric(),
+      p_value = numeric(),
+      stringsAsFactors = FALSE
+    )
+    
+    for (i in 1:nrow(RP_abun)) {
+      tmp_df <- data.frame(
+        abd = as.numeric(RP_abun[i, ]),
+        yield = RP_metadata[[pheno]],
+        cluster = RP_metadata$genotype
+      )
+      
+      tryCatch({
+        glm0 <- lmer(yield ~ abd + (1|cluster), data = tmp_df)
+        glm_summary <- summary(glm0)
+        name <- rownames(RP_abun)[i]
+        
+        if (nrow(glm_summary$coefficients) == 2) {
+          coef_val <- glm_summary$coefficients[2, 1]
+          p_val <- glm_summary$coefficients[2, 5]
+          
+          pheno_result_df <- rbind(pheno_result_df, data.frame(
+            name = name,
+            coefficient = coef_val,
+            p_value = p_val
+          ))
+        } else {
+          pheno_result_df <- rbind(pheno_result_df, data.frame(
+            name = name,
+            coefficient = NA,
+            p_value = NA
+          ))
+        }
+      }, error = function(e) {
+        pheno_result_df <- rbind(pheno_result_df, data.frame(
+          name = rownames(RP_abun)[i],
+          coefficient = NA,
+          p_value = NA
+        ))
+      })
+    }
+    
+    pheno_result_df$p_adj <- p.adjust(pheno_result_df$p_value, method = "fdr")
+    pheno_result_df$phenotype <- pheno
+    pheno_result_df <- pheno_result_df[, c("phenotype", "name", "coefficient", "p_value", "p_adj")]
+    total_result_df <- rbind(total_result_df, pheno_result_df)
+  }
+  
+  output_path <- paste0("./data/RS_correlation_", table_name, ".csv")
+  write.csv(total_result_df, file = output_path, row.names = FALSE)
+}
+
+
+```
+
+
+#Figure7B
+```{r}
+kegg_abun <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1)
+cazy_abun <- read.delim("./data/Bacteria.cazy.anno.profile", row.names = 1)
+mag_abun <- read.csv("./data/MAG_abundance.csv",row.names = 1)
+
+kegg_cor <- read.csv("./data/RP_correlation_kegg.csv")
+cazy_cor <- read.csv("./data/RP_correlation_cazy.csv")
+mag_cor <- read.csv("./data/RP_correlation_mag.csv")
+
+kegg_cor <- kegg_cor %>% filter(phenotype == "PGW")
+cazy_cor <- cazy_cor %>% filter(phenotype == "PGW")
+mag_cor <- mag_cor %>% filter(phenotype == "PGW")
+
+#Numbers
+kegg_total_count <- nrow(kegg_cor)
+kegg_sig_count <- sum(kegg_cor$p_adj < 0.05, na.rm = TRUE)
+kegg_count_df <- tibble(
+  category = "KEGG",
+  type = c("Significant","Not Significant"),
+  value = c(kegg_sig_count,kegg_total_count - kegg_sig_count)
+)
+
+cazy_total_count <- nrow(cazy_cor)
+cazy_sig_count <- sum(cazy_cor$p_adj < 0.05, na.rm = TRUE)
+cazy_count_df <- tibble(
+  category = "CAZy",
+  type = c("Significant","Not Significant"),
+  value = c(cazy_sig_count,cazy_total_count - cazy_sig_count)
+)
+
+mag_total_count <- nrow(mag_cor)
+mag_sig_count <- sum(mag_cor$p_adj < 0.05, na.rm = TRUE)
+mag_count_df <- tibble(
+  category = "MAG",
+  type = c("Significant","Not Significant"),
+  value = c(mag_sig_count,mag_total_count - mag_sig_count)
+)
+
+count_data <- bind_rows(kegg_count_df, cazy_count_df, mag_count_df)
+
+#Abundance
+kegg_total_abun <- sum(kegg_abun, na.rm = TRUE)
+kegg_sig_rownames <- kegg_cor$name[kegg_cor$p_adj < 0.05]
+kegg_sig_abun <- sum(kegg_abun[kegg_sig_rownames, ], na.rm = TRUE)
+kegg_abun_df <- tibble(
+  category = "KEGG",
+  type = c("Significant","Not Significant"),
+  value = c(kegg_sig_abun,kegg_total_abun - kegg_sig_abun)
+)
+
+cazy_total_abun <- sum(cazy_abun, na.rm = TRUE)
+cazy_sig_rownames <- cazy_cor$name[cazy_cor$p_adj < 0.05]
+cazy_sig_abun <- sum(cazy_abun[cazy_sig_rownames, ], na.rm = TRUE)
+cazy_abun_df <- tibble(
+  category = "CAZy",
+  type = c("Significant","Not Significant"),
+  value = c(cazy_sig_abun,cazy_total_abun - cazy_sig_abun)
+)
+
+mag_total_abun <- sum(mag_abun, na.rm = TRUE)
+mag_sig_rownames <- mag_cor$name[mag_cor$p_adj < 0.05]
+mag_sig_abun <- sum(mag_abun[mag_sig_rownames, ], na.rm = TRUE)
+mag_abun_df <- tibble(
+  category = "MAG",
+  type = c("Significant","Not Significant"),
+  value = c(mag_sig_abun,mag_total_abun - mag_sig_abun)
+)
+abun_data <- bind_rows(kegg_abun_df, cazy_abun_df, mag_abun_df)
+
+
+p_count <- ggplot(count_data, aes(x = category, y = value, fill = type)) +
+  geom_col(position = position_fill(reverse = TRUE), width = 0.7, color = "black") +
+  scale_fill_manual(name = "Significance",values = c("Significant" = "#0072B2","Not Significant" = "#999999")) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Numbers"
+  ) +
+  theme_classic(base_size = 10) +
+  theme(plot.title = element_text(size = 10, color = 'black', face = "bold", hjust = 0.5),
+        axis.title = element_text(size = 10, color = 'black',face = "bold"), 
+        axis.text = element_text(size = 10, color = 'black'),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        panel.background = element_blank(), 
+        panel.border = element_rect(fill = NA, color = "black",linewidth = 1),
+        legend.position = "bottom",
+        legend.text = element_text(size = 9),
+        legend.title = element_text(size = 10, face = "bold"),
+        legend.background = element_blank()
+        )
+
+p_abun <- ggplot(abun_data, aes(x = category, y = value, fill = type)) +
+  geom_col(position = position_fill(reverse = TRUE), width = 0.7, color = "black") +
+  scale_fill_manual(name = "Significance",values = c("Significant" = "#0072B2","Not Significant" = "#999999")) +
+  labs(
+    x = NULL,
+    y = NULL,
+    title = "Abundance"
+  ) +
+  theme_classic(base_size = 10) +
+  theme(plot.title = element_text(size = 10, color = 'black', face = "bold", hjust = 0.5),
+        axis.title = element_text(size = 10, color = 'black',face = "bold"), 
+        axis.text = element_text(size = 10, color = 'black'),
+        panel.grid.major = element_blank(), 
+        panel.grid.minor = element_blank(), 
+        panel.background = element_blank(), 
+        panel.border = element_rect(fill = NA, color = "black",linewidth = 1),
+        legend.position = "bottom",
+        legend.text = element_text(size = 9),
+        legend.title = element_text(size = 10, face = "bold"),
+        legend.background = element_blank()
+        )
+
+p2 <- p_count + p_abun +
+  plot_layout(ncol = 2, guides = "collect") &
+  theme(legend.position = "bottom") 
+
+width<-10
+height<-10
+ggsave("./Figure/Figure7B.pdf",plot = p2,width = width,height = height,units = "cm",dpi = 600,paper = "a4")
+ggsave("./Figure/Figure7B.png",plot = p2,width = width,height = height,units = "cm",dpi = 600)
+```
+
+
+#Figure7C
+```{r}
+kegg_cor <- read.csv("./data/RP_correlation_kegg.csv")
+kegg_cor <- kegg_cor %>% filter(phenotype == "PGW")
+metadata <- read.csv("./data/metadata.csv",row.names = 1)
+positive_list <- kegg_cor %>% filter(p_adj < 0.05 & coefficient > 0)
+negative_list <- kegg_cor %>% filter(p_adj < 0.05 & coefficient < 0)
+
+positive_result <- enrichKEGG(positive_list$name, organism = "ko",pvalueCutoff = 0.05, pAdjustMethod = "fdr",qvalueCutoff = 1)
+positive_df <- data.frame(positive_result) %>% filter(subcategory != "Global and overview maps" & category != "Human Diseases")
+
+bubble_data <- positive_df %>%
+  mutate(
+    GeneRatio = sapply(strsplit(GeneRatio, "/"), 
+                      function(x) as.numeric(x[1])/as.numeric(x[2])),
+    log10_p = -log10(p.adjust)
+  )
+
+p2<-ggplot(bubble_data, aes(x = FoldEnrichment, y = reorder(Description, FoldEnrichment))) +
+  geom_point(aes(size = Count, color = log10_p), shape = 19, alpha = 0.9) +
+  scale_size_area(
+    name = "KO Count",
+    max_size = 6,
+    breaks = c(10, 20, 30, 40, 50) 
+  ) +
+  scale_color_gradientn(
+    name = expression(-log[10](p~adj)),
+    colors = c("blue", "#FFFFBF", "#D73027"),
+    breaks = pretty(bubble_data$log10_p, n = 3),
+    guide = guide_colorbar(
+      reverse = FALSE,
+      barheight = unit(0.5, "cm"),
+      barwidth = unit(4, "cm"),
+      title.position = "top"
+    )
+  ) +
+  labs(
+    x = "Enrichment",
+    y = "Pathway"
+  ) +
+  theme_bw(base_size = 10) +
+  theme(
+    panel.grid.major = element_line(color = "grey92"),
+    panel.grid.minor = element_blank(),
+    axis.title = element_text(face = "bold"),
+    axis.text.y = element_text(color = "black", size = 10),
+    axis.text.x = element_text(color = "black", size = 10),
+    legend.position = "bottom",
+    legend.justification = "right",
+    legend.text = element_text(size = 8),
+    legend.title = element_text(face = "bold", size = 8),
+    plot.title = element_blank()
+  )
+
+width<-12
+height<-14
+ggsave("./Figure/Figure7B.pdf",plot = p2,width = width,height = height,units = "cm",dpi = 600,paper = "a4")
+ggsave("./Figure/Figure7B.png",plot = p2,width = width,height = height,units = "cm",dpi = 600)
+```
+
+
+#Figure7D-mag
+```{r}
+mag_abun <- read.csv("./data/MAG_abundance.csv",row.names = 1)
+MAG_info <- read.csv("./data/MAG_info.csv")
+
+mag_abun <- log(mag_abun + 1)
+
+mag_cor <- read.csv("./data/RP_correlation_mag.csv")
+mag_cor <- mag_cor %>% filter(phenotype == "PGW")
+
+metadata <- read.csv("./data/metadata.csv",row.names = 1)
+target_region <- c("RP")
+filtered_samples <- rownames(metadata)[metadata$region %in% target_region]
+
+mag_cor_filtered <- mag_cor %>% filter(p_adj < 0.05)
+
+mag_abun_filtered <- mag_abun %>%
+  .[rownames(.) %in% mag_cor_filtered$name, , drop = FALSE] %>%
+  select(all_of(filtered_samples))
+
+mag_cor_positive <- mag_cor_filtered %>%
+  filter(coefficient > 0) %>%
+  arrange(p_adj) %>%
+  select(name, coefficient, p_adj)
+mag_abun_positive <- mag_abun_filtered %>%
+  .[rownames(.) %in% mag_cor_positive$name, , drop = FALSE]
+
+mag_cor_negative <- mag_cor_filtered %>%
+  filter(coefficient < 0) %>%
+  arrange(p_adj) %>%
+  select(name, coefficient, p_adj)
+mag_abun_negative <- mag_abun_filtered %>%
+  .[rownames(.) %in% mag_cor_negative$name, , drop = FALSE]
+
+all_values <- c(
+  as.matrix(mag_abun_positive), 
+  as.matrix(mag_abun_negative)
+)
+global_range <- range(all_values, na.rm = TRUE)
+
+colors <- colorRamp2(
+  c(0, 7, 10),
+  c("#313695", "#FFFFFF", "#DA5A58")
+)
+order_labels <- MAG_info$Order[match(rownames(mag_abun_filtered), MAG_info$name)]
+order_levels <- unique(order_labels)
+order_colors <- colorRampPalette(brewer.pal(9, "Set1"))(length(order_levels))
+names(order_colors) <- order_levels
+
+anno_tmp <- data.frame(Order = MAG_info$Order,
+                      row.names = MAG_info$name)
+
+anno_colors <- list(
+  Order = order_colors
+)
+
+anno_positive <- rowAnnotation(
+    df = anno_tmp %>% filter(rownames(.) %in% rownames(mag_abun_positive)),
+    col = anno_colors,
+    show_annotation_name = TRUE
+  )
+
+p_mag_positive <- Heatmap(
+  matrix = as.matrix(mag_abun_positive),
+  cell_fun = function(j, i, x, y, width, height, fill) {
+    val <- mag_abun_positive[i, j]
+    grid.text(label = round(val, 2), x = x, y = y, gp = gpar(col = "black", fontsize = 6))
+  },
+  col = colors,
+  cluster_rows = TRUE,
+  show_row_dend = FALSE,
+  cluster_columns = FALSE,
+  show_row_names = TRUE,
+  show_column_names = TRUE,
+  column_names_gp = gpar(fontsize = 8),
+  row_names_gp = gpar(fontsize = 8),
+  name = "log(TPM)",
+  top_annotation = HeatmapAnnotation(
+    PGW = anno_barplot(metadata[1:17,]$PGW),
+    gap = unit(10, "mm")
+  ),
+  left_annotation = c(
+    rowAnnotation(Positive_label = anno_block(
+      gp = gpar(fill = "#DA5A58", col = "white"),
+      labels = "Positive",
+      labels_gp = gpar(
+        fontsize = 10,
+        fontface = "bold",
+        col = "white"
+      ),
+      labels_rot = 90
+    ),
+    width = unit(0.5, "cm")),
+    anno_positive
+  ),
+  show_heatmap_legend = TRUE  # 显示图例
+)
+
+anno_negative <- rowAnnotation(
+    df = anno_tmp %>% filter(rownames(.) %in% rownames(mag_abun_negative)),
+    col = anno_colors,
+    show_annotation_name = TRUE
+  )
+
+p_mag_negative <- Heatmap(
+  matrix = as.matrix(mag_abun_negative),
+  cell_fun = function(j, i, x, y, width, height, fill) {
+    val <- mag_abun_negative[i, j]
+    grid.text(label = round(val, 2), x = x, y = y, gp = gpar(col = "black", fontsize = 6))
+  },
+  col = colors,
+  cluster_rows = TRUE,
+  show_row_dend = FALSE,
+  cluster_columns = FALSE,
+  show_row_names = TRUE,
+  show_column_names = TRUE,
+  column_names_gp = gpar(fontsize = 8),
+  row_names_gp = gpar(fontsize = 8),
+  name = "log(TPM)",
+  show_heatmap_legend = FALSE,
+  left_annotation = c(
+    rowAnnotation(Negative_label = anno_block(
+      gp = gpar(fill = "#313695", col = "white"),
+      labels = "Negative",
+      labels_gp = gpar(
+        fontsize = 10,
+        fontface = "bold",
+        col = "white"
+      ),
+      labels_rot = 90
+    ),
+    width = unit(0.5, "cm")),
+    anno_negative
+  )
+)
+
+p_mag_combined <- p_mag_positive %v% p_mag_negative
+
+width <- 20
+height <- 16
+pdf(file = "./Figure/Figure7D.pdf", width = width/2.54,height = height/2.54)
+p_mag_combined
+dev.off()
+png(file = "./Figure/Figure7D.png",width = width/2.54 * 600,height = height/2.54 * 600,res = 600)
+p_mag_combined
+dev.off()
+```
