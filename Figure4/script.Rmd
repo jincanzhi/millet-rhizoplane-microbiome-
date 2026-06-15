@@ -14,6 +14,9 @@ library(rstatix)
 library(agricolae)
 library(patchwork)
 library(tidyr) 
+library(ggsignif)
+library(cowplot)
+library(ReporterScore)
 set.seed(113)
 knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
 ```
@@ -23,33 +26,35 @@ knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["pa
 raw_df <- read.table("./data/KO.diversity.index.txt",header=T,row.names = 1)
 metadata <- read.csv("./data/metadata.csv",row.names = 1)
 merge_df <- merge(raw_df, metadata, by.x = 'row.names', by.y = 'row.names')
-fin_df <- merge_df[c('region', 'shannon')]
-names(fin_df)[1] <- 'Group'
-max_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = max)
-mean_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = mean)
-dunn_res <- dunn_test(fin_df, shannon ~ Group, p.adjust.method = 'fdr')
-dunn_res_df <- data.frame(dunn_res[-1])
-n <- nrow(mean_df)
-pvalue_df <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
-    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
-  }
+fin_df <- merge_df[c("region", "shannon")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(shannon ~ Group, data = fin_df, exact = FALSE,paired = TRUE,alternative = "greater")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df <- orderPvalue(mean_df$Group, mean_df$shannon, 0.05, pvalue_df, console = TRUE)
-letter_vector <- letter_df$groups
 
 p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df, aes(y = shannon * 1.01, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -58,9 +63,7 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
@@ -68,35 +71,39 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
   labs(
     x = NULL,
     y = "Shannon"
-  )
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$shannon, na.rm = TRUE) * 1.01))
 
-fin_df1 <- merge_df[c('region', 'Chao1')]
-names(fin_df1)[1] <- 'Group'
-max_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = max)
-mean_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = mean)
-dunn_res1 <- dunn_test(fin_df1, Chao1 ~ Group, p.adjust.method = 'fdr')
-dunn_res_df1 <- data.frame(dunn_res1[-1])
-n <- nrow(mean_df1)
-pvalue_df1 <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df1[i,j] <- dunn_res_df1$p.adj[k]
-    pvalue_df1[j,i] <- dunn_res_df1$p.adj[k]
-  }
+fin_df <- merge_df[c("region", "simpson")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(simpson ~ Group, data = fin_df, exact = FALSE,paired = TRUE,alternative = "greater")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df1 <- orderPvalue(mean_df1$Group, mean_df1$Chao1, 0.05, pvalue_df1, console = TRUE)
-letter_vector1 <- letter_df1$groups
 
-p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+
+p2 <- ggplot(fin_df, aes(x = Group, y = simpson)) + 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df1, aes(y = Chao1 * 1.01, label = letter_vector1), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -105,17 +112,16 @@ p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
   ) + 
   labs(
     x = NULL,
-    y = "Chao1"
-  )
+    y = "Simpson"
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$simpson, na.rm = TRUE) * 1.0001))
 
 ##beta
 ko_abundance <- read.delim("./data/Bacteria.kegg.anno.profile", row.names = 1, stringsAsFactors = FALSE)
@@ -184,6 +190,28 @@ combined_plot <- (p1 + p2 + plot_spacer()+p3) +
 
 
 ###GSRE
+set.seed(113)
+KO_abun <- read.delim("./data/Bacteria.kegg.anno.profile",row.names = 1)
+KO_name <- read.csv("C:/Users/jincanzhi/Desktop/kegg/K_gene_name.csv",header =  T)
+metadata<-read.csv(file="./data/metadata.csv",header=T,row.names = 1)
+reporter_res=reporter_score(KO_abun,"region",metadata,mode="directed",method = "wilcox.test", perm = 999,p.adjust.method1 = "fdr",p.adjust.method2 = "fdr")
+pathway_enrich <- reporter_res$reporter_s
+pathway_name <- read.csv("C:/Users/jincanzhi/Desktop/kegg/pathway_Bacteria.csv",header =  F)
+pathway_info <- read.csv("C:/Users/jincanzhi/Desktop/kegg/kegg_info_0508filter.csv")
+pathway_name$V1 <- gsub("ko", "map", pathway_name$V1)
+pathway_enrich <- pathway_enrich[pathway_enrich$ID %in% pathway_name$V1,]
+pathway_enrich <- pathway_enrich[pathway_enrich$ID %in% pathway_info$L3,]
+write.csv(pathway_enrich,file=paste0("./data/enrich_pathway_list.csv"))
+enrich_KO<-reporter_res$ko_stat
+enrich_KO <- merge(enrich_KO,KO_name,by.x = "KO_id",by.y = "KO",all.x = T)
+write.csv(enrich_KO,file=paste0("./data/enrich_KO_stat.csv"))
+
+filtered_data <- na.omit(pathway_enrich[pathway_enrich$p.adjust <0.05,])
+sorted_data <- filtered_data[order(filtered_data$ReporterScore), ]
+sorted_data$Description <- factor(sorted_data$Description, levels = unique(sorted_data$Description))
+#write.csv(sorted_data,"./data/Reportercsore.csv")
+
+
 data <- read.csv("./data/Reportercsore.csv")
 data$Enrich <- ifelse(data$ReporterScore > 0,"RS","RP")
 p4 <- ggplot(data, 

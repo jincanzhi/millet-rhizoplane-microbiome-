@@ -47,7 +47,7 @@ p1 <- ggplot(ko_freq_dist, aes(x = factor(MAG_number, levels = 1:20), y = KO_num
   annotate("text", x = 7, y = 1400, label = "Partially KO", color = "#000000") +
   annotate("text", x = 2, y = 1400, label = "Specific KO", color = "#000000") +
   theme_minimal() +
-  labs(x = "", y = "KO number") +
+  labs(x = "Number of hub MAGs harboring the KO", y = "KO number") +
   theme(
     text = element_text(size = 5),
     axis.title = element_text(size = 10, face = "bold"),
@@ -133,17 +133,3 @@ ggsave("./Figure/Figure3B.pdf", plot = enrich_bubble,width = 20, height = 24, un
 ggsave("./Figure/Figure3B.png", plot = enrich_bubble,width = 20, height = 24, units = "cm",dpi = 600)
 ```
 
-
-```{r}
-list <- c("MAG_318","MAG_014","MAG_215","MAG_061","MAG_146","MAG_159","MAG_108","MAG_294","MAG_292","MAG_111","MAG_142","MAG_081","MAG_148","MAG_147","MAG_136","MAG_067","MAG_183","MAG_274","MAG_428","MAG_322","MAG_141","MAG_189")
-
-data <-read.csv("./data/MAG_kegg.csv")
-data1 <- data %>% filter(MAG %in% list)
-write.csv(data1,"./Postrive_MAG_KO.csv")
-
-n_list <- c("K00362","K00363","K03385","K15876")
-p_list <- c("K01077","K01078","K01113")
-iaa_list <- c("K00128","K01426")
-
-
-```

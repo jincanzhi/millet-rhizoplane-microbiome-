@@ -1,0 +1,7 @@
+"KO","Direction","W","p_adj","median_RP","median_RS"
+"Anammox","RS_enrich",0,0.000966,2306.78485800001,3351.52723900002
+"Assimilatory nitrate reduction","RP_enrich",153,0.000322,7460.561141,5161.08148000001
+"Denitrification ","RP_enrich",119,0.02808,17710.393574,15835.019083
+"Dissimilatory nitrate reduction","RP_enrich",153,0.000322,26265.1857650001,19052.410718
+"Nitrification","RP_enrich",121,0.0279,9998.22173099998,9254.066073
+"Nitrogen fixation","RP_enrich",153,0.000322,50.97886,16.568734

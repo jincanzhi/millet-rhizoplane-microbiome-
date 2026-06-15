@@ -11,6 +11,7 @@ library(ggvenn)
 library(rstatix)
 library(agricolae)
 library(patchwork) 
+library(ggsignif)
 knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
 ```
 
@@ -60,72 +61,51 @@ rs_part <- data.frame(
 fin_df <- rbind(rp_part, rs_part)
 
 names(fin_df)[1] <- 'Group'
-max_df <- aggregate(fin_df['degree'], by = list(Group = fin_df$Group), FUN = max)
-mean_df <- aggregate(fin_df['degree'], by = list(Group = fin_df$Group), FUN = mean)
-dunn_res <- dunn_test(fin_df, degree ~ Group, p.adjust.method = 'fdr')
-dunn_res_df <- data.frame(dunn_res[-1])
-n <- nrow(mean_df)
-pvalue_df <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
-    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
-  }
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(degree ~ Group, data = fin_df, exact = FALSE,alternative = "greater")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df <- orderPvalue(mean_df$Group, mean_df$degree, 0.05, pvalue_df, console = TRUE)
-letter_vector <- letter_df$groups
-max_degree <- max(fin_df$degree)
-p <- ggplot(fin_df, aes(x = Group, y = degree, color = Group)) + 
-  geom_violin(
-    aes(fill = Group), 
-    width = 0.6, alpha = 0.2, size = 0.5, 
-    show.legend = FALSE
-  ) + 
-  geom_boxplot(
-    width = 0.25, alpha = 0.3, size = 0.6, 
-    outlier.shape = NA,
-    position = position_dodge(width = 0.6),
-    show.legend = FALSE
-  ) + 
-  geom_point(
-    position = position_jitterdodge(
-      jitter.width = 0.2,
-      dodge.width = 0.6
-    ), 
-    alpha = 0.7, size = 2, stroke = 0.3,
-    show.legend = FALSE
-  ) + 
-  geom_text(
-    data = mean_df, 
-    aes(y = max_degree * 1.1, label = letter_vector), 
-    position = position_dodge(width = 0.6), 
-    size = 3, color = "black"
-  ) + 
-  theme_classic(base_size = 10) + 
-  scale_x_discrete(
-    labels = c("Rhizoplane", "Rhizosphere"),
-    expand = c(0.1, 0.1)
-  ) + 
+
+p <- ggplot(fin_df, aes(x = Group, y = degree)) + 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
+             alpha = 0.8, size = 4, stroke = 0) +
+  geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
+  geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
+  theme_classic(base_size = 10) +
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
-    axis.title = element_text(size = 11, color = "black", face = "bold"),
-    axis.text = element_text(size = 9, color = "black"),
+    axis.title = element_text(size = 10, color = "black", face = "bold"),
+    axis.text = element_text(size = 10, color = "black"),
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
-    panel.background = element_blank()
+    panel.background = element_blank(),
+    legend.position = "none"
   ) + 
   labs(
     x = NULL,
     y = "Degree"
-  )
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$degree, na.rm = TRUE) * 1.08))
+
 ggsave("./Figure/Figure2D.pdf",plot = p,width = 2,height = 3.5,dpi = 300)
 ggsave("./Figure/Figure2D.png",plot = p,width = 2,height = 3.5,dpi = 300)
 ```
@@ -185,74 +165,3 @@ ggsave("./Figure/Figure2E.pdf",plot = bar_plot,width = 7,height = 3.2,dpi = 300)
 ggsave("./Figure/Figure2E.png",plot = bar_plot,width = 7,height = 3.2,dpi = 300)
 ```
 
-
-##Figure2D-three
-```{r}
-RP_hub <- read.csv("./data/RP_MAG_network_hub_info.csv",row.names = 1)
-RS_hub <- read.csv("./data/RS_MAG_network_hub_info.csv",row.names = 1)
-
-metrics <- c("igraph.degree", "igraph.betweenness", "igraph.closeness")
-y_labels <- c("Degree", "Betweenness", "Closeness")
-
-
-plot_list <- list()
-for (i in seq_along(metrics)) {
-  curr_metric <- metrics[i]
-  curr_ylabel <- y_labels[i]
-
-  rp_part <- data.frame(Group = "RP", Value = RP_hub[[curr_metric]])
-  rs_part <- data.frame(Group = "RS", Value = RS_hub[[curr_metric]])
-  fin_df <- rbind(rp_part, rs_part)
-  
-  max_df <- aggregate(Value ~ Group, fin_df, FUN = max)
-  mean_df <- aggregate(Value ~ Group, fin_df, FUN = mean)
-  
-  dunn_res <- dunn_test(fin_df, Value ~ Group, p.adjust.method = "fdr")
-  dunn_res_df <- data.frame(dunn_res[-1])
-  
-  n_group <- nrow(mean_df)
-  pvalue_df <- matrix(1, nrow = n_group, ncol = n_group)
-  k <- 0
-  for (j in 1:(n_group-1)) {
-    for (l in (j+1):n_group) {
-      k <- k + 1
-      pvalue_df[j, l] <- dunn_res_df$p.adj[k]
-      pvalue_df[l, j] <- dunn_res_df$p.adj[k]
-    }
-  }
-  
-  letter_df <- orderPvalue(mean_df$Group, mean_df$Value, 0.05, pvalue_df, console = TRUE)
-  letter_vector <- letter_df$groups
-  
-  global_max <- max(fin_df$Value)
-
-  p <- ggplot(fin_df, aes(x = Group, y = Value, color = Group)) +
-    geom_violin(aes(fill = Group), width = 0.6, alpha = 0.2, size = 0.5, show.legend = FALSE) +
-    geom_boxplot(width = 0.25, alpha = 0.3, size = 0.6, outlier.shape = NA, 
-                 position = position_dodge(0.6), show.legend = FALSE) +
-    geom_point(position = position_jitterdodge(jitter.width = 0.2, dodge.width = 0.6), 
-               alpha = 0.7, size = 2, stroke = 0.3, show.legend = FALSE) +
-    geom_text(data = mean_df, aes(y = global_max * 1.1, label = letter_vector), 
-              position = position_dodge(0.6), size = 3, family = "Arial", color = "black") +
-    theme_classic(base_size = 10, base_family = "Arial") +
-    scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere"), expand = c(0.1, 0.1)) +
-    scale_color_manual(values = c("#D55E00", "#0072B2")) +
-    scale_fill_manual(values = c("#D55E00", "#0072B2")) +
-    theme(
-      axis.title = element_text(size = 11, color = "black", face = "bold"),
-      axis.text = element_text(size = 9, color = "black"),
-      axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
-      axis.ticks = element_line(linewidth = 0.6, color = "black"),
-      axis.line = element_line(linewidth = 0.6, color = "black"),
-      panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
-      panel.grid = element_blank(),
-      panel.background = element_blank()
-    ) +
-    labs(x = NULL, y = curr_ylabel)
-  plot_list[[i]] <- p
-}
-
-combined_plot <- wrap_plots(plot_list, nrow = 1) + 
-  plot_annotation(tag_levels = "a", tag_suffix = ".") &
-  theme(plot.tag = element_text(size = 12, face = "bold"))
-```

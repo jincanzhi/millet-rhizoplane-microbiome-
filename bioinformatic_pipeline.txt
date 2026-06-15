@@ -1,0 +1,49 @@
+##01.QC
+SOAPnuke filterMeta -T 8 -1 ${fq1_files} -2 ${fq2_files} -C ${sampleID}.HQ_1.fq.gz -D ${sampleID}.HQ_2.fq.gz -n 0.03 -X 50 -m 20 -4 30 -q 0.5 -o 01.cleandata
+##02.assembly
+megahit -m 100000000000 -t ${threads} --min-contig-len 500 --presets meta-large --kmin-1pass -1 ${cleanFq1} -2 ${cleanFq2} -o 02.assembly --out-prefix ${sampleID}
+##03.prodigal
+prodigal -i ${sampleIDcontigs} -o ${sampleID}.gff" -a ${sampleID}.pro.faa -d ${sampleID}.dna.fna -p meta -f gff
+##04.geneset
+mmseqs createmillet ${All_faa} millet
+mmseqs cluster sampleID millet_clu   tmp --min-seq-id 0.95 --threads 20 --cov-mode 1 -c 0.9
+mmseqs createtsv millet millet millet_clu millet_clu.tsv --threads 20 
+mmseqs createseqfilemillet millet millet_clu millet_clu_seq  --threads 20 
+mmseqs result2flat millet millet millet_clu_seq millet_clu_seq.fasta
+mmseqs createsubmillet millet_clu millet millet_clu_rep
+mmseqs convert2fasta millet_clu_rep geneset.fasta
+##05.kegg_annotation
+diamond blastp -p 16  -d ${diamond_db} -q ${genesetFa} -o summary_kegg_diamondout -f 6 --log  -k 10 -e 1e-5 --sensitive -b 15 -c 1
+##06.nr_annotation
+diamond blastp -p 16  -d ${diamond_db} -q ${genesetFa} -o summary_nr_diamondout -f 6  -k 10 -e 1e-5 --sensitive -b 15 -c 1
+##07.cazy_annotation
+run_dbcan ${genesetFa}  protein --out_dir ./cazy_result --db_dir ~/Cazy_db --dia_eval 1e-5--dia_cpu 8 --hmm_eval 1e-15 --hmm_cpu 8 --tf_cpu 8 --stp_cpu 8
+##08.salmon_index
+salmon index -t ${All_fna} -p 10 -k 31 --keepDuplicates -i index
+##09.abundance
+salmon quant --validateMappings -i index -l A -p 20 --meta --incompatPrior 0.0 -1 ${cleanFq1} -2 ${cleanFq2}  -o ${sampleID}.quant
+##10.binning_maxbin
+run_MaxBin.pl -contig ${contigs_2k} -out Maxbin/bins/${sampleID}_maxbin -reads_list Maxbin/${sampleID}.list -thread 20 -plotmarker -markerset 40 -min_contig_length 2000
+##11.binning_metabat2
+bowtie2-build ${contigs_2k} bowtie2/${sampleID}tmp
+bowtie2 -p 20 -x bowtie2/${sampleID}tmp -1 ${reads1} -2 ${reads2} -S bowtie2/${sampleID}.sam
+samtools view -b -S bowtie2/${sampleID}.sam -o bowtie2/${sampleID}.bam -@ 20
+samtools sort -T ${sampleID} -@ 20 -O bam -o bowtie2/${sampleID}.sorted.bam bowtie2/${sampleID}.bam
+jgi_summarize_bam_contig_depths --outputDepth metabat/${sampleID}.contigs.fa.depth.txt ${bam} && 
+metabat2 -i ${contigs_2k} -o metabat/bins/${sampleID}_metabat2 -a metabat/${sampleID}.contigs.fa.depth.txt -t 20
+##12.binning_concoct
+bowtie2-build ${contigs_2k} bowtie2/${sampleID}tmp
+bowtie2 -p 20 -x bowtie2/${sampleID}tmp -1 ${reads1} -2 ${reads2} -S bowtie2/${sampleID}.sam
+samtools view -b -S bowtie2/${sampleID}.sam -o bowtie2/${sampleID}.bam -@ 20
+samtools sort -T ${sampleID} -@ 20 -O bam -o bowtie2/${sampleID}.sorted.bam bowtie2/${sampleID}.bam
+samtools index -b concoct/${sampleID}.sorted.bam -@ 20 concoct/${sampleID}.sorted.bam.bai
+cut_up_fasta.py ${contigs_2k} -c 10000 -o 0 --merge_last -b concoct/${sampleID}_contigs_10K.bed > concoct/${sampleID}_contigs_10K.fa && 
+concoct_coverage_table.py concoct/${sampleID}_contigs_10K.bed concoct/${sampleID}.sorted.bam > concoct/${sampleID}_coverage_table.tsv && 
+concoct --composition_file concoct/${sampleID}_contigs_10K.fa --coverage_file concoct/${sampleID}_coverage_table.tsv -b concoct/${sampleID}_result -t 20 && 
+merge_cutup_clustering.py concoct/${sampleID}_result_clustering_gt1000.csv > concoct/${sampleID}_clustering_merged.csv
+##13.checkm
+checkm lineage_wf -x fa ${sample_bins} all_filter_bin/
+##14.drep
+dRep dereplicate  drep_result -g all_filter_bin/*.fa --S_algorithm gANI -nc 0.6 --ignoreGenomeQuality -p 32
+##15.MAG_annotation
+gtdbtk classify_wf --cpus 32--genome_dir drep_result/dereplicated_genomes/  --extension fa --out_dir gtdbtk_result

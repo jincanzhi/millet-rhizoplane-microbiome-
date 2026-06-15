@@ -16,8 +16,85 @@ library(scales)
 library(RColorBrewer)
 library(tibble) 
 library(ggpie)
+library(ggsignif)
 set.seed(113)
 knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
+```
+
+#wilcox
+```{r}
+ko_table <- read.delim("./data/Bacteria.cazy.anno.profile",row.names = 1,check.names = F)
+KO_list <- row.names(ko_table)
+
+alpha <- 0.05
+res_list <- list()
+
+for (ko in KO_list) {
+  rp <- as.numeric(ko_table[ko, 1:17])
+  rs <- as.numeric(ko_table[ko, 18:34])
+  
+  tmp_data <- data.frame(
+    Value = c(rp, rs),
+    Group = factor(rep(c("RP", "RS"), each = 17), levels = c("RP", "RS"))
+  )
+  
+  wt_greater <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "greater")
+  wt_less    <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "less")
+  
+  res_list[[ko]] <- data.frame(
+    CAZy_Family = ko,
+    W_greater   = wt_greater$statistic,
+    p_greater   = wt_greater$p,
+    W_less      = wt_less$statistic,
+    p_less      = wt_less$p,
+    median_RP   = median(rp, na.rm = TRUE),
+    median_RS   = median(rs, na.rm = TRUE),
+    stringsAsFactors = FALSE
+  )
+}
+
+results_df <- do.call(rbind, res_list)
+
+results_df$p_greater_adj <- p.adjust(results_df$p_greater, method = "fdr")
+results_df$p_less_adj    <- p.adjust(results_df$p_less,    method = "fdr")
+
+results_df$Direction <- with(results_df, {
+  dir <- rep("NS", nrow(results_df))
+  
+  idx_g <- p_greater_adj < alpha & p_less_adj >= alpha
+  dir[idx_g] <- "greater"
+  idx_l <- p_less_adj < alpha & p_greater_adj >= alpha
+  dir[idx_l] <- "less"
+  
+  idx_both <- p_greater_adj < alpha & p_less_adj < alpha
+  pick_greater <- idx_both & (p_greater_adj <= p_less_adj)
+  pick_less    <- idx_both & (p_less_adj  <  p_greater_adj)
+  dir[pick_greater] <- "greater"
+  dir[pick_less]    <- "less"
+  
+  dir
+})
+
+results_df$W_signif <- ifelse(results_df$Direction == "greater",
+                              results_df$W_greater,
+                              ifelse(results_df$Direction == "less",
+                                     results_df$W_less, NA))
+results_df$p_adj_signif <- ifelse(results_df$Direction == "greater",
+                                  results_df$p_greater_adj,
+                                  ifelse(results_df$Direction == "less",
+                                         results_df$p_less_adj, NA))
+
+final_df <- results_df[, c("CAZy_Family", "Direction", "W_signif", "p_adj_signif",
+                           "median_RP", "median_RS")]
+final_df$Direction
+names(final_df)[3:4] <- c("W", "p_adj")
+final_df$Direction <- ifelse(final_df$Direction == "greater", "RP_enrich",
+                             ifelse(final_df$Direction == "less", "RS_enrich", "NS"))
+write.csv(final_df, "./data/cazyme_wilcox_results.csv", row.names = FALSE)
 ```
 
 #Figure6ABC
@@ -25,33 +102,35 @@ knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["pa
 raw_df <- read.table("./data/cazyme.diversity.index.txt",header=T,row.names = 1)
 metadata <- read.csv("./data/metadata.csv",row.names = 1)
 merge_df <- merge(raw_df, metadata, by.x = 'row.names', by.y = 'row.names')
-fin_df <- merge_df[c('region', 'shannon')]
-names(fin_df)[1] <- 'Group'
-max_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = max)
-mean_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = mean)
-dunn_res <- dunn_test(fin_df, shannon ~ Group, p.adjust.method = 'fdr')
-dunn_res_df <- data.frame(dunn_res[-1])
-n <- nrow(mean_df)
-pvalue_df <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
-    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
-  }
+fin_df <- merge_df[c("region", "shannon")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(shannon ~ Group, data = fin_df, exact = FALSE,alternative = "greater")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df <- orderPvalue(mean_df$Group, mean_df$shannon, 0.05, pvalue_df, console = TRUE)
-letter_vector <- letter_df$groups
 
 p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df, aes(y = shannon * 1.01, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -60,9 +139,7 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
@@ -70,35 +147,39 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
   labs(
     x = NULL,
     y = "Shannon"
-  )
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$shannon, na.rm = TRUE) * 1.02))
 
-fin_df1 <- merge_df[c('region', 'Chao1')]
-names(fin_df1)[1] <- 'Group'
-max_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = max)
-mean_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = mean)
-dunn_res1 <- dunn_test(fin_df1, Chao1 ~ Group, p.adjust.method = 'fdr')
-dunn_res_df1 <- data.frame(dunn_res1[-1])
-n <- nrow(mean_df1)
-pvalue_df1 <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df1[i,j] <- dunn_res_df1$p.adj[k]
-    pvalue_df1[j,i] <- dunn_res_df1$p.adj[k]
-  }
+fin_df <- merge_df[c("region", "simpson")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(simpson ~ Group, data = fin_df, exact = FALSE,paired = TRUE,alternative = "greater")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df1 <- orderPvalue(mean_df1$Group, mean_df1$Chao1, 0.05, pvalue_df1, console = TRUE)
-letter_vector1 <- letter_df1$groups
 
-p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+
+p2 <- ggplot(fin_df, aes(x = Group, y = simpson)) + 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df1, aes(y = Chao1 * 1.01, label = letter_vector1), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -107,17 +188,16 @@ p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
   ) + 
   labs(
     x = NULL,
-    y = "Chao1"
-  )
+    y = "Simpson"
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$simpson, na.rm = TRUE) * 1.002))
 
 ##beta
 ko_abundance<-read.delim("./data/Bacteria.cazy.anno.profile",row.names = 1)
@@ -251,43 +331,7 @@ p4<-ggplot(df_long, aes(x = cazyme, y = Value, fill = Group)) +
         )
 
 
-cazy_abundance <- read.delim("./data/Bacteria.cazy.anno.profile",row.names = 1)
-
-results <- data.frame(
-  CAZy_Family = rownames(cazy_abundance),
-  RP_Median = apply(cazy_abundance[,1:17], 1, median, na.rm=TRUE),
-  RS_Median = apply(cazy_abundance[,18:34], 1, median, na.rm=TRUE),
-  log2FC = NA,
-  P_value = NA,
-  Direction = "No change"
-)
-results$log2FC <- log2((results$RS_Median + 1e-5) / (results$RP_Median + 1e-5))
-
-for(i in 1:nrow(cazy_abundance)) {
-  rp <- unlist(cazy_abundance[i, 1:17])
-  rs <- unlist(cazy_abundance[i, 18:34])
-  
-  if(all(rp == 0) & all(rs == 0)) {
-    results$P_value[i] <- NA
-    next
-  }
-  wt <- tryCatch({
-    wilcox.test(rp, rs, paired=TRUE, exact=FALSE)
-  }, error = function(e) return(list(p.value=NA)))
-  
-  results$P_value[i] <- wt$p.value
-}
-
-results <- results %>%
-  mutate(
-    Adj_P = p.adjust(P_value, method = "fdr"),
-    Direction = case_when(
-      Adj_P < 0.05 & log2FC > 1 ~ "RS_up",
-      Adj_P < 0.05 & log2FC < -1 ~ "RP_up",
-      TRUE ~ "Non-significant"
-    )
-  )
-write_csv(results, "./data/Directional_CAZy_Results.csv")
+results <- read.csv("./data/cazyme_wilcox_results.csv")
 classified_data <- results %>%
   mutate(
     Group = case_when(
@@ -301,17 +345,17 @@ classified_data <- results %>%
   )
 
 count_data <- classified_data %>%
-  filter(Direction %in% c("RP_up", "RS_up")) %>%
+  filter(Direction %in% c("RP_enrich", "RS_enrich")) %>%
   count(Group, Direction) %>%
   complete(Group = c("AA", "CBM", "GH", "GT", "PL", "CE"), 
-           Direction = c("RP_up", "RS_up"),
+           Direction = c("RP_enrich", "RS_enrich"),
            fill = list(n = 0)) %>%
   mutate(
     Group = factor(Group, levels = c("AA", "CBM", "GH", "GT", "PL", "CE")),
-    Direction = factor(Direction, levels = c("RP_up", "RS_up"))
+    Direction = factor(Direction, levels = c("RP_enrich", "RS_enrich"))
   )
 group_order <- count_data %>%
-  filter(Direction == "RP_up") %>%
+  filter(Direction == "RP_enrich") %>%
   arrange(desc(n)) %>%
   pull(Group) %>%
   as.character() %>%
@@ -325,7 +369,7 @@ count_data <- count_data %>%
 p5 <- ggplot(count_data, aes(x = Group, y = n, fill = Direction)) +
   geom_col(position = position_dodge(0.8), width = 0.7, color = "black") +
   scale_fill_manual(
-    values = c("RP_up" = "#D55E00", "RS_up" = "#0072B2"),
+    values = c("RP_enrich" = "#D55E00", "RS_enrich" = "#0072B2"),
     labels = c("Rhizoplane", "Rhizosphere"),
     name = "Region"
   ) +

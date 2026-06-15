@@ -14,6 +14,258 @@ set.seed(113)
 knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
 ```
 
+#wilcox_KO
+```{r}
+ko_table <- read.delim("./data/Bacteria.kegg.anno.profile",row.names = 1,check.names = F)
+KO_list <- read.csv("./data/KO_list.csv",header = F)
+
+alpha <- 0.05
+res_list <- list()
+
+for (ko in KO_list$V1) {
+  rp <- as.numeric(ko_table[ko, 1:17])
+  rs <- as.numeric(ko_table[ko, 18:34])
+  
+  tmp_data <- data.frame(
+    Value = c(rp, rs),
+    Group = factor(rep(c("RP", "RS"), each = 17), levels = c("RP", "RS"))
+  )
+  
+  wt_greater <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "greater")
+  wt_less    <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "less")
+  
+  res_list[[ko]] <- data.frame(
+    KO          = ko,
+    W_greater   = wt_greater$statistic,
+    p_greater   = wt_greater$p,
+    W_less      = wt_less$statistic,
+    p_less      = wt_less$p,
+    median_RP   = median(rp, na.rm = TRUE),
+    median_RS   = median(rs, na.rm = TRUE),
+    stringsAsFactors = FALSE
+  )
+}
+
+results_df <- do.call(rbind, res_list)
+
+results_df$p_greater_adj <- p.adjust(results_df$p_greater, method = "fdr")
+results_df$p_less_adj    <- p.adjust(results_df$p_less,    method = "fdr")
+
+results_df$Direction <- with(results_df, {
+  dir <- rep("NS", nrow(results_df))
+  
+  idx_g <- p_greater_adj < alpha & p_less_adj >= alpha
+  dir[idx_g] <- "greater"
+  idx_l <- p_less_adj < alpha & p_greater_adj >= alpha
+  dir[idx_l] <- "less"
+  
+  idx_both <- p_greater_adj < alpha & p_less_adj < alpha
+  pick_greater <- idx_both & (p_greater_adj <= p_less_adj)
+  pick_less    <- idx_both & (p_less_adj  <  p_greater_adj)
+  dir[pick_greater] <- "greater"
+  dir[pick_less]    <- "less"
+  
+  dir
+})
+
+results_df$W_signif <- ifelse(results_df$Direction == "greater",
+                              results_df$W_greater,
+                              ifelse(results_df$Direction == "less",
+                                     results_df$W_less, NA))
+results_df$p_adj_signif <- ifelse(results_df$Direction == "greater",
+                                  results_df$p_greater_adj,
+                                  ifelse(results_df$Direction == "less",
+                                         results_df$p_less_adj, NA))
+
+final_df <- results_df[, c("KO", "Direction", "W_signif", "p_adj_signif",
+                           "median_RP", "median_RS")]
+final_df$Direction
+names(final_df)[3:4] <- c("W", "p_adj")
+final_df$Direction <- ifelse(final_df$Direction == "greater", "RP_enrich",
+                             ifelse(final_df$Direction == "less", "RS_enrich", "NS"))
+write.csv(final_df, "./data/N_cycle_KO_wilcox_results.csv", row.names = FALSE)
+```
+
+#wilcox_process
+```{r}
+KO_abun <- read.delim("./data/Bacteria.kegg.anno.profile",row.names = 1)
+nitro_info <- read.csv("./data/Nitro_KO.csv")
+
+KO_abun_df <- KO_abun %>% 
+  tibble::rownames_to_column("KO")
+
+combined_data <- inner_join(nitro_info, KO_abun_df, by = "KO")
+
+ko_table <- combined_data %>%
+  select(-c(2, 3)) %>%
+  group_by(Process) %>%
+  summarise(across(everything(), sum, na.rm = TRUE)) %>%
+  ungroup() %>%
+  column_to_rownames("Process")
+
+alpha <- 0.05
+res_list <- list()
+
+for (ko in rownames(ko_table)) {
+  rp <- as.numeric(ko_table[ko, 1:17])
+  rs <- as.numeric(ko_table[ko, 18:34])
+  
+  tmp_data <- data.frame(
+    Value = c(rp, rs),
+    Group = factor(rep(c("RP", "RS"), each = 17), levels = c("RP", "RS"))
+  )
+  
+  wt_greater <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "greater")
+  wt_less    <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "less")
+  
+  res_list[[ko]] <- data.frame(
+    KO          = ko,
+    W_greater   = wt_greater$statistic,
+    p_greater   = wt_greater$p,
+    W_less      = wt_less$statistic,
+    p_less      = wt_less$p,
+    median_RP   = median(rp, na.rm = TRUE),
+    median_RS   = median(rs, na.rm = TRUE),
+    stringsAsFactors = FALSE
+  )
+}
+
+results_df <- do.call(rbind, res_list)
+
+results_df$p_greater_adj <- p.adjust(results_df$p_greater, method = "fdr")
+results_df$p_less_adj    <- p.adjust(results_df$p_less,    method = "fdr")
+
+results_df$Direction <- with(results_df, {
+  dir <- rep("NS", nrow(results_df))
+  
+  idx_g <- p_greater_adj < alpha & p_less_adj >= alpha
+  dir[idx_g] <- "greater"
+  idx_l <- p_less_adj < alpha & p_greater_adj >= alpha
+  dir[idx_l] <- "less"
+  
+  idx_both <- p_greater_adj < alpha & p_less_adj < alpha
+  pick_greater <- idx_both & (p_greater_adj <= p_less_adj)
+  pick_less    <- idx_both & (p_less_adj  <  p_greater_adj)
+  dir[pick_greater] <- "greater"
+  dir[pick_less]    <- "less"
+  
+  dir
+})
+
+results_df$W_signif <- ifelse(results_df$Direction == "greater",
+                              results_df$W_greater,
+                              ifelse(results_df$Direction == "less",
+                                     results_df$W_less, NA))
+results_df$p_adj_signif <- ifelse(results_df$Direction == "greater",
+                                  results_df$p_greater_adj,
+                                  ifelse(results_df$Direction == "less",
+                                         results_df$p_less_adj, NA))
+
+final_df <- results_df[, c("KO", "Direction", "W_signif", "p_adj_signif",
+                           "median_RP", "median_RS")]
+final_df$Direction
+names(final_df)[3:4] <- c("W", "p_adj")
+final_df$Direction <- ifelse(final_df$Direction == "greater", "RP_enrich",
+                             ifelse(final_df$Direction == "less", "RS_enrich", "NS"))
+write.csv(final_df, "./data/N_cycle_process_wilcox_results.csv", row.names = FALSE)
+```
+
+#wilcox_stage
+```{r}
+KO_abun <- read.delim("./data/Bacteria.kegg.anno.profile",row.names = 1)
+nitro_info <- read.csv("./data/Nitro_KO.csv")
+
+KO_abun_df <- KO_abun %>% 
+  tibble::rownames_to_column("KO")
+
+combined_data <- inner_join(nitro_info, KO_abun_df, by = "KO")
+
+ko_table <- combined_data %>%
+  select(-c(1, 3)) %>%
+  group_by(stage) %>%
+  summarise(across(everything(), sum, na.rm = TRUE)) %>%
+  ungroup() %>%
+  column_to_rownames("stage")
+
+alpha <- 0.05
+res_list <- list()
+
+for (ko in rownames(ko_table)) {
+  rp <- as.numeric(ko_table[ko, 1:17])
+  rs <- as.numeric(ko_table[ko, 18:34])
+  
+  tmp_data <- data.frame(
+    Value = c(rp, rs),
+    Group = factor(rep(c("RP", "RS"), each = 17), levels = c("RP", "RS"))
+  )
+  
+  wt_greater <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "greater")
+  wt_less    <- wilcox_test(Value ~ Group, data = tmp_data,
+                            paired = TRUE, exact = FALSE,
+                            alternative = "less")
+  
+  res_list[[ko]] <- data.frame(
+    KO          = ko,
+    W_greater   = wt_greater$statistic,
+    p_greater   = wt_greater$p,
+    W_less      = wt_less$statistic,
+    p_less      = wt_less$p,
+    median_RP   = median(rp, na.rm = TRUE),
+    median_RS   = median(rs, na.rm = TRUE),
+    stringsAsFactors = FALSE
+  )
+}
+
+results_df <- do.call(rbind, res_list)
+
+results_df$p_greater_adj <- p.adjust(results_df$p_greater, method = "fdr")
+results_df$p_less_adj    <- p.adjust(results_df$p_less,    method = "fdr")
+
+results_df$Direction <- with(results_df, {
+  dir <- rep("NS", nrow(results_df))
+  
+  idx_g <- p_greater_adj < alpha & p_less_adj >= alpha
+  dir[idx_g] <- "greater"
+  idx_l <- p_less_adj < alpha & p_greater_adj >= alpha
+  dir[idx_l] <- "less"
+  
+  idx_both <- p_greater_adj < alpha & p_less_adj < alpha
+  pick_greater <- idx_both & (p_greater_adj <= p_less_adj)
+  pick_less    <- idx_both & (p_less_adj  <  p_greater_adj)
+  dir[pick_greater] <- "greater"
+  dir[pick_less]    <- "less"
+  
+  dir
+})
+
+results_df$W_signif <- ifelse(results_df$Direction == "greater",
+                              results_df$W_greater,
+                              ifelse(results_df$Direction == "less",
+                                     results_df$W_less, NA))
+results_df$p_adj_signif <- ifelse(results_df$Direction == "greater",
+                                  results_df$p_greater_adj,
+                                  ifelse(results_df$Direction == "less",
+                                         results_df$p_less_adj, NA))
+
+final_df <- results_df[, c("KO", "Direction", "W_signif", "p_adj_signif",
+                           "median_RP", "median_RS")]
+final_df$Direction
+names(final_df)[3:4] <- c("W", "p_adj")
+final_df$Direction <- ifelse(final_df$Direction == "greater", "RP_enrich",
+                             ifelse(final_df$Direction == "less", "RS_enrich", "NS"))
+write.csv(final_df, "./data/N_cycle_stage_wilcox_results.csv", row.names = FALSE)
+```
+
 #Figure5C
 ```{r}
 df <- read.csv("./data/Nitro_process.csv")

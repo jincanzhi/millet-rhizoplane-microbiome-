@@ -18,6 +18,7 @@ library(agricolae)
 library(vegan)
 library(cowplot)
 library(patchwork)
+library(ggsignif)
 set.seed(113)
 knitr::opts_knit$set(root.dir =dirname(rstudioapi::getSourceEditorContext()[["path"]]))
 ```
@@ -45,9 +46,11 @@ group_file <- group_file %>%
 groupInfo <- split(row.names(group_file), group_file$Phylum_new)
 tree <- groupOTU(tree, groupInfo)
 group <- group_file
-
+if (!exists("is.waive")) {
+  is.waive <- \(x) inherits(x, "waiver")
+}
 p1 <- ggtree(tree,layout = "fan",right = TRUE,open.angle = 15)+
-  geom_aline(aes(color=group),linetype = "solid",size=0.1,key_glyph = 'rect',show.legend = TRUE)+
+  geom_aline(aes(color=group),linetype = "solid",size=0.05,key_glyph = 'rect',show.legend = TRUE)+
   scale_color_manual(values=c("#FBB4AE","#E5D8BD","#B3CDE3","#FDCDAC","#F2F2F2","#E6F5C9","#FDDAEC","#FED9A6","#FFF2AE","#DECBE4","grey80"), breaks = levels(group_file$Phylum_new)) + 
   guides(
     colour = guide_legend(
@@ -131,44 +134,54 @@ p4 <- p3 + geom_fruit(
   pwidth = 0.25
 )
 
-width<-9
-height<-9
+width<-17.5
+height<-27.5
 ggsave("./Figure/Figure1A.pdf",plot = p4,width = width,height = height,units = "cm",dpi = 600,paper = "a4")
 ggsave("./Figure/Figure1A.png",plot = p4,width = width,height = height,units = "cm",dpi = 600)
 ```
 
 ##Figure1C
 ```{r}
-raw_df <- read.table("./data/MAG.diversity.index.txt",header=T,row.names = 1)
-metadata <- read.csv("./data/metadata.csv",row.names = 1)
-merge_df <- merge(raw_df, metadata, by.x = 'row.names', by.y = 'row.names')
-fin_df <- merge_df[c('region', 'shannon')]
-names(fin_df)[1] <- 'Group'
-max_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = max)
-mean_df <- aggregate(fin_df['shannon'], by = list(Group = fin_df$Group), FUN = mean)
-dunn_res <- dunn_test(fin_df, shannon ~ Group, p.adjust.method = 'fdr')
-dunn_res_df <- data.frame(dunn_res[-1])
-n <- nrow(mean_df)
-pvalue_df <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df[i,j] <- dunn_res_df$p.adj[k]
-    pvalue_df[j,i] <- dunn_res_df$p.adj[k]
-  }
+df <- read.csv("./data/MAG_abundance_sum.csv",row.names = 1)
+shannon<- diversity(df,index="shannon", MARGIN = 2)
+simpson<- diversity(df,index="simpson", MARGIN = 2)
+richness<-specnumber(df, MARGIN = 2)
+index <- as.data.frame(cbind(shannon, simpson, richness))
+write.table(cbind(sample=c(rownames(index)),index),"./data/MAG.diversity.index.txt", row.names = F, sep = '\t', quote = F)
+
+
+raw_df <- read.table("./data/MAG.diversity.index.txt", header = TRUE, row.names = 1)
+metadata <- read.csv("./data/metadata.csv", row.names = 1)
+merge_df <- merge(raw_df, metadata, by.x = "row.names", by.y = "row.names")
+fin_df <- merge_df[c("region", "shannon")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(shannon ~ Group, data = fin_df, exact = FALSE,paired = TRUE,alternative = "less")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df <- orderPvalue(mean_df$Group, mean_df$shannon, 0.05, pvalue_df, console = TRUE)
-letter_vector <- letter_df$groups
 
 p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df, aes(y = shannon * 1.01, label = letter_vector), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -177,9 +190,7 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
@@ -187,35 +198,39 @@ p1 <- ggplot(fin_df, aes(x = Group, y = shannon)) +
   labs(
     x = NULL,
     y = "Shannon"
-  )
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$shannon, na.rm = TRUE) * 1.02))
 
-fin_df1 <- merge_df[c('region', 'Chao1')]
-names(fin_df1)[1] <- 'Group'
-max_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = max)
-mean_df1 <- aggregate(fin_df1['Chao1'], by = list(Group = fin_df1$Group), FUN = mean)
-dunn_res1 <- dunn_test(fin_df1, Chao1 ~ Group, p.adjust.method = 'fdr')
-dunn_res_df1 <- data.frame(dunn_res1[-1])
-n <- nrow(mean_df1)
-pvalue_df1 <- matrix(1, ncol = n, nrow = n)
-k <- 0
-for(i in 1:(n - 1)) { 
-  for(j in (i + 1):n){ 
-    k <- k + 1
-    pvalue_df1[i,j] <- dunn_res_df1$p.adj[k]
-    pvalue_df1[j,i] <- dunn_res_df1$p.adj[k]
-  }
+fin_df <- merge_df[c("region", "simpson")]
+names(fin_df)[1] <- "Group"
+
+fin_df$Group <- factor(fin_df$Group, levels = c("RP", "RS"))
+
+wilcox_res <- wilcox_test(simpson ~ Group, data = fin_df, exact = FALSE,paired = TRUE,alternative = "less")
+p_value <- wilcox_res$p
+
+if (p_value < 0.001) {
+  sig_label <- "***"
+} else if (p_value < 0.01) {
+  sig_label <- "**"
+} else if (p_value < 0.05) {
+  sig_label <- "*"
+} else {
+  sig_label <- "ns"
 }
-letter_df1 <- orderPvalue(mean_df1$Group, mean_df1$Chao1, 0.05, pvalue_df1, console = TRUE)
-letter_vector1 <- letter_df1$groups
 
-p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) + 
-  geom_point(aes(color = Group), position = position_jitterdodge(dodge.width = 0.6), 
+
+p2 <- ggplot(fin_df, aes(x = Group, y = simpson)) + 
+  geom_point(aes(color = Group), position = position_jitter(width = 0.15), 
              alpha = 0.8, size = 4, stroke = 0) +
   geom_boxplot(width = 0.3, alpha = 0.2, na.rm = TRUE) +   
   geom_violin(width = 0.5, alpha = 0.2, na.rm = TRUE) +  
-  geom_text(data = max_df1, aes(y = Chao1 * 1.01, label = letter_vector1), position = position_dodge(0.9), size = 4) + 
+  geom_signif(comparisons = list(c("RP", "RS")),
+              annotations = sig_label,
+              tip_length = 0.02,
+              color = "black") +
   theme_classic(base_size = 10) +
-  scale_x_discrete(labels = c("Rhizoplane","Rhizosphere")) + 
+  scale_x_discrete(labels = c("Rhizoplane", "Rhizosphere")) + 
   scale_color_manual(values = c("#D55E00", "#0072B2")) + 
   scale_fill_manual(values = c("#D55E00", "#0072B2")) + 
   theme(
@@ -224,19 +239,16 @@ p2 <- ggplot(fin_df1, aes(x = Group, y = Chao1)) +
     axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
     axis.ticks = element_line(linewidth = 0.6, color = "black"),
     axis.line = element_line(linewidth = 0.6, color = "black"),
-    panel.border = element_rect(
-      fill = NA, color = "black", linewidth = 0.8
-    ),
+    panel.border = element_rect(fill = NA, color = "black", linewidth = 0.8),
     panel.grid = element_blank(),
     panel.background = element_blank(),
     legend.position = "none"
   ) + 
   labs(
     x = NULL,
-    y = "Chao1"
-  )
-
-
+    y = "Simpson"
+  )+ 
+  coord_cartesian(ylim = c(NA, max(fin_df$simpson, na.rm = TRUE) * 1.005))
 
 
 ##beta
